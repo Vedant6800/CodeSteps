@@ -88,3 +88,6 @@ Built with ❤️ by **Vedant Nogja**.
 ## 📝 License
 
 This project is open-source and available for educational purposes. Feel free to fork, modify, and learn!
+![GitHub stars](https://img.shields.io/github/stars/username/repo)
+![GitHub forks](https://img.shields.io/github/forks/username/repo)
+![GitHub license](https://img.shields.io/github/license/username/repo)
