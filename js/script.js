@@ -42,7 +42,10 @@ function initSearch() {
       const title = card.querySelector('.day-title')?.textContent.toLowerCase() || '';
       const desc = card.querySelector('.day-desc')?.textContent.toLowerCase() || '';
       const num = card.querySelector('.day-number')?.textContent.toLowerCase() || '';
-      const matches = title.includes(query) || desc.includes(query) || num.includes(query);
+      const dayId = card.getAttribute('data-day');
+      const pageText = (typeof SEARCH_INDEX !== 'undefined' && SEARCH_INDEX[dayId]) ? SEARCH_INDEX[dayId] : '';
+
+      const matches = title.includes(query) || desc.includes(query) || num.includes(query) || pageText.includes(query);
       card.classList.toggle('hidden', !matches);
       if (matches) visibleCount++;
     });
