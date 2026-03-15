@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 12 — External CSS | CodeSteps</title>
+    <meta name="description"
+        content="Learn how to write CSS in a separate file, link it to HTML pages, and understand the benefits of external CSS for maintainability and reuse." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div><span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a><span class="breadcrumb-sep">›</span><span>Day 12 — External CSS</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 12 · Intermediate</div>
+                <h1 class="day-hero-title">External CSS</h1>
+                <p class="day-hero-subtitle">Write styles in a separate file and apply them to multiple pages — the
+                    professional way to build websites.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">🔗</div>
+        </header>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>What is External CSS?</li>
+                    <li>Creating a <code>.css</code> file</li>
+                    <li>Linking CSS to HTML using <code>&lt;link&gt;</code></li>
+                    <li>CSS reusability across multiple pages</li>
+                    <li>Benefits — maintainability, consistency, code reuse</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📄</div>
+                <h2>What is External CSS?</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>External CSS</strong> means writing all your styles in a separate file with the
+                    <code>.css</code> extension, then linking that file to one or more HTML pages. This is the
+                    industry-standard approach for any real project.</p>
+
+                <h3>Why Use External CSS?</h3>
+                <ul class="topics-list">
+                    <li>✅ <strong>Maintainability</strong> — change the style once; it updates every linked page
+                        automatically</li>
+                    <li>✅ <strong>Consistency</strong> — all pages share the exact same styles, ensuring a unified look
+                    </li>
+                    <li>✅ <strong>Code Reuse</strong> — one stylesheet can serve hundreds of HTML pages</li>
+                    <li>✅ <strong>Separation of Concerns</strong> — HTML handles structure, CSS handles design</li>
+                    <li>✅ <strong>Performance</strong> — browsers cache the CSS file, reducing load times on repeat
+                        visits</li>
+                </ul>
+
+                <div class="info-box note">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>Best Practice:</strong> For any project with more than one HTML
+                        file, always use External CSS. Inline and Internal CSS should only be used for quick tests or
+                        page-specific overrides.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🗂️</div>
+                <h2>File Structure</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>A typical project using External CSS organises files like this:</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">Project Folder Structure</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tx">my-project/
+├── index.html
+├── about.html
+├── contact.html
+└── style.css      ← one CSS file styles all pages</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔗</div>
+                <h2>Linking CSS to HTML</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Add a <code>&lt;link&gt;</code> tag inside the <code>&lt;head&gt;</code> section of every HTML file
+                    that should use the stylesheet.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Linking External CSS</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;!DOCTYPE</span> <span class="at">html</span><span class="tg">&gt;</span>
+<span class="tg">&lt;html</span> <span class="at">lang=</span><span class="vl">"en"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;head&gt;</span>
+  <span class="tg">&lt;meta</span> <span class="at">charset=</span><span class="vl">"UTF-8"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;title&gt;</span><span class="tx">My Website</span><span class="tg">&lt;/title&gt;</span>
+
+  <span class="cm">&lt;!-- Link the external CSS file --&gt;</span>
+  <span class="tg">&lt;link</span> <span class="at">rel=</span><span class="vl">"stylesheet"</span> <span class="at">href=</span><span class="vl">"style.css"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;/head&gt;</span>
+<span class="tg">&lt;body&gt;</span>
+  <span class="tg">&lt;h1&gt;</span><span class="tx">Hello World</span><span class="tg">&lt;/h1&gt;</span>
+<span class="tg">&lt;/body&gt;</span>
+<span class="tg">&lt;/html&gt;</span></code></pre>
+                </div>
+
+                <h3 style="margin-top:16px;">The &lt;link&gt; Tag Attributes</h3>
+                <ul class="topics-list">
+                    <li><code>rel="stylesheet"</code> — tells the browser this is a stylesheet relationship</li>
+                    <li><code>href="style.css"</code> — path to the CSS file (relative or absolute)</li>
+                </ul>
+
+                <div class="code-block-wrap" style="margin-top:16px;">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">style.css — Example External stylesheet</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">/* style.css — shared across all pages */</span>
+
+<span class="kw">* </span>{ <span class="at">box-sizing</span>: <span class="vl">border-box</span>; <span class="at">margin</span>: <span class="vl">0</span>; <span class="at">padding</span>: <span class="vl">0</span>; }
+
+<span class="kw">body</span> {
+  <span class="at">font-family</span>: <span class="vl">Arial, sans-serif</span>;
+  <span class="at">background-color</span>: <span class="vl">#f8fafc</span>;
+  <span class="at">color</span>: <span class="vl">#1e293b</span>;
+  <span class="at">line-height</span>: <span class="vl">1.6</span>;
+}
+
+<span class="kw">h1, h2, h3</span> {
+  <span class="at">font-weight</span>: <span class="vl">700</span>;
+  <span class="at">color</span>: <span class="vl">#2563eb</span>;
+}
+
+<span class="kw">a</span> {
+  <span class="at">color</span>: <span class="vl">#2563eb</span>;
+  <span class="at">text-decoration</span>: <span class="vl">none</span>;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Practical 7 — Time Table Using External CSS</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Create a Class or College Time Table as an HTML page and style it using a separate <strong>External
+                        CSS</strong> file.</p>
+                <ul class="topics-list">
+                    <li>Create <code>timetable.html</code> with the table structure</li>
+                    <li>Create <code>timetable.css</code> with all the styling rules</li>
+                    <li>Link the CSS file using <code>&lt;link&gt;</code> in the HTML head</li>
+                    <li>Style the header row with a bold background color</li>
+                    <li>Add alternating row colors using <code>tr:nth-child(even)</code></li>
+                    <li>Style free/lunch periods with a highlighted color</li>
+                </ul>
+                <div class="code-block-wrap" style="margin-top:12px;">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">timetable.html — starter structure</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;!DOCTYPE</span> <span class="at">html</span><span class="tg">&gt;</span>
+<span class="tg">&lt;html&gt;</span>
+<span class="tg">&lt;head&gt;</span>
+  <span class="tg">&lt;title&gt;</span><span class="tx">Class Time Table</span><span class="tg">&lt;/title&gt;</span>
+  <span class="tg">&lt;link</span> <span class="at">rel=</span><span class="vl">"stylesheet"</span> <span class="at">href=</span><span class="vl">"timetable.css"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;/head&gt;</span>
+<span class="tg">&lt;body&gt;</span>
+  <span class="tg">&lt;h1&gt;</span><span class="tx">📅 Class Time Table — Semester 1</span><span class="tg">&lt;/h1&gt;</span>
+  <span class="tg">&lt;table&gt;</span>
+    <span class="tg">&lt;thead&gt;</span>
+      <span class="tg">&lt;tr&gt;&lt;th&gt;</span><span class="tx">Time</span><span class="tg">&lt;/th&gt;&lt;th&gt;</span><span class="tx">Mon</span><span class="tg">&lt;/th&gt;&lt;th&gt;</span><span class="tx">Tue</span><span class="tg">&lt;/th&gt;&lt;th&gt;</span><span class="tx">Wed</span><span class="tg">&lt;/th&gt;&lt;th&gt;</span><span class="tx">Thu</span><span class="tg">&lt;/th&gt;&lt;th&gt;</span><span class="tx">Fri</span><span class="tg">&lt;/th&gt;&lt;/tr&gt;</span>
+    <span class="tg">&lt;/thead&gt;</span>
+    <span class="tg">&lt;tbody&gt;</span>
+      <span class="tg">&lt;tr&gt;&lt;td&gt;</span><span class="tx">9:00</span><span class="tg">&lt;/td&gt;&lt;td&gt;</span><span class="tx">HTML</span><span class="tg">&lt;/td&gt;&lt;td&gt;</span><span class="tx">CSS</span><span class="tg">&lt;/td&gt;&lt;td&gt;</span><span class="tx">JavaScript</span><span class="tg">&lt;/td&gt;&lt;td&gt;</span><span class="tx">HTML</span><span class="tg">&lt;/td&gt;&lt;td&gt;</span><span class="tx">CSS</span><span class="tg">&lt;/td&gt;&lt;/tr&gt;</span>
+      <span class="tg">&lt;tr&gt;&lt;td</span> <span class="at">colspan=</span><span class="vl">"6"</span> <span class="at">class=</span><span class="vl">"lunch"</span><span class="tg">&gt;</span><span class="tx">🍱 Lunch Break (12:00 - 1:00)</span><span class="tg">&lt;/td&gt;&lt;/tr&gt;</span>
+    <span class="tg">&lt;/tbody&gt;</span>
+  <span class="tg">&lt;/table&gt;</span>
+<span class="tg">&lt;/body&gt;</span>
+<span class="tg">&lt;/html&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a <code>style.css</code> file and link it to 3 different
+                        HTML pages — confirm the same style applies to all.</li>
+                    <li><span class="task-num">2</span> Build the Time Table page with an external CSS file for all
+                        styling.</li>
+                    <li><span class="task-num">3</span> Refactor your Day 10 Supermarket page to use an external CSS
+                        file instead of Internal CSS.</li>
+                    <li><span class="task-num">4</span> Create a simple two-page mini-website (Home + About) sharing one
+                        external stylesheet.</li>
+                    <li><span class="task-num">5</span> Research: What is the difference between <code>href</code> and
+                        <code>src</code> attributes?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day11.html" class="btn btn-secondary">← Day 11: CSS Styling</a>
+            <a href="day13.html" class="btn btn-primary">Day 13: Responsive Design →</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

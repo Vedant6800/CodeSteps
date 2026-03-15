@@ -1,0 +1,524 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 1 — Introduction to WWW | CodeSteps</title>
+    <meta name="description"
+        content="Learn how the World Wide Web works — history, browsers, servers, HTTP, DNS, URLs, and web fundamentals." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 1 — Introduction to WWW</span>
+        </nav>
+
+        <!-- Day Hero -->
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 01 · Beginner</div>
+                <h1 class="day-hero-title">Introduction to WWW</h1>
+                <p class="day-hero-subtitle">How does the web work? Browsers, servers, HTTP, DNS, URLs and the history
+                    of the internet.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">🌐</div>
+        </header>
+
+        <!-- Topics Covered -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>What is the World Wide Web (WWW)?</li>
+                    <li>Internet vs the Web — key difference</li>
+                    <li>Brief history of the Internet and the Web</li>
+                    <li>What is a Web Browser?</li>
+                    <li>What is a Web Server?</li>
+                    <li>How browsers and servers communicate (Client-Server model)</li>
+                    <li>What is HTTP / HTTPS?</li>
+                    <li>HTTP Request and Response cycle</li>
+                    <li>Common HTTP Status Codes</li>
+                    <li>What is DNS?</li>
+                    <li>Understanding URLs and Domain Names</li>
+                    <li>Types of Websites — Static vs Dynamic</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- What is WWW -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🌍</div>
+                <h2>What is the World Wide Web?</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>The <strong>World Wide Web (WWW)</strong>, commonly called "the web," is a system of interlinked
+                    hypertext documents and multimedia content that is accessed via the Internet using web browsers. It
+                    was invented by <strong>Sir Tim Berners-Lee</strong> in 1989 while he was working at CERN (the
+                    European physics lab in Switzerland).</p>
+
+                <p>The web is built on three core technologies that Tim Berners-Lee defined:</p>
+                <ul class="topics-list">
+                    <li><strong>HTML</strong> — HyperText Markup Language, for creating web pages</li>
+                    <li><strong>HTTP</strong> — HyperText Transfer Protocol, for transferring pages across the internet
+                    </li>
+                    <li><strong>URL</strong> — Uniform Resource Locator, for addressing pages (web addresses)</li>
+                </ul>
+
+                <div class="info-box note">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>Internet ≠ World Wide Web!</strong> The <strong>Internet</strong>
+                        is the global physical network of computers connected together (the infrastructure — like
+                        roads). The <strong>Web</strong> is just one service that runs <em>on top</em> of the internet
+                        (like cars on those roads). Email, FTP, and streaming services are also separate services that
+                        use the internet.</div>
+                </div>
+
+                <h3>Key Historical Milestones</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:var(--primary);color:#fff;">
+                                <th style="padding:10px 14px;text-align:left;">Year</th>
+                                <th style="padding:10px 14px;text-align:left;">Event</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><strong>1969</strong></td>
+                                <td style="padding:9px 14px;">ARPANET (precursor to the Internet) launched by the US
+                                    Department of Defense</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><strong>1983</strong></td>
+                                <td style="padding:9px 14px;">TCP/IP protocol adopted — this is the foundation the
+                                    modern internet still uses</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><strong>1989</strong></td>
+                                <td style="padding:9px 14px;">Tim Berners-Lee proposes the World Wide Web at CERN</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><strong>1991</strong></td>
+                                <td style="padding:9px 14px;">The first ever website goes live at
+                                    <code>info.cern.ch</code>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><strong>1993</strong></td>
+                                <td style="padding:9px 14px;">The Mosaic browser makes the web graphical and accessible
+                                    to everyone</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><strong>1994</strong></td>
+                                <td style="padding:9px 14px;">W3C (World Wide Web Consortium) founded to standardize web
+                                    technologies</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><strong>1995</strong></td>
+                                <td style="padding:9px 14px;">JavaScript invented by Brendan Eich; web boom begins</td>
+                            </tr>
+                            <tr style="background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><strong>2004</strong></td>
+                                <td style="padding:9px 14px;">Web 2.0 era begins — interactive websites, social media,
+                                    user-generated content</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Browsers and Servers -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🖥️</div>
+                <h2>Web Browsers and Web Servers</h2>
+            </div>
+            <div class="notes-card-body">
+                <h3>What is a Web Browser?</h3>
+                <p>A <strong>web browser</strong> is a software application installed on your computer or phone that
+                    lets you access and view web pages. The browser requests pages from servers, receives the
+                    HTML/CSS/JS files, and renders (draws) the final visual page you see on screen.</p>
+                <ul class="topics-list">
+                    <li>🌐 <strong>Google Chrome</strong> — most popular (uses Blink engine)</li>
+                    <li>🦊 <strong>Mozilla Firefox</strong> — open-source, privacy-focused (uses Gecko engine)</li>
+                    <li>🧭 <strong>Safari</strong> — default on Apple devices (uses WebKit engine)</li>
+                    <li>🌊 <strong>Microsoft Edge</strong> — modern Windows browser</li>
+                    <li>🎭 <strong>Opera</strong> — built-in VPN and ad-blocker</li>
+                </ul>
+
+                <h3>What is a Web Server?</h3>
+                <p>A <strong>web server</strong> is a computer that stores website files and "serves" them to browsers
+                    when requested. It runs server software (like <strong>Apache</strong> or <strong>Nginx</strong>)
+                    that listens for incoming browser requests and responds with the appropriate files.</p>
+                <ul class="topics-list">
+                    <li>Stores HTML, CSS, JavaScript, images, databases</li>
+                    <li>Runs 24/7 to respond to requests from anywhere in the world</li>
+                    <li>Has a unique IP address so browsers can find it</li>
+                </ul>
+
+                <div class="info-box tip">
+                    <span class="info-box-icon">✅</span>
+                    <div class="info-box-text"><strong>Client vs Server:</strong> Your computer/phone is the
+                        <strong>client</strong> — it requests pages. The remote computer storing the website is the
+                        <strong>server</strong> — it responds with data. This is called the <em>Client-Server Model</em>
+                        and it is the foundation of how the web works.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HTTP -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔄</div>
+                <h2>HTTP &amp; HTTPS — How Browsers and Servers Communicate</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>HTTP (HyperText Transfer Protocol)</strong> is the set of rules that defines how web browsers
+                    and web servers communicate. Think of it as the "language" they both agree to use when exchanging
+                    data.</p>
+
+                <h3>The HTTP Request-Response Cycle</h3>
+                <p>Every time you load a webpage, this sequence happens:</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTTP — Request / Response Cycle</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">Step 1: You type https://www.example.com in the browser</span>
+
+<span class="cm">Step 2: DNS Lookup</span>
+  <span class="tx">Browser asks DNS: "What is the IP address for www.example.com?"</span>
+  <span class="tx">DNS replies:      "It is 93.184.216.34"</span>
+
+<span class="cm">Step 3: Browser sends an HTTP GET Request to the server</span>
+  <span class="kw">GET</span> / <span class="at">HTTP/1.1</span>
+  <span class="at">Host:</span> <span class="vl">www.example.com</span>
+  <span class="at">Accept:</span> <span class="vl">text/html</span>
+
+<span class="cm">Step 4: Server processes the request and sends back an HTTP Response</span>
+  <span class="kw">HTTP/1.1</span> <span class="vl">200 OK</span>
+  <span class="at">Content-Type:</span> <span class="vl">text/html</span>
+  <span class="tx">&lt;!-- + the full HTML page --&gt;</span>
+
+<span class="cm">Step 5: Browser receives HTML, CSS, JS and renders the page</span></code></pre>
+                </div>
+
+                <h3>Common HTTP Methods</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:var(--primary);color:#fff;">
+                                <th style="padding:10px 14px;text-align:left;">Method</th>
+                                <th style="padding:10px 14px;text-align:left;">Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>GET</code></td>
+                                <td style="padding:9px 14px;">Request a page or resource from the server (most common)
+                                </td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>POST</code></td>
+                                <td style="padding:9px 14px;">Submit data to the server (forms, logins)</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>PUT</code></td>
+                                <td style="padding:9px 14px;">Update an existing resource on the server</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:9px 14px;"><code>DELETE</code></td>
+                                <td style="padding:9px 14px;">Delete a resource on the server</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Common HTTP Status Codes</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:var(--primary);color:#fff;">
+                                <th style="padding:10px 14px;text-align:left;">Code</th>
+                                <th style="padding:10px 14px;text-align:left;">Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>200 OK</code></td>
+                                <td style="padding:9px 14px;">Request succeeded — page found and returned</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>301 Moved Permanently</code></td>
+                                <td style="padding:9px 14px;">Resource has been moved to a new URL permanently</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>400 Bad Request</code></td>
+                                <td style="padding:9px 14px;">The request was malformed or invalid</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>401 Unauthorized</code></td>
+                                <td style="padding:9px 14px;">Authentication is required to access this resource</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>403 Forbidden</code></td>
+                                <td style="padding:9px 14px;">You don't have permission to access this resource</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>404 Not Found</code></td>
+                                <td style="padding:9px 14px;">The requested page or file does not exist</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:9px 14px;"><code>500 Internal Server Error</code></td>
+                                <td style="padding:9px 14px;">Something went wrong on the server's side</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>HTTP vs HTTPS</h3>
+                <p><strong>HTTPS</strong> is the secure version of HTTP. It wraps all communication in <strong>SSL/TLS
+                        encryption</strong>, meaning that even if someone intercepts the traffic between you and the
+                    server, they see only scrambled, unreadable data.</p>
+                <div class="info-box tip">
+                    <span class="info-box-icon">🔒</span>
+                    <div class="info-box-text"><strong>Always look for the padlock 🔒</strong> in your browser's address
+                        bar. It confirms the site is using HTTPS and your connection to it is encrypted. Never enter
+                        passwords or card details on HTTP-only sites.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DNS -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📒</div>
+                <h2>DNS — Domain Name System</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Computers on the internet communicate using <strong>IP addresses</strong> (e.g.
+                    <code>142.250.195.14</code>), but humans prefer readable names like <code>google.com</code>. The
+                    <strong>DNS (Domain Name System)</strong> acts like the internet's phone book — it translates
+                    human-friendly domain names into IP addresses that computers can route to.
+                </p>
+
+                <h3>How DNS Works:</h3>
+                <ul class="topics-list">
+                    <li>You type <code>www.google.com</code> in your browser</li>
+                    <li>Your browser checks its <strong>local cache</strong> — has it visited this site before?</li>
+                    <li>If not, it asks your <strong>ISP's DNS resolver</strong> for the IP address</li>
+                    <li>The DNS resolver queries the hierarchy of DNS servers until it finds the answer</li>
+                    <li>The IP address (<code>142.250.195.14</code>) is returned to your browser</li>
+                    <li>Your browser connects directly to that IP and requests the page</li>
+                </ul>
+
+                <div class="info-box note">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>DNS is like a phone book:</strong> You look up "Google" (the
+                        name) and it gives you their phone number (the IP address). Without DNS, you'd need to memorise
+                        the IP addresses of every website you want to visit!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- URLs -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔗</div>
+                <h2>Understanding URLs and Domain Names</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>A <strong>URL (Uniform Resource Locator)</strong> is the full web address used to locate a specific
+                    resource on the internet. Every URL has distinct parts, each with a specific role.</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">URL Anatomy</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">Protocol    Domain Name           Path         Query String</span>
+<span class="vl">https</span>://<span class="tg">www.example.com</span>/<span class="at">blog/post</span>?<span class="kw">id=42</span>&amp;<span class="kw">lang=en</span>
+
+<span class="cm">┌──────────┐  ┌──────────────────┐  ┌──────────┐  ┌───────────────────┐</span>
+<span class="cm">│ https:// │  │  www.example.com │  │ /blog/   │  │ ?id=42&amp;lang=en   │</span>
+<span class="cm">│ Protocol │  │  Domain Name     │  │ post Path│  │ Query Parameters  │</span>
+<span class="cm">└──────────┘  └──────────────────┘  └──────────┘  └───────────────────┘</span></code></pre>
+                </div>
+
+                <h3>Breaking Down the Domain Name</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:var(--primary);color:#fff;">
+                                <th style="padding:10px 14px;text-align:left;">Part</th>
+                                <th style="padding:10px 14px;text-align:left;">Example</th>
+                                <th style="padding:10px 14px;text-align:left;">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;">Subdomain</td>
+                                <td style="padding:9px 14px;"><code>www</code></td>
+                                <td style="padding:9px 14px;">Optional prefix; "www" is the most common</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;">Second-Level Domain</td>
+                                <td style="padding:9px 14px;"><code>example</code></td>
+                                <td style="padding:9px 14px;">The unique name registered by the owner</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;">Top-Level Domain (TLD)</td>
+                                <td style="padding:9px 14px;"><code>.com</code></td>
+                                <td style="padding:9px 14px;">Category: .com (commercial), .org (non-profit), .edu
+                                    (education), .in (India)</td>
+                            </tr>
+                            <tr style="background:var(--surface-alt);">
+                                <td style="padding:9px 14px;">Path</td>
+                                <td style="padding:9px 14px;"><code>/blog/post</code></td>
+                                <td style="padding:9px 14px;">Points to a specific page or file on the server</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Static vs Dynamic -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">⚡</div>
+                <h2>Static vs Dynamic Websites</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Not all websites work the same way. They fall into two broad categories based on how their content is
+                    generated and served.</p>
+
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:var(--primary);color:#fff;">
+                                <th style="padding:10px 14px;text-align:left;"></th>
+                                <th style="padding:10px 14px;text-align:left;">Static Website</th>
+                                <th style="padding:10px 14px;text-align:left;">Dynamic Website</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><strong>Content</strong></td>
+                                <td style="padding:9px 14px;">Fixed — same for every visitor</td>
+                                <td style="padding:9px 14px;">Changes based on user, time, data</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><strong>Technologies</strong></td>
+                                <td style="padding:9px 14px;">HTML, CSS, JavaScript only</td>
+                                <td style="padding:9px 14px;">HTML + Server language (PHP, Node.js) + Database</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><strong>Speed</strong></td>
+                                <td style="padding:9px 14px;">Faster (no processing needed)</td>
+                                <td style="padding:9px 14px;">Slower (server must generate content)</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><strong>Examples</strong></td>
+                                <td style="padding:9px 14px;">Portfolio, landing pages, documentation</td>
+                                <td style="padding:9px 14px;">Gmail, Facebook, Amazon, YouTube</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:9px 14px;"><strong>In this course</strong></td>
+                                <td style="padding:9px 14px;">✅ Days 1–14 (HTML, CSS, Bootstrap)</td>
+                                <td style="padding:9px 14px;">✅ Days 15+ (JavaScript, AJAX, PHP)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Tasks -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Open your browser's developer tools (F12), go to the
+                        <strong>Network tab</strong>, and reload a webpage. Observe the list of HTTP requests and find
+                        one with a <code>200</code> status code and one with a <code>301</code> or <code>404</code>.
+                    </li>
+                    <li><span class="task-num">2</span> Find 3 websites that use <strong>HTTPS</strong> (padlock icon)
+                        and look up one that uses only HTTP. What's different in the address bar?</li>
+                    <li><span class="task-num">3</span> Break down the full URL
+                        <code>https://www.google.com/search?q=codesteps</code> into its parts: protocol, domain, path,
+                        and query string.
+                    </li>
+                    <li><span class="task-num">4</span> Open Command Prompt (Windows) and type
+                        <code>nslookup google.com</code>. This shows you DNS resolving a domain name to an IP address in
+                        real time.
+                    </li>
+                    <li><span class="task-num">5</span> Research and write a short answer: What is the difference
+                        between a <strong>web browser</strong> and a <strong>search engine</strong>? (Hint: Google is a
+                        search engine that runs inside a browser.)</li>
+                    <li><span class="task-num">6</span> Visit <code>http://info.cern.ch</code> — the world's first
+                        website, still live today. Describe what you see.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="day-nav">
+            <a href="../index.html" class="btn btn-secondary">← Back to Home</a>
+            <a href="day2.html" class="btn btn-primary">Day 2: HTML Basics →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step
+            at a Time</p>
+    </footer>
+
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

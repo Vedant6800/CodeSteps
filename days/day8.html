@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 8 — Frames and Layout Design | CodeSteps</title>
+    <meta name="description"
+        content="Learn the concept of HTML frames, frameset layouts, and how to divide browser windows into header, navigation, content, and status sections." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+    <style>
+        /* Frame diagram visualiser */
+        .frame-diagram {
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            font-size: 0.82rem;
+            font-family: var(--font-main);
+            font-weight: 600;
+        }
+
+        .fd-header {
+            background: var(--primary);
+            color: #fff;
+            padding: 14px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .fd-middle {
+            display: flex;
+        }
+
+        .fd-nav {
+            background: rgba(37, 99, 235, 0.10);
+            color: var(--text);
+            border-right: 2px solid var(--border);
+            padding: 20px 14px;
+            min-width: 110px;
+            text-align: center;
+        }
+
+        .fd-content {
+            flex: 1;
+            background: var(--surface);
+            color: var(--text-muted);
+            padding: 20px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fd-status {
+            background: var(--surface-alt);
+            color: var(--text-muted);
+            border-top: 2px solid var(--border);
+            padding: 10px 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 8 — Frames and Layout Design</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 08 · Intermediate</div>
+                <h1 class="day-hero-title">Frames and Layout Design</h1>
+                <p class="day-hero-subtitle">Understand how HTML frames divided browser windows historically, and how
+                    modern layout design evolved from that concept.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">🪟</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>What are HTML Frames and the &lt;frameset&gt; tag</li>
+                    <li>The &lt;frame&gt; tag and its attributes</li>
+                    <li>Classic frame-based layout structure</li>
+                    <li>Header, Navigation, Content, and Status frames</li>
+                    <li>Inline frames (&lt;iframe&gt;) as the modern alternative</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- What are Frames -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔲</div>
+                <h2>What are HTML Frames?</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>In the early days of the web, <strong>HTML Frames</strong> were used to divide a browser window into
+                    multiple independent sections. Each section (frame) could load a separate HTML file. This allowed
+                    navigation menus to stay fixed while only the content area changed.</p>
+                <p>Frames were introduced in HTML 4.0 using the <code>&lt;frameset&gt;</code> tag. However,
+                    <strong>frames are deprecated in HTML5</strong> — modern web development uses CSS Grid, Flexbox, and
+                    iframes for similar results.
+                </p>
+
+                <div class="info-box warning">
+                    <span class="info-box-icon">⚠️</span>
+                    <div class="info-box-text"><strong>Deprecated:</strong> The <code>&lt;frameset&gt;</code> and
+                        <code>&lt;frame&gt;</code> tags were removed in HTML5. They are covered here for historical
+                        understanding. Use <strong>CSS layout</strong> and <strong>&lt;iframe&gt;</strong> for modern
+                        projects.
+                    </div>
+                </div>
+
+                <h3>Key Frame Tags</h3>
+                <ul class="topics-list">
+                    <li><code>&lt;frameset&gt;</code> — Replaces <code>&lt;body&gt;</code>; defines the frame grid using
+                        rows and columns</li>
+                    <li><code>&lt;frame&gt;</code> — Defines an individual frame and links it to an HTML file via
+                        <code>src</code>
+                    </li>
+                    <li><code>&lt;noframes&gt;</code> — Fallback content for browsers that don't support frames</li>
+                    <li><code>&lt;iframe&gt;</code> — Inline frame embedded inside normal page body (still valid in
+                        HTML5)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Classic Layout -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🪟</div>
+                <h2>Classic Frame-Based Layout</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>A typical frame-based layout divided the browser window into four zones:</p>
+                <ul class="topics-list">
+                    <li><strong>Header Frame</strong> — Top area with site logo and title (remained fixed)</li>
+                    <li><strong>Left/Navigation Frame</strong> — Sidebar with links; clicking a link changed only the
+                        content frame</li>
+                    <li><strong>Right/Content Frame</strong> — Main area where actual page content loaded</li>
+                    <li><strong>Status Frame</strong> — Bottom bar showing status, copyright, or notifications</li>
+                </ul>
+
+                <!-- Visual Diagram -->
+                <div class="frame-diagram" style="margin:20px 0 8px;">
+                    <div class="fd-header">🏠 HEADER FRAME — Site Title & Logo</div>
+                    <div class="fd-middle">
+                        <div class="fd-nav">🔗 LEFT<br>FRAME<br><br>Home<br>About<br>Contact</div>
+                        <div class="fd-content">📄 RIGHT / CONTENT FRAME<br>Main page content loads here</div>
+                    </div>
+                    <div class="fd-status">📊 STATUS FRAME — Footer / Copyright</div>
+                </div>
+                <p style="font-size:0.78rem;color:var(--text-muted);text-align:center;margin-top:4px;">Visual
+                    representation of a classic frame-based browser layout</p>
+            </div>
+        </div>
+
+        <!-- Code Example -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Frameset Code Example</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>A frameset layout requires a main index file (which uses <code>&lt;frameset&gt;</code> instead of
+                    <code>&lt;body&gt;</code>) and separate HTML files for each frame.
+                </p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — index.html (Main Frameset)</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;!DOCTYPE</span> <span class="at">html</span> <span class="at">PUBLIC</span> <span class="vl">"-//W3C//DTD HTML 4.01 Frameset//EN"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;html&gt;</span>
+<span class="tg">&lt;head&gt;</span>
+  <span class="tg">&lt;title&gt;</span><span class="tx">My Framed Website</span><span class="tg">&lt;/title&gt;</span>
+<span class="tg">&lt;/head&gt;</span>
+
+<span class="cm">&lt;!-- rows: 15% header, flexible middle, 10% status --&gt;</span>
+<span class="tg">&lt;frameset</span> <span class="at">rows=</span><span class="vl">"15%,*,10%"</span><span class="tg">&gt;</span>
+
+  <span class="cm">&lt;!-- Header Frame --&gt;</span>
+  <span class="tg">&lt;frame</span> <span class="at">src=</span><span class="vl">"header.html"</span> <span class="at">name=</span><span class="vl">"header"</span>
+         <span class="at">scrolling=</span><span class="vl">"no"</span> <span class="at">noresize</span><span class="tg">&gt;</span>
+
+  <span class="cm">&lt;!-- Middle row: nav + content side by side --&gt;</span>
+  <span class="tg">&lt;frameset</span> <span class="at">cols=</span><span class="vl">"20%,*"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;frame</span> <span class="at">src=</span><span class="vl">"nav.html"</span>    <span class="at">name=</span><span class="vl">"nav"</span>     <span class="at">scrolling=</span><span class="vl">"no"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;frame</span> <span class="at">src=</span><span class="vl">"content.html"</span> <span class="at">name=</span><span class="vl">"content"</span> <span class="at">scrolling=</span><span class="vl">"auto"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;/frameset&gt;</span>
+
+  <span class="cm">&lt;!-- Status Frame --&gt;</span>
+  <span class="tg">&lt;frame</span> <span class="at">src=</span><span class="vl">"status.html"</span> <span class="at">name=</span><span class="vl">"status"</span>
+         <span class="at">scrolling=</span><span class="vl">"no"</span> <span class="at">noresize</span><span class="tg">&gt;</span>
+
+  <span class="cm">&lt;!-- Fallback for browsers without frame support --&gt;</span>
+  <span class="tg">&lt;noframes&gt;</span>
+    <span class="tg">&lt;p&gt;</span><span class="tx">Your browser does not support frames.</span><span class="tg">&lt;/p&gt;</span>
+  <span class="tg">&lt;/noframes&gt;</span>
+
+<span class="tg">&lt;/frameset&gt;</span>
+<span class="tg">&lt;/html&gt;</span></code></pre>
+                </div>
+
+                <div class="code-block-wrap" style="margin-top:20px;">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — nav.html (Navigation frame with target)</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;body&gt;</span>
+  <span class="tg">&lt;h3&gt;</span><span class="tx">Navigation</span><span class="tg">&lt;/h3&gt;</span>
+
+  <span class="cm">&lt;!-- target="content" loads the page in the content frame --&gt;</span>
+  <span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"home.html"</span>    <span class="at">target=</span><span class="vl">"content"</span><span class="tg">&gt;</span><span class="tx">Home</span><span class="tg">&lt;/a&gt;</span>
+  <span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"about.html"</span>   <span class="at">target=</span><span class="vl">"content"</span><span class="tg">&gt;</span><span class="tx">About</span><span class="tg">&lt;/a&gt;</span>
+  <span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"contact.html"</span> <span class="at">target=</span><span class="vl">"content"</span><span class="tg">&gt;</span><span class="tx">Contact</span><span class="tg">&lt;/a&gt;</span>
+<span class="tg">&lt;/body&gt;</span></code></pre>
+                </div>
+
+                <h3 style="margin-top:20px;">Key Frame Attributes</h3>
+                <ul class="topics-list">
+                    <li><code>src</code> — HTML file to load in the frame</li>
+                    <li><code>name</code> — identifier used by links' <code>target</code> attribute to direct page loads
+                    </li>
+                    <li><code>scrolling="yes|no|auto"</code> — controls scrollbar behaviour</li>
+                    <li><code>noresize</code> — prevents user from resizing the frame border</li>
+                    <li><code>rows / cols</code> on <code>&lt;frameset&gt;</code> — defines the grid in pixels, percent,
+                        or <code>*</code> (remaining space)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Modern Alternative -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🚀</div>
+                <h2>Modern Alternative — CSS Layout</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Since <code>&lt;frameset&gt;</code> is deprecated in HTML5, the same multi-section layouts are built
+                    today using <strong>CSS Grid</strong> or <strong>Flexbox</strong>.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">CSS — Modern Grid Layout (replaces frameset)</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">/* Define a 3-row, 2-column grid layout */</span>
+<span class="kw">.page</span> {
+  <span class="at">display</span>: <span class="vl">grid</span>;
+  <span class="at">grid-template-rows</span>: <span class="vl">80px 1fr 50px</span>;
+  <span class="at">grid-template-columns</span>: <span class="vl">200px 1fr</span>;
+  <span class="at">grid-template-areas</span>:
+    <span class="vl">"header  header"</span>
+    <span class="vl">"nav     content"</span>
+    <span class="vl">"status  status"</span>;
+  <span class="at">min-height</span>: <span class="vl">100vh</span>;
+}
+
+<span class="kw">.header</span>  { <span class="at">grid-area</span>: <span class="vl">header</span>;  <span class="at">background</span>: <span class="vl">#2563eb</span>; <span class="at">color</span>: <span class="vl">white</span>; }
+<span class="kw">.nav</span>     { <span class="at">grid-area</span>: <span class="vl">nav</span>;     <span class="at">background</span>: <span class="vl">#f1f5f9</span>; }
+<span class="kw">.content</span> { <span class="at">grid-area</span>: <span class="vl">content</span>; <span class="at">padding</span>:  <span class="vl">24px</span>;    }
+<span class="kw">.status</span>  { <span class="at">grid-area</span>: <span class="vl">status</span>;  <span class="at">background</span>: <span class="vl">#1e293b</span>; <span class="at">color</span>: <span class="vl">white</span>; }</code></pre>
+                </div>
+
+                <div class="info-box note">
+                    <span class="info-box-icon">🎓</span>
+                    <div class="info-box-text"><strong>Historical Perspective:</strong> Frames taught an important idea
+                        — separate navigation from content. Modern Single-Page Apps (SPAs) achieve this elegantly with
+                        JavaScript routing, while CSS Grid handles the visual layout.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a classic frameset with 4 separate HTML files —
+                        header.html, nav.html, content.html, status.html — and an index.html linking them.</li>
+                    <li><span class="task-num">2</span> In nav.html, add three links that each load a different HTML
+                        page inside the <code>content</code> frame using <code>target="content"</code>.</li>
+                    <li><span class="task-num">3</span> In the header frame, add a site logo image and a site name
+                        heading.</li>
+                    <li><span class="task-num">4</span> In the status frame, add a copyright notice and the current
+                        year.</li>
+                    <li><span class="task-num">5</span> Recreate the same 4-section layout using CSS Grid (header, nav,
+                        content, status) in a single HTML file — no frames required.</li>
+                    <li><span class="task-num">6</span> Research: Why were frames deprecated? List at least 3
+                        disadvantages of HTML frames.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day7.html" class="btn btn-secondary">← Day 7: Images &amp; Iframes</a>
+            <a href="day9.html" class="btn btn-primary">Day 9: Introduction to CSS →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

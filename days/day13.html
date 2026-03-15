@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 13 — Responsive Design and Navbar | CodeSteps</title>
+    <meta name="description"
+        content="Learn responsive web design basics, using div as a layout container, and how to build a navigation bar for your webpages." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div><span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a><span class="breadcrumb-sep">›</span><span>Day 13 — Responsive Design and
+                Navbar</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 13 · Intermediate</div>
+                <h1 class="day-hero-title">Responsive Design and Navbar</h1>
+                <p class="day-hero-subtitle">Build webpages that adapt to any screen size, and create a professional
+                    navigation bar for your site.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">📱</div>
+        </header>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>Responsive Web Design — what it means and why it matters</li>
+                    <li>The viewport meta tag</li>
+                    <li>CSS Media Queries — adapting layout to screen size</li>
+                    <li><code>&lt;div&gt;</code> as a layout container</li>
+                    <li>Navbar design — structure and styling</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📱</div>
+                <h2>Responsive Web Design</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>Responsive Web Design (RWD)</strong> means building webpages that automatically adapt their
+                    layout and appearance to fit any screen size — whether viewed on a mobile phone, tablet, or desktop
+                    monitor.</p>
+                <h3>Why is Responsive Design Important?</h3>
+                <ul class="topics-list">
+                    <li>Over <strong>60% of web traffic</strong> comes from mobile devices</li>
+                    <li>A responsive site provides a good experience on <em>every</em> device</li>
+                    <li>Google ranks mobile-friendly websites higher in search results</li>
+                </ul>
+
+                <h3>Step 1 — The Viewport Meta Tag</h3>
+                <p>Always add this to your <code>&lt;head&gt;</code> — it tells the browser how to control the page
+                    dimensions on mobile devices.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Viewport Meta Tag</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="tg">&lt;meta</span> <span class="at">name=</span><span class="vl">"viewport"</span>
+      <span class="at">content=</span><span class="vl">"width=device-width, initial-scale=1.0"</span><span class="tg">&gt;</span></code></pre>
+                </div>
+
+                <h3>Step 2 — CSS Media Queries</h3>
+                <p>Media queries apply different CSS rules depending on the screen width. This is the core technique of
+                    responsive design.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">CSS — Media Queries</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">/* Default styles (Desktop first) */</span>
+<span class="kw">.container</span> {
+  <span class="at">display</span>: <span class="vl">flex</span>;
+  <span class="at">gap</span>: <span class="vl">24px</span>;
+}
+
+<span class="cm">/* Tablet (max-width 768px) */</span>
+<span class="kw">@media</span> (<span class="at">max-width</span>: <span class="vl">768px</span>) {
+  <span class="kw">.container</span> {
+    <span class="at">flex-direction</span>: <span class="vl">column</span>;
+  }
+  <span class="kw">nav ul</span> {
+    <span class="at">display</span>: <span class="vl">none</span>; <span class="cm">/* hide nav links on small screens */</span>
+  }
+}
+
+<span class="cm">/* Mobile (max-width 480px) */</span>
+<span class="kw">@media</span> (<span class="at">max-width</span>: <span class="vl">480px</span>) {
+  <span class="kw">body</span> {
+    <span class="at">font-size</span>: <span class="vl">14px</span>;
+  }
+  <span class="kw">h1</span> {
+    <span class="at">font-size</span>: <span class="vl">1.5rem</span>;
+  }
+}</code></pre>
+                </div>
+
+                <div class="info-box tip">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>Mobile First:</strong> A popular modern approach is to write
+                        styles for mobile first, then use <code>min-width</code> media queries to add styles for larger
+                        screens. This keeps the base CSS lean.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📦</div>
+                <h2>&lt;div&gt; as a Layout Container</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>The <code>&lt;div&gt;</code> (Division) element is the most versatile layout tool in HTML. It is a
+                    <strong>block-level container</strong> with no visual styling of its own — you apply CSS to make it
+                    a header, card, column, or any other component.
+                </p>
+                <p>In responsive design, <code>&lt;div&gt;</code> elements are grouped and rearranged using Flexbox or
+                    Grid to change from a multi-column desktop layout to a single-column mobile layout.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML + CSS — Responsive div columns</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">&lt;!-- HTML --&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"row"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col"</span><span class="tg">&gt;</span><span class="tx">Column 1</span><span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col"</span><span class="tg">&gt;</span><span class="tx">Column 2</span><span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col"</span><span class="tg">&gt;</span><span class="tx">Column 3</span><span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;/div&gt;</span>
+
+<span class="cm">/* CSS */</span>
+<span class="kw">.row</span> { <span class="at">display</span>: <span class="vl">flex</span>; <span class="at">gap</span>: <span class="vl">16px</span>; }
+<span class="kw">.col</span> { <span class="at">flex</span>: <span class="vl">1</span>; <span class="at">padding</span>: <span class="vl">16px</span>; <span class="at">background</span>: <span class="vl">#f0f4f8</span>; }
+
+<span class="kw">@media</span> (<span class="at">max-width</span>: <span class="vl">600px</span>) {
+  <span class="kw">.row</span> { <span class="at">flex-direction</span>: <span class="vl">column</span>; }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🧭</div>
+                <h2>Navbar Design</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>A <strong>navigation bar (navbar)</strong> is placed at the top of a webpage and contains links to
+                    different pages or sections. It is one of the most important UI components on any website.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML + CSS — Navbar</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">&lt;!-- HTML --&gt;</span>
+<span class="tg">&lt;nav</span> <span class="at">class=</span><span class="vl">"navbar"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"brand"</span><span class="tg">&gt;</span><span class="tx">🎓 MyCollege</span><span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;ul</span> <span class="at">class=</span><span class="vl">"nav-links"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;li&gt;&lt;a</span> <span class="at">href=</span><span class="vl">"#Home"</span><span class="tg">&gt;</span><span class="tx">Home</span><span class="tg">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tg">&lt;li&gt;&lt;a</span> <span class="at">href=</span><span class="vl">"#about"</span><span class="tg">&gt;</span><span class="tx">About</span><span class="tg">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tg">&lt;li&gt;&lt;a</span> <span class="at">href=</span><span class="vl">"#courses"</span><span class="tg">&gt;</span><span class="tx">Courses</span><span class="tg">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tg">&lt;li&gt;&lt;a</span> <span class="at">href=</span><span class="vl">"#contact"</span><span class="tg">&gt;</span><span class="tx">Contact</span><span class="tg">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="tg">&lt;/ul&gt;</span>
+<span class="tg">&lt;/nav&gt;</span>
+
+<span class="cm">/* CSS */</span>
+<span class="kw">.navbar</span> {
+  <span class="at">display</span>: <span class="vl">flex</span>;
+  <span class="at">justify-content</span>: <span class="vl">space-between</span>;
+  <span class="at">align-items</span>: <span class="vl">center</span>;
+  <span class="at">background</span>: <span class="vl">#1e293b</span>;
+  <span class="at">padding</span>: <span class="vl">14px 24px</span>;
+}
+<span class="kw">.brand</span> { <span class="at">color</span>: <span class="vl">white</span>; <span class="at">font-size</span>: <span class="vl">1.3rem</span>; <span class="at">font-weight</span>: <span class="vl">700</span>; }
+<span class="kw">.nav-links</span> { <span class="at">list-style</span>: <span class="vl">none</span>; <span class="at">display</span>: <span class="vl">flex</span>; <span class="at">gap</span>: <span class="vl">24px</span>; }
+<span class="kw">.nav-links a</span> {
+  <span class="at">color</span>: <span class="vl">#cbd5e1</span>;
+  <span class="at">text-decoration</span>: <span class="vl">none</span>;
+  <span class="at">transition</span>: <span class="vl">color 0.2s</span>;
+}
+<span class="kw">.nav-links a:hover</span> { <span class="at">color</span>: <span class="vl">white</span>; }</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Practical 8 — College Web Page Using All CSS Types</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Build a <strong>College Website</strong> that demonstrates all three CSS types — Inline, Internal,
+                    and External. The page should include:</p>
+                <ul class="topics-list">
+                    <li>🧭 <strong>Navbar</strong> — college name logo and navigation links (Home, About, Courses,
+                        Contact)</li>
+                    <li>🏷️ <strong>Hero/Header section</strong> — styled with External CSS, gradient background</li>
+                    <li>📚 <strong>Courses section</strong> — three course cards using a responsive flex layout</li>
+                    <li>📞 <strong>Contact section</strong> — name, email, phone</li>
+                    <li>🔻 <strong>Footer</strong> — copyright info</li>
+                    <li>📱 <strong>Responsive</strong> — cards stack vertically on small screens</li>
+                </ul>
+                <div class="info-box note">
+                    <span class="info-box-icon">📂</span>
+                    <div class="info-box-text">Create <code>college.html</code> + <code>college.css</code>. Use External
+                        CSS for main layout, Internal CSS for page-specific tweaks, and Inline CSS for individual
+                        element overrides.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Add a viewport meta tag to all your previous HTML practicals.
+                    </li>
+                    <li><span class="task-num">2</span> Create a 3-column div layout and use a media query to make it
+                        single-column on screens narrower than 600px.</li>
+                    <li><span class="task-num">3</span> Build a navbar with a brand logo on the left and navigation
+                        links on the right, including hover effects.</li>
+                    <li><span class="task-num">4</span> Build the complete College webpage using all three CSS types
+                        (Inline, Internal, External).</li>
+                    <li><span class="task-num">5</span> Test your College page by resizing the browser window — ensure
+                        it is usable on mobile widths.</li>
+                    <li><span class="task-num">6</span> Research: What is Flexbox, and how does it help build responsive
+                        layouts?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day12.html" class="btn btn-secondary">← Day 12: External CSS</a>
+            <a href="day14.html" class="btn btn-primary">Day 14: Bootstrap Introduction →</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

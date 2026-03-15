@@ -1,0 +1,488 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeSteps — Learn Web Development One Step at a Time</title>
+    <meta name="description"
+        content="CodeSteps is a structured web development learning portal. Navigate day-wise notes, code examples, and practice tasks — one step at a time." />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <!-- ── Navbar ── -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar-inner">
+            <a href="index.html" class="navbar-brand" aria-label="CodeSteps Home">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="search" id="search-input" class="search-input" placeholder="Search days..."
+                        aria-label="Search learning days" autocomplete="off" />
+                </div>
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode"
+                    aria-label="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Hero ── -->
+    <header class="hero" role="banner">
+        <div class="hero-grid-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+            <div class="hero-badge">🚀 Structured Learning Path</div>
+            <h1 class="hero-title">
+                Learn Web Development<br><span>One Step at a Time</span>
+            </h1>
+            <p class="hero-subtitle">
+                A curated, day-by-day guide to mastering HTML, CSS, and JavaScript.<br>
+                Each day is a new step in your journey as a developer.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">20</div>
+                    <div class="stat-label">Days</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Topics</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Code Examples</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Free</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Main ── -->
+    <main class="main-content" id="main">
+
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="section-tag">📚 Learning Days</div>
+            <h2 class="section-title">Your Learning Journey</h2>
+            <p class="section-subtitle">Click any card to open that day's notes, examples, and practice tasks</p>
+        </div>
+
+        <!-- Days Grid -->
+        <section class="days-grid" id="days-grid" aria-label="Learning days">
+
+            <!-- Day 1 -->
+            <a href="days/day1.html" class="day-card" data-day="day1"
+                style="--card-color-1:#2563eb;--card-color-2:#7c3aed;" aria-label="Day 1 — Introduction to WWW">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(37,99,235,0.1);">🌐</div>
+                    <span class="day-badge">Beginner</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 01</div>
+                    <div class="day-title">Introduction to WWW</div>
+                    <div class="day-desc">Understand how the web works — browsers, servers, HTTP, and the history of the
+                        World Wide Web.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 5 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 2 -->
+            <a href="days/day2.html" class="day-card" data-day="day2"
+                style="--card-color-1:#0891b2;--card-color-2:#2563eb;" aria-label="Day 2 — HTML Basics">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(8,145,178,0.1);">📄</div>
+                    <span class="day-badge">Beginner</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 02</div>
+                    <div class="day-title">HTML Basics</div>
+                    <div class="day-desc">Learn the building blocks of every webpage — HTML structure, elements, tags,
+                        attributes, and your first page.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 6 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 3 -->
+            <a href="days/day3.html" class="day-card" data-day="day3"
+                style="--card-color-1:#7c3aed;--card-color-2:#db2777;" aria-label="Day 3 — Text Formatting">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(124,58,237,0.1);">✏️</div>
+                    <span class="day-badge">Beginner</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 03</div>
+                    <div class="day-title">Text Formatting</div>
+                    <div class="day-desc">Master HTML text tags — headings, paragraphs, bold, italic, underline, and
+                        semantic formatting elements.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 7 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 4 -->
+            <a href="days/day4.html" class="day-card" data-day="day4"
+                style="--card-color-1:#d97706;--card-color-2:#ea580c;" aria-label="Day 4 — Lists and Links">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(217,119,6,0.1);">🔗</div>
+                    <span class="day-badge">Beginner</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 04</div>
+                    <div class="day-title">Lists and Links</div>
+                    <div class="day-desc">Organize content with ordered and unordered lists. Connect pages using anchor
+                        tags and hyperlinks.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 6 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 5 -->
+            <a href="days/day5.html" class="day-card" data-day="day5"
+                style="--card-color-1:#0d9488;--card-color-2:#0891b2;" aria-label="Day 5 — Tables">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(13,148,136,0.1);">📊</div>
+                    <span class="day-badge">Intermediate</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 05</div>
+                    <div class="day-title">Tables</div>
+                    <div class="day-desc">Build structured data tables using HTML — rows, columns, headers, captions,
+                        merging cells and more.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 5 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 6 -->
+            <a href="days/day6.html" class="day-card" data-day="day6"
+                style="--card-color-1:#db2777;--card-color-2:#9333ea;" aria-label="Day 6 — Forms">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(219,39,119,0.1);">📝</div>
+                    <span class="day-badge">Intermediate</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 06</div>
+                    <div class="day-title">Forms</div>
+                    <div class="day-desc">Collect user input using HTML forms — text fields, dropdowns, radio buttons,
+                        checkboxes, and form submission.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 7 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 7 -->
+            <a href="days/day7.html" class="day-card" data-day="day7"
+                style="--card-color-1:#0891b2;--card-color-2:#7c3aed;"
+                aria-label="Day 7 — Images, Iframes and Layout Elements">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(8,145,178,0.1);">🖼️</div>
+                    <span class="day-badge">Intermediate</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 07</div>
+                    <div class="day-title">Images and Iframes</div>
+                    <div class="day-desc">Display images, embed external content with iframes, group form fields with
+                        fieldset, and structure layouts using div.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 4 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 8 -->
+            <a href="days/day8.html" class="day-card" data-day="day8"
+                style="--card-color-1:#16a34a;--card-color-2:#0d9488;" aria-label="Day 8 — Frames and Layout Design">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(22,163,74,0.1);">🪟</div>
+                    <span class="day-badge">Intermediate</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 08</div>
+                    <div class="day-title">Frames and Layout</div>
+                    <div class="day-desc">Understand HTML frames, frameset layouts, and how to divide pages into header,
+                        nav, content, and status sections.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 5 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 9 -->
+            <a href="days/day9.html" class="day-card" data-day="day9"
+                style="--card-color-1:#7c3aed;--card-color-2:#2563eb;" aria-label="Day 9 — Introduction to CSS">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(124,58,237,0.1);">🎨</div>
+                    <span class="day-badge">Beginner</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 09</div>
+                    <div class="day-title">Introduction to CSS</div>
+                    <div class="day-desc">Learn what CSS is, why it is used, CSS syntax, and the three types — Inline,
+                        Internal, and External CSS.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 6 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 10 -->
+            <a href="days/day10.html" class="day-card" data-day="day10"
+                style="--card-color-1:#d97706;--card-color-2:#db2777;" aria-label="Day 10 — CSS Selectors">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(217,119,6,0.1);">🎯</div>
+                    <span class="day-badge">Beginner</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 10</div>
+                    <div class="day-title">CSS Selectors</div>
+                    <div class="day-desc">Target HTML elements precisely using element, class, ID, and group selectors
+                        with practical examples.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 4 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 11 -->
+            <a href="days/day11.html" class="day-card" data-day="day11"
+                style="--card-color-1:#0891b2;--card-color-2:#16a34a;" aria-label="Day 11 — CSS Styling">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(8,145,178,0.1);">🌈</div>
+                    <span class="day-badge">Beginner</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 11</div>
+                    <div class="day-title">CSS Styling</div>
+                    <div class="day-desc">Control text formatting, fonts, colors, and backgrounds to make webpages
+                        visually rich and appealing.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 4 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 12 -->
+            <a href="days/day12.html" class="day-card" data-day="day12"
+                style="--card-color-1:#ea580c;--card-color-2:#d97706;" aria-label="Day 12 — External CSS">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(234,88,12,0.1);">🔗</div>
+                    <span class="day-badge">Intermediate</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 12</div>
+                    <div class="day-title">External CSS</div>
+                    <div class="day-desc">Write CSS in a separate file, link it to multiple HTML pages, and understand
+                        the benefits of stylesheet reuse.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 5 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 13 -->
+            <a href="days/day13.html" class="day-card" data-day="day13"
+                style="--card-color-1:#db2777;--card-color-2:#7c3aed;"
+                aria-label="Day 13 — Responsive Design and Navbar">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(219,39,119,0.1);">📱</div>
+                    <span class="day-badge">Intermediate</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 13</div>
+                    <div class="day-title">Responsive Design &amp; Navbar</div>
+                    <div class="day-desc">Build pages that adapt to any screen size using media queries and create a
+                        professional navigation bar.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 5 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 14 -->
+            <a href="days/day14.html" class="day-card" data-day="day14"
+                style="--card-color-1:#6d28d9;--card-color-2:#2563eb;" aria-label="Day 14 — Bootstrap Introduction">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(109,40,217,0.1);">⚡</div>
+                    <span class="day-badge">Intermediate</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 14</div>
+                    <div class="day-title">Bootstrap Introduction</div>
+                    <div class="day-desc">Discover Bootstrap — the popular CSS framework for building responsive,
+                        mobile-first websites using a 12-column grid and utility classes.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 4 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 15 -->
+            <a href="days/day15.html" class="day-card" data-day="day15"
+                style="--card-color-1:#eab308;--card-color-2:#ca8a04;" aria-label="Day 15 — Introduction to JavaScript">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(234,179,8,0.1);">💛</div>
+                    <span class="day-badge">Beginner</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 15</div>
+                    <div class="day-title">Introduction to JavaScript</div>
+                    <div class="day-desc">Make your webpages interactive. Learn variables, arrays, and basic
+                        input/output output systems.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 4 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 16 -->
+            <a href="days/day16.html" class="day-card" data-day="day16"
+                style="--card-color-1:#f59e0b;--card-color-2:#ea580c;"
+                aria-label="Day 16 — JavaScript Functions and Events">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(245,158,11,0.1);">🛠️</div>
+                    <span class="day-badge">Beginner</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 16</div>
+                    <div class="day-title">JS Functions &amp; Events</div>
+                    <div class="day-desc">Make code reusable with functions, listen to browser events, and get an
+                        introduction to the DOM.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 3 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 17 -->
+            <a href="days/day17.html" class="day-card" data-day="day17"
+                style="--card-color-1:#10b981;--card-color-2:#059669;" aria-label="Day 17 — JavaScript Objects">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(16,185,129,0.1);">📅</div>
+                    <span class="day-badge">Intermediate</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 17</div>
+                    <div class="day-title">JavaScript Objects</div>
+                    <div class="day-desc">Work with the built-in Date object, string handling methods, and conditional
+                        switch/case statements.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 3 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 18 -->
+            <a href="days/day18.html" class="day-card" data-day="day18"
+                style="--card-color-1:#14b8a6;--card-color-2:#0d9488;" aria-label="Day 18 — Form Validation">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(20,184,166,0.1);">🛡️</div>
+                    <span class="day-badge">Advanced</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 18</div>
+                    <div class="day-title">Form Validation</div>
+                    <div class="day-desc">Enforce HTML constraints using required, pattern, length, and learn about
+                        Regular Expressions.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 5 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 19 -->
+            <a href="days/day19.html" class="day-card" data-day="day19"
+                style="--card-color-1:#3b82f6;--card-color-2:#8b5cf6;" aria-label="Day 19 — AJAX">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(59,130,246,0.1);">🔄</div>
+                    <span class="day-badge">Advanced</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 19</div>
+                    <div class="day-title">AJAX</div>
+                    <div class="day-desc">Communicate with servers asynchronously to update parts of a webpage without
+                        needing a full reload.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 4 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- Day 20 -->
+            <a href="days/day20.html" class="day-card" data-day="day20"
+                style="--card-color-1:#f97316;--card-color-2:#dc2626;" aria-label="Day 20 — XML &amp; JSON">
+                <div class="day-card-header">
+                    <div class="day-icon-wrap" style="background:rgba(249,115,22,0.1);">📦</div>
+                    <span class="day-badge">Advanced</span>
+                </div>
+                <div class="day-card-body">
+                    <div class="day-number">Day 20</div>
+                    <div class="day-title">XML &amp; JSON</div>
+                    <div class="day-desc">Master XML structure, DTD, XSLT, and JSON — the two most important data
+                        formats in modern web development.</div>
+                </div>
+                <div class="day-card-footer">
+                    <span class="topics-count">📌 7 Topics</span>
+                    <div class="card-arrow">→</div>
+                </div>
+            </a>
+
+        </section>
+
+        <!-- No Results -->
+        <div class="no-results" id="no-results" aria-live="polite">
+            <div class="no-results-icon">🔍</div>
+            <h3>No Days Found</h3>
+            <p>Try a different search term.</p>
+        </div>
+
+    </main>
+
+    <!-- ── Footer ── -->
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step
+            at a Time</p>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top" class="scroll-top" title="Back to top" aria-label="Scroll to top">↑</button>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

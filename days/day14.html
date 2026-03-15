@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 14 — Bootstrap Introduction | CodeSteps</title>
+    <meta name="description"
+        content="Learn what Bootstrap is, how to include it via CDN, the 12-column grid system, and basic Bootstrap utility classes." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 14 — Bootstrap Introduction</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 14 · Intermediate</div>
+                <h1 class="day-hero-title">Bootstrap Introduction</h1>
+                <p class="day-hero-subtitle">Speed up your web development with Bootstrap — the world's most popular
+                    front-end framework for building responsive, mobile-first websites.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">⚡</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>What is Bootstrap?</li>
+                    <li>Downloading Bootstrap vs. using CDN</li>
+                    <li>Bootstrap Grid System — container, row, col</li>
+                    <li>Basic Bootstrap Utility Classes</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- What is Bootstrap -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🅱️</div>
+                <h2>What is Bootstrap?</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>Bootstrap</strong> is a free, open-source <strong>front-end CSS framework</strong> originally
+                    developed by Twitter. It provides a large collection of pre-written CSS classes, JavaScript
+                    components, and a responsive grid system that allows developers to build professional,
+                    mobile-friendly websites quickly — without writing everything from scratch.</p>
+                <p>Instead of manually writing CSS for every button, card, or layout, you simply add Bootstrap class
+                    names to your HTML elements and they are instantly styled.</p>
+
+                <h3>Key Benefits of Bootstrap</h3>
+                <ul class="topics-list">
+                    <li>⚡ <strong>Faster UI development</strong> — pre-built components save hours of styling work</li>
+                    <li>📱 <strong>Built-in responsive design</strong> — layouts automatically adapt to any screen size
+                    </li>
+                    <li>🧩 <strong>Pre-designed components</strong> — buttons, navbars, cards, modals, forms, and more
+                    </li>
+                    <li>🌐 <strong>Cross-browser consistency</strong> — looks the same across Chrome, Firefox, Safari,
+                        Edge</li>
+                    <li>📚 <strong>Extensive documentation</strong> — easy to learn with official examples and guides
+                    </li>
+                </ul>
+
+                <div class="info-box note">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>Bootstrap vs. Custom CSS:</strong> Bootstrap is perfect for rapid
+                        prototyping and building standard UIs. For highly customised designs, you may combine Bootstrap
+                        with your own custom CSS.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CDN vs Download -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔗</div>
+                <h2>Including Bootstrap — CDN vs. Download</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>There are two ways to add Bootstrap to your HTML project. Both produce the same result.</p>
+
+                <h3>Method 1 — Download Bootstrap</h3>
+                <p>Visit <strong>getbootstrap.com</strong>, download the compiled CSS and JS files, and add them to your
+                    project folder. Then link the files locally:</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Linking Bootstrap Locally</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;head&gt;</span>
+  <span class="cm">&lt;!-- Bootstrap CSS (downloaded locally) --&gt;</span>
+  <span class="tg">&lt;link</span> <span class="at">rel=</span><span class="vl">"stylesheet"</span>
+        <span class="at">href=</span><span class="vl">"bootstrap/css/bootstrap.min.css"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;/head&gt;</span>
+<span class="tg">&lt;body&gt;</span>
+  ...
+  <span class="cm">&lt;!-- Bootstrap JS bundle (at end of body) --&gt;</span>
+  <span class="tg">&lt;script</span> <span class="at">src=</span><span class="vl">"bootstrap/js/bootstrap.bundle.min.js"</span><span class="tg">&gt;&lt;/script&gt;</span>
+<span class="tg">&lt;/body&gt;</span></code></pre>
+                </div>
+
+                <h3>Method 2 — CDN (Recommended for Learning)</h3>
+                <p>A <strong>CDN (Content Delivery Network)</strong> lets you load Bootstrap directly from the internet
+                    without downloading anything. Simply paste the CDN link into your HTML <code>&lt;head&gt;</code>.
+                </p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Bootstrap 5 via CDN</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;!DOCTYPE</span> <span class="at">html</span><span class="tg">&gt;</span>
+<span class="tg">&lt;html</span> <span class="at">lang=</span><span class="vl">"en"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;head&gt;</span>
+  <span class="tg">&lt;meta</span> <span class="at">charset=</span><span class="vl">"UTF-8"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;meta</span> <span class="at">name=</span><span class="vl">"viewport"</span> <span class="at">content=</span><span class="vl">"width=device-width, initial-scale=1.0"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;title&gt;</span><span class="tx">My Bootstrap Page</span><span class="tg">&lt;/title&gt;</span>
+
+  <span class="cm">&lt;!-- Bootstrap 5 CSS CDN --&gt;</span>
+  <span class="tg">&lt;link</span>
+    <span class="at">href=</span><span class="vl">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"</span>
+    <span class="at">rel=</span><span class="vl">"stylesheet"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;/head&gt;</span>
+<span class="tg">&lt;body&gt;</span>
+
+  <span class="tg">&lt;h1&gt;</span><span class="tx">Hello Bootstrap!</span><span class="tg">&lt;/h1&gt;</span>
+
+  <span class="cm">&lt;!-- Bootstrap 5 JS Bundle CDN (includes Popper.js) --&gt;</span>
+  <span class="tg">&lt;script</span>
+    <span class="at">src=</span><span class="vl">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"</span><span class="tg">&gt;
+  &lt;/script&gt;</span>
+<span class="tg">&lt;/body&gt;</span>
+<span class="tg">&lt;/html&gt;</span></code></pre>
+                </div>
+
+                <div class="info-box tip">
+                    <span class="info-box-icon">✅</span>
+                    <div class="info-box-text"><strong>Always include the viewport meta tag</strong> when using
+                        Bootstrap — without it, responsive breakpoints won't work correctly on mobile devices.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid System -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔲</div>
+                <h2>Bootstrap Grid System</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Bootstrap's grid system is based on a <strong>12-column flexible layout</strong>. It uses three main
+                    classes to build page layouts:</p>
+                <ul class="topics-list">
+                    <li><code>.container</code> — a centred, fixed-width wrapper for your page content</li>
+                    <li><code>.row</code> — a horizontal group of columns (uses Flexbox internally)</li>
+                    <li><code>.col</code> — a column inside a row; Bootstrap automatically divides space equally</li>
+                </ul>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Bootstrap Grid (3 equal columns)</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"container"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"row"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col"</span><span class="tg">&gt;</span><span class="tx">Column 1</span><span class="tg">&lt;/div&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col"</span><span class="tg">&gt;</span><span class="tx">Column 2</span><span class="tg">&lt;/div&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col"</span><span class="tg">&gt;</span><span class="tx">Column 3</span><span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;/div&gt;</span></code></pre>
+                </div>
+
+                <h3>Fixed-Width Column Sizing</h3>
+                <p>You can also specify how many of the 12 columns an element should span using <code>.col-N</code>
+                    (where N adds up to 12):</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Fixed Column Widths</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"container"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"row"</span><span class="tg">&gt;</span>
+
+    <span class="cm">&lt;!-- Sidebar: takes 4 out of 12 cols --&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col-4"</span><span class="tg">&gt;</span><span class="tx">Sidebar</span><span class="tg">&lt;/div&gt;</span>
+
+    <span class="cm">&lt;!-- Content: takes 8 out of 12 cols --&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col-8"</span><span class="tg">&gt;</span><span class="tx">Main Content</span><span class="tg">&lt;/div&gt;</span>
+
+  <span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;/div&gt;</span></code></pre>
+                </div>
+
+                <h3>Responsive Breakpoints</h3>
+                <p>Bootstrap's grid is responsive — columns automatically stack on small screens. Use breakpoint infixes
+                    to control when columns appear side by side:</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Responsive Grid Breakpoints</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">&lt;!-- Full width on mobile, half on medium screens, 4-cols on large --&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col-12 col-md-6 col-lg-4"</span><span class="tg">&gt;</span><span class="tx">Card</span><span class="tg">&lt;/div&gt;</span>
+
+<span class="cm">&lt;!-- Breakpoints:
+  col-    → xs  (all screens, &lt;576px)
+  col-sm- → sm  (≥576px)
+  col-md- → md  (≥768px)
+  col-lg- → lg  (≥992px)
+  col-xl- → xl  (≥1200px)
+--&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap Classes -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🧰</div>
+                <h2>Basic Bootstrap Classes</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Bootstrap provides hundreds of utility classes that let you style elements directly in HTML without
+                    writing any custom CSS. Here are the most commonly used ones:</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Bootstrap utility classes in action</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">&lt;!-- Layout --&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"container"</span><span class="tg">&gt;</span><span class="tx">Fixed-width centred container</span><span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"container-fluid"</span><span class="tg">&gt;</span><span class="tx">Full-width container</span><span class="tg">&lt;/div&gt;</span>
+
+<span class="cm">&lt;!-- Typography --&gt;</span>
+<span class="tg">&lt;p</span> <span class="at">class=</span><span class="vl">"text-center"</span><span class="tg">&gt;</span><span class="tx">Centred text</span><span class="tg">&lt;/p&gt;</span>
+<span class="tg">&lt;p</span> <span class="at">class=</span><span class="vl">"text-primary"</span><span class="tg">&gt;</span><span class="tx">Bootstrap primary colour text</span><span class="tg">&lt;/p&gt;</span>
+<span class="tg">&lt;p</span> <span class="at">class=</span><span class="vl">"fw-bold"</span><span class="tg">&gt;</span><span class="tx">Bold text</span><span class="tg">&lt;/p&gt;</span>
+<span class="tg">&lt;p</span> <span class="at">class=</span><span class="vl">"fs-3"</span><span class="tg">&gt;</span><span class="tx">Larger font size (1–6)</span><span class="tg">&lt;/p&gt;</span>
+
+<span class="cm">&lt;!-- Buttons --&gt;</span>
+<span class="tg">&lt;button</span> <span class="at">class=</span><span class="vl">"btn btn-primary"</span><span class="tg">&gt;</span><span class="tx">Primary Button</span><span class="tg">&lt;/button&gt;</span>
+<span class="tg">&lt;button</span> <span class="at">class=</span><span class="vl">"btn btn-secondary"</span><span class="tg">&gt;</span><span class="tx">Secondary</span><span class="tg">&lt;/button&gt;</span>
+<span class="tg">&lt;button</span> <span class="at">class=</span><span class="vl">"btn btn-success"</span><span class="tg">&gt;</span><span class="tx">Success</span><span class="tg">&lt;/button&gt;</span>
+<span class="tg">&lt;button</span> <span class="at">class=</span><span class="vl">"btn btn-danger"</span><span class="tg">&gt;</span><span class="tx">Danger</span><span class="tg">&lt;/button&gt;</span>
+<span class="tg">&lt;button</span> <span class="at">class=</span><span class="vl">"btn btn-outline-primary"</span><span class="tg">&gt;</span><span class="tx">Outline</span><span class="tg">&lt;/button&gt;</span>
+
+<span class="cm">&lt;!-- Backgrounds --&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"bg-primary text-white p-3"</span><span class="tg">&gt;</span><span class="tx">Blue background, white text, padding 3</span><span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"bg-light p-3"</span><span class="tg">&gt;</span><span class="tx">Light background</span><span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"bg-dark text-white p-3"</span><span class="tg">&gt;</span><span class="tx">Dark background</span><span class="tg">&lt;/div&gt;</span>
+
+<span class="cm">&lt;!-- Spacing (p=padding, m=margin, 0-5 scale) --&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"p-3 m-3"</span><span class="tg">&gt;</span><span class="tx">Padding 3 + Margin 3</span><span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"px-4 py-2"</span><span class="tg">&gt;</span><span class="tx">Horizontal px-4, vertical py-2</span><span class="tg">&lt;/div&gt;</span>
+
+<span class="cm">&lt;!-- Display --&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"d-flex justify-content-between align-items-center"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;span&gt;</span><span class="tx">Left</span><span class="tg">&lt;/span&gt;</span>
+  <span class="tg">&lt;span&gt;</span><span class="tx">Right</span><span class="tg">&lt;/span&gt;</span>
+<span class="tg">&lt;/div&gt;</span>
+
+<span class="cm">&lt;!-- Rounded corners and shadows --&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"rounded shadow p-3"</span><span class="tg">&gt;</span><span class="tx">Rounded box with shadow</span><span class="tg">&lt;/div&gt;</span></code></pre>
+                </div>
+
+                <h3>Quick Reference Table</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:var(--primary);color:#fff;">
+                                <th style="padding:10px 14px;text-align:left;">Class</th>
+                                <th style="padding:10px 14px;text-align:left;">Effect</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>.container</code></td>
+                                <td style="padding:9px 14px;">Centred, max-width page wrapper</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>.row</code></td>
+                                <td style="padding:9px 14px;">Horizontal flex row for columns</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>.col / .col-N</code></td>
+                                <td style="padding:9px 14px;">Grid column (N = 1–12)</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>.btn .btn-*</code></td>
+                                <td style="padding:9px 14px;">Styled button (primary, danger, etc.)</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>.text-center</code></td>
+                                <td style="padding:9px 14px;">Centre-align text</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>.bg-primary</code></td>
+                                <td style="padding:9px 14px;">Bootstrap blue background</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>.p-3 / .m-3</code></td>
+                                <td style="padding:9px 14px;">Padding / Margin (0–5 scale)</td>
+                            </tr>
+                            <tr style="background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>.d-flex</code></td>
+                                <td style="padding:9px 14px;">Apply display: flex</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Practical 9 — Mobile-Friendly College Website Using Bootstrap</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Build a full college website layout using Bootstrap 5. The page should be fully responsive and
+                    include a header, navbar, introduction, courses section, and footer.</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — College Website with Bootstrap 5</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;!DOCTYPE</span> <span class="at">html</span><span class="tg">&gt;</span>
+<span class="tg">&lt;html</span> <span class="at">lang=</span><span class="vl">"en"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;head&gt;</span>
+  <span class="tg">&lt;meta</span> <span class="at">charset=</span><span class="vl">"UTF-8"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;meta</span> <span class="at">name=</span><span class="vl">"viewport"</span> <span class="at">content=</span><span class="vl">"width=device-width, initial-scale=1.0"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;title&gt;</span><span class="tx">City College</span><span class="tg">&lt;/title&gt;</span>
+  <span class="tg">&lt;link</span> <span class="at">href=</span><span class="vl">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"</span>
+        <span class="at">rel=</span><span class="vl">"stylesheet"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;/head&gt;</span>
+<span class="tg">&lt;body&gt;</span>
+
+  <span class="cm">&lt;!-- Navbar --&gt;</span>
+  <span class="tg">&lt;nav</span> <span class="at">class=</span><span class="vl">"navbar navbar-expand-lg navbar-dark bg-primary"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"container"</span><span class="tg">&gt;</span>
+      <span class="tg">&lt;a</span> <span class="at">class=</span><span class="vl">"navbar-brand fw-bold"</span> <span class="at">href=</span><span class="vl">"#"</span><span class="tg">&gt;</span><span class="tx">🎓 City College</span><span class="tg">&lt;/a&gt;</span>
+      <span class="tg">&lt;button</span> <span class="at">class=</span><span class="vl">"navbar-toggler"</span> <span class="at">type=</span><span class="vl">"button"</span>
+              <span class="at">data-bs-toggle=</span><span class="vl">"collapse"</span> <span class="at">data-bs-target=</span><span class="vl">"#navMenu"</span><span class="tg">&gt;</span>
+        <span class="tg">&lt;span</span> <span class="at">class=</span><span class="vl">"navbar-toggler-icon"</span><span class="tg">&gt;&lt;/span&gt;</span>
+      <span class="tg">&lt;/button&gt;</span>
+      <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"collapse navbar-collapse"</span> <span class="at">id=</span><span class="vl">"navMenu"</span><span class="tg">&gt;</span>
+        <span class="tg">&lt;ul</span> <span class="at">class=</span><span class="vl">"navbar-nav ms-auto"</span><span class="tg">&gt;</span>
+          <span class="tg">&lt;li</span> <span class="at">class=</span><span class="vl">"nav-item"</span><span class="tg">&gt;&lt;a</span> <span class="at">class=</span><span class="vl">"nav-link"</span> <span class="at">href=</span><span class="vl">"#about"</span><span class="tg">&gt;</span><span class="tx">About</span><span class="tg">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="tg">&lt;li</span> <span class="at">class=</span><span class="vl">"nav-item"</span><span class="tg">&gt;&lt;a</span> <span class="at">class=</span><span class="vl">"nav-link"</span> <span class="at">href=</span><span class="vl">"#courses"</span><span class="tg">&gt;</span><span class="tx">Courses</span><span class="tg">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="tg">&lt;li</span> <span class="at">class=</span><span class="vl">"nav-item"</span><span class="tg">&gt;&lt;a</span> <span class="at">class=</span><span class="vl">"nav-link"</span> <span class="at">href=</span><span class="vl">"#contact"</span><span class="tg">&gt;</span><span class="tx">Contact</span><span class="tg">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="tg">&lt;/ul&gt;</span>
+      <span class="tg">&lt;/div&gt;</span>
+    <span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;/nav&gt;</span>
+
+  <span class="cm">&lt;!-- Hero Header --&gt;</span>
+  <span class="tg">&lt;header</span> <span class="at">class=</span><span class="vl">"bg-primary text-white text-center py-5"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"container"</span><span class="tg">&gt;</span>
+      <span class="tg">&lt;h1</span> <span class="at">class=</span><span class="vl">"display-4 fw-bold"</span><span class="tg">&gt;</span><span class="tx">Welcome to City College</span><span class="tg">&lt;/h1&gt;</span>
+      <span class="tg">&lt;p</span> <span class="at">class=</span><span class="vl">"lead"</span><span class="tg">&gt;</span><span class="tx">Empowering minds, shaping futures since 1995.</span><span class="tg">&lt;/p&gt;</span>
+      <span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"#courses"</span> <span class="at">class=</span><span class="vl">"btn btn-light btn-lg mt-3"</span><span class="tg">&gt;</span><span class="tx">Explore Courses</span><span class="tg">&lt;/a&gt;</span>
+    <span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;/header&gt;</span>
+
+  <span class="cm">&lt;!-- About Section --&gt;</span>
+  <span class="tg">&lt;section</span> <span class="at">id=</span><span class="vl">"about"</span> <span class="at">class=</span><span class="vl">"py-5"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"container"</span><span class="tg">&gt;</span>
+      <span class="tg">&lt;h2</span> <span class="at">class=</span><span class="vl">"text-center mb-4"</span><span class="tg">&gt;</span><span class="tx">About Our College</span><span class="tg">&lt;/h2&gt;</span>
+      <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"row g-4"</span><span class="tg">&gt;</span>
+        <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col-md-4"</span><span class="tg">&gt;</span>
+          <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"card h-100 text-center p-3 shadow-sm"</span><span class="tg">&gt;</span>
+            <span class="tg">&lt;h3&gt;</span><span class="tx">🏛️ Est. 1995</span><span class="tg">&lt;/h3&gt;</span>
+            <span class="tg">&lt;p&gt;</span><span class="tx">Over 30 years of academic excellence.</span><span class="tg">&lt;/p&gt;</span>
+          <span class="tg">&lt;/div&gt;</span>
+        <span class="tg">&lt;/div&gt;</span>
+        <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col-md-4"</span><span class="tg">&gt;</span>
+          <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"card h-100 text-center p-3 shadow-sm"</span><span class="tg">&gt;</span>
+            <span class="tg">&lt;h3&gt;</span><span class="tx">👩‍🎓 5000+ Students</span><span class="tg">&lt;/h3&gt;</span>
+            <span class="tg">&lt;p&gt;</span><span class="tx">A vibrant and diverse campus community.</span><span class="tg">&lt;/p&gt;</span>
+          <span class="tg">&lt;/div&gt;</span>
+        <span class="tg">&lt;/div&gt;</span>
+        <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col-md-4"</span><span class="tg">&gt;</span>
+          <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"card h-100 text-center p-3 shadow-sm"</span><span class="tg">&gt;</span>
+            <span class="tg">&lt;h3&gt;</span><span class="tx">📚 20+ Courses</span><span class="tg">&lt;/h3&gt;</span>
+            <span class="tg">&lt;p&gt;</span><span class="tx">Wide range of undergraduate programmes.</span><span class="tg">&lt;/p&gt;</span>
+          <span class="tg">&lt;/div&gt;</span>
+        <span class="tg">&lt;/div&gt;</span>
+      <span class="tg">&lt;/div&gt;</span>
+    <span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;/section&gt;</span>
+
+  <span class="cm">&lt;!-- Courses Section --&gt;</span>
+  <span class="tg">&lt;section</span> <span class="at">id=</span><span class="vl">"courses"</span> <span class="at">class=</span><span class="vl">"py-5 bg-light"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"container"</span><span class="tg">&gt;</span>
+      <span class="tg">&lt;h2</span> <span class="at">class=</span><span class="vl">"text-center mb-4"</span><span class="tg">&gt;</span><span class="tx">Our Courses</span><span class="tg">&lt;/h2&gt;</span>
+      <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"row g-3"</span><span class="tg">&gt;</span>
+        <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col-12 col-sm-6 col-lg-4"</span><span class="tg">&gt;</span>
+          <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"card shadow-sm"</span><span class="tg">&gt;</span>
+            <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"card-body"</span><span class="tg">&gt;</span>
+              <span class="tg">&lt;h5</span> <span class="at">class=</span><span class="vl">"card-title"</span><span class="tg">&gt;</span><span class="tx">💻 Computer Science</span><span class="tg">&lt;/h5&gt;</span>
+              <span class="tg">&lt;p</span> <span class="at">class=</span><span class="vl">"card-text"</span><span class="tg">&gt;</span><span class="tx">Web, AI, and software engineering.</span><span class="tg">&lt;/p&gt;</span>
+              <span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"#"</span> <span class="at">class=</span><span class="vl">"btn btn-primary btn-sm"</span><span class="tg">&gt;</span><span class="tx">Learn More</span><span class="tg">&lt;/a&gt;</span>
+            <span class="tg">&lt;/div&gt;</span>
+          <span class="tg">&lt;/div&gt;</span>
+        <span class="tg">&lt;/div&gt;</span>
+        <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col-12 col-sm-6 col-lg-4"</span><span class="tg">&gt;</span>
+          <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"card shadow-sm"</span><span class="tg">&gt;</span>
+            <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"card-body"</span><span class="tg">&gt;</span>
+              <span class="tg">&lt;h5</span> <span class="at">class=</span><span class="vl">"card-title"</span><span class="tg">&gt;</span><span class="tx">📊 Data Science</span><span class="tg">&lt;/h5&gt;</span>
+              <span class="tg">&lt;p</span> <span class="at">class=</span><span class="vl">"card-text"</span><span class="tg">&gt;</span><span class="tx">Analytics, ML, and statistics.</span><span class="tg">&lt;/p&gt;</span>
+              <span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"#"</span> <span class="at">class=</span><span class="vl">"btn btn-primary btn-sm"</span><span class="tg">&gt;</span><span class="tx">Learn More</span><span class="tg">&lt;/a&gt;</span>
+            <span class="tg">&lt;/div&gt;</span>
+          <span class="tg">&lt;/div&gt;</span>
+        <span class="tg">&lt;/div&gt;</span>
+        <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"col-12 col-sm-6 col-lg-4"</span><span class="tg">&gt;</span>
+          <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"card shadow-sm"</span><span class="tg">&gt;</span>
+            <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"card-body"</span><span class="tg">&gt;</span>
+              <span class="tg">&lt;h5</span> <span class="at">class=</span><span class="vl">"card-title"</span><span class="tg">&gt;</span><span class="tx">🎨 Graphic Design</span><span class="tg">&lt;/h5&gt;</span>
+              <span class="tg">&lt;p</span> <span class="at">class=</span><span class="vl">"card-text"</span><span class="tg">&gt;</span><span class="tx">Visual communication and UI/UX.</span><span class="tg">&lt;/p&gt;</span>
+              <span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"#"</span> <span class="at">class=</span><span class="vl">"btn btn-primary btn-sm"</span><span class="tg">&gt;</span><span class="tx">Learn More</span><span class="tg">&lt;/a&gt;</span>
+            <span class="tg">&lt;/div&gt;</span>
+          <span class="tg">&lt;/div&gt;</span>
+        <span class="tg">&lt;/div&gt;</span>
+      <span class="tg">&lt;/div&gt;</span>
+    <span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;/section&gt;</span>
+
+  <span class="cm">&lt;!-- Footer --&gt;</span>
+  <span class="tg">&lt;footer</span> <span class="at">class=</span><span class="vl">"bg-dark text-white text-center py-4"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;p</span> <span class="at">class=</span><span class="vl">"mb-0"</span><span class="tg">&gt;</span><span class="tx">© 2025 City College. All rights reserved.</span><span class="tg">&lt;/p&gt;</span>
+  <span class="tg">&lt;/footer&gt;</span>
+
+  <span class="tg">&lt;script</span>
+    <span class="at">src=</span><span class="vl">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"</span><span class="tg">&gt;
+  &lt;/script&gt;</span>
+<span class="tg">&lt;/body&gt;</span>
+<span class="tg">&lt;/html&gt;</span></code></pre>
+                </div>
+
+                <div class="info-box tip">
+                    <span class="info-box-icon">⚡</span>
+                    <div class="info-box-text"><strong>Mobile Nav:</strong> The <code>navbar-toggler</code> button
+                        automatically shows a hamburger menu on mobile screens when the Bootstrap JS bundle is included.
+                        Click it to toggle the navigation links.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Tasks -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a blank HTML file, add the Bootstrap 5 CDN link, and
+                        verify it works by styling a button with <code>class="btn btn-success"</code>.</li>
+                    <li><span class="task-num">2</span> Build a 3-column product card layout using Bootstrap grid
+                        (<code>.container &gt; .row &gt; .col-md-4</code>). Each card should have an image placeholder,
+                        title, and button.</li>
+                    <li><span class="task-num">3</span> Create a responsive Bootstrap navbar with a brand name and 4
+                        navigation links. Test it on a narrow window — the links should collapse into a hamburger menu.
+                    </li>
+                    <li><span class="task-num">4</span> Build the complete College webpage from the practical above,
+                        then add a <strong>Contact</strong> section with a Bootstrap-styled form (name, email, message,
+                        submit button).</li>
+                    <li><span class="task-num">5</span> Research: What is the difference between <code>.container</code>
+                        and <code>.container-fluid</code> in Bootstrap?</li>
+                    <li><span class="task-num">6</span> Experiment with Bootstrap spacing utilities — try
+                        <code>p-1</code> through <code>p-5</code> and observe the differences.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day13.html" class="btn btn-secondary">← Day 13: Responsive Design</a>
+            <a href="day15.html" class="btn btn-primary">Day 15: Introduction to JS →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

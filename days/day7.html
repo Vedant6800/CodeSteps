@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 7 — Images, Iframes and Layout Elements | CodeSteps</title>
+    <meta name="description"
+        content="Learn img, iframe, fieldset, and div — display images, embed content, and structure layouts in HTML." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 7 — Images, Iframes and Layout Elements</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 07 · Intermediate</div>
+                <h1 class="day-hero-title">Images, Iframes and Layout Elements</h1>
+                <p class="day-hero-subtitle">Embed images, external content, group form fields, and structure pages
+                    using layout containers.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">🖼️</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>&lt;img&gt; — Displaying images on a webpage</li>
+                    <li>&lt;iframe&gt; — Embedding external pages and content</li>
+                    <li>&lt;fieldset&gt; — Grouping related form elements</li>
+                    <li>&lt;div&gt; — Block-level container for layout and grouping</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- img -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🖼️</div>
+                <h2>The &lt;img&gt; Tag</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>The <code>&lt;img&gt;</code> tag embeds an image on a webpage. It is a <strong>self-closing</strong>
+                    (void) element — no closing tag needed.</p>
+                <ul class="topics-list">
+                    <li><strong>src</strong> — path or URL of the image</li>
+                    <li><strong>alt</strong> — description for accessibility and fallback text</li>
+                    <li><strong>width / height</strong> — size in pixels or percent</li>
+                    <li><strong>title</strong> — tooltip on hover</li>
+                </ul>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — &lt;img&gt;</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">&lt;!-- Basic image --&gt;</span>
+<span class="tg">&lt;img</span> <span class="at">src=</span><span class="vl">"photo.jpg"</span> <span class="at">alt=</span><span class="vl">"A landscape"</span><span class="tg">&gt;</span>
+
+<span class="cm">&lt;!-- Sized image from URL --&gt;</span>
+<span class="tg">&lt;img</span> <span class="at">src=</span><span class="vl">"https://picsum.photos/400/200"</span>
+     <span class="at">alt=</span><span class="vl">"Random photo"</span> <span class="at">width=</span><span class="vl">"400"</span><span class="tg">&gt;</span>
+
+<span class="cm">&lt;!-- Clickable image link --&gt;</span>
+<span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"https://example.com"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;img</span> <span class="at">src=</span><span class="vl">"banner.jpg"</span> <span class="at">alt=</span><span class="vl">"Click to visit"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;/a&gt;</span></code></pre>
+                </div>
+                <div class="info-box note">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>Formats:</strong> Use <code>JPEG</code> for photos,
+                        <code>PNG</code> for transparency, <code>SVG</code> for icons, and <code>WebP</code> for best
+                        compression.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- iframe -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📺</div>
+                <h2>The &lt;iframe&gt; Tag</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>The <code>&lt;iframe&gt;</code> (Inline Frame) tag embeds another HTML page or external content —
+                    such as a YouTube video, Google Map, or external website — directly inside your page.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — &lt;iframe&gt;</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">&lt;!-- Embed a webpage --&gt;</span>
+<span class="tg">&lt;iframe</span> <span class="at">src=</span><span class="vl">"https://www.example.com"</span>
+        <span class="at">width=</span><span class="vl">"600"</span> <span class="at">height=</span><span class="vl">"400"</span>
+        <span class="at">title=</span><span class="vl">"Embedded Page"</span><span class="tg">&gt;&lt;/iframe&gt;</span>
+
+<span class="cm">&lt;!-- Embed a YouTube video --&gt;</span>
+<span class="tg">&lt;iframe</span> <span class="at">width=</span><span class="vl">"560"</span> <span class="at">height=</span><span class="vl">"315"</span>
+        <span class="at">src=</span><span class="vl">"https://www.youtube.com/embed/VIDEO_ID"</span>
+        <span class="at">title=</span><span class="vl">"YouTube Video"</span>
+        <span class="at">frameborder=</span><span class="vl">"0"</span> <span class="at">allowfullscreen</span><span class="tg">&gt;
+&lt;/iframe&gt;</span></code></pre>
+                </div>
+                <h3>Common Attributes</h3>
+                <ul class="topics-list">
+                    <li><code>src</code> — URL of the content to embed</li>
+                    <li><code>width / height</code> — size of the frame</li>
+                    <li><code>title</code> — accessibility description (required)</li>
+                    <li><code>frameborder="0"</code> — hides the border</li>
+                    <li><code>allowfullscreen</code> — enables fullscreen for videos</li>
+                </ul>
+                <div class="info-box warning">
+                    <span class="info-box-icon">⚠️</span>
+                    <div class="info-box-text"><strong>Note:</strong> Some websites block embedding via
+                        <code>X-Frame-Options</code>. If a site doesn't appear in an iframe, it has disabled embedding.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- fieldset -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🗂️</div>
+                <h2>The &lt;fieldset&gt; Tag</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>The <code>&lt;fieldset&gt;</code> tag groups related form fields together inside a visible box. The
+                    <code>&lt;legend&gt;</code> tag gives the group a caption.
+                </p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — &lt;fieldset&gt;</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;form&gt;</span>
+  <span class="tg">&lt;fieldset&gt;</span>
+    <span class="tg">&lt;legend&gt;</span><span class="tx">Personal Details</span><span class="tg">&lt;/legend&gt;</span>
+    <span class="tg">&lt;label&gt;</span><span class="tx">Name:</span><span class="tg">&lt;/label&gt;</span>
+    <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"text"</span> <span class="at">name=</span><span class="vl">"name"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;label&gt;</span><span class="tx">Email:</span><span class="tg">&lt;/label&gt;</span>
+    <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"email"</span> <span class="at">name=</span><span class="vl">"email"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;/fieldset&gt;</span>
+  <span class="tg">&lt;fieldset&gt;</span>
+    <span class="tg">&lt;legend&gt;</span><span class="tx">Course Details</span><span class="tg">&lt;/legend&gt;</span>
+    <span class="tg">&lt;label&gt;</span><span class="tx">Course:</span><span class="tg">&lt;/label&gt;</span>
+    <span class="tg">&lt;select</span> <span class="at">name=</span><span class="vl">"course"</span><span class="tg">&gt;</span>
+      <span class="tg">&lt;option&gt;</span><span class="tx">HTML</span><span class="tg">&lt;/option&gt;</span>
+      <span class="tg">&lt;option&gt;</span><span class="tx">CSS</span><span class="tg">&lt;/option&gt;</span>
+    <span class="tg">&lt;/select&gt;</span>
+  <span class="tg">&lt;/fieldset&gt;</span>
+  <span class="tg">&lt;button</span> <span class="at">type=</span><span class="vl">"submit"</span><span class="tg">&gt;</span><span class="tx">Submit</span><span class="tg">&lt;/button&gt;</span>
+<span class="tg">&lt;/form&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- div -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📦</div>
+                <h2>The &lt;div&gt; Tag — Layout Container</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>The <code>&lt;div&gt;</code> (Division) is a generic <strong>block-level container</strong> used to
+                    group elements for styling and layout. It has no visual appearance on its own — you apply CSS to
+                    make it useful. It is one of the most widely used HTML elements.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — &lt;div&gt; Layout</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"page-wrapper"</span><span class="tg">&gt;</span>
+
+  <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"header"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;h1&gt;</span><span class="tx">My Website</span><span class="tg">&lt;/h1&gt;</span>
+  <span class="tg">&lt;/div&gt;</span>
+
+  <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"content"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"card"</span><span class="tg">&gt;</span>
+      <span class="tg">&lt;h2&gt;</span><span class="tx">Card Title</span><span class="tg">&lt;/h2&gt;</span>
+      <span class="tg">&lt;p&gt;</span><span class="tx">Card description here.</span><span class="tg">&lt;/p&gt;</span>
+    <span class="tg">&lt;/div&gt;</span>
+  <span class="tg">&lt;/div&gt;</span>
+
+  <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"footer"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;p&gt;</span><span class="tx">© 2025 My Website</span><span class="tg">&lt;/p&gt;</span>
+  <span class="tg">&lt;/div&gt;</span>
+
+<span class="tg">&lt;/div&gt;</span></code></pre>
+                </div>
+                <div class="info-box tip">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>Semantic Alternatives:</strong> Prefer
+                        <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>,
+                        <code>&lt;footer&gt;</code> over <code>&lt;div&gt;</code> wherever the meaning applies — better
+                        for accessibility and SEO.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Add 3 images: one from a local file, one from a URL, and one
+                        wrapped in a link.</li>
+                    <li><span class="task-num">2</span> Embed a YouTube video of your choice using
+                        <code>&lt;iframe&gt;</code>.
+                    </li>
+                    <li><span class="task-num">3</span> Embed a Google Map of your city using the Google Maps iframe
+                        embed code.</li>
+                    <li><span class="task-num">4</span> Create a registration form using <code>&lt;fieldset&gt;</code>
+                        to group Personal Info and Course Info sections.</li>
+                    <li><span class="task-num">5</span> Build a simple page layout using <code>&lt;div&gt;</code> for
+                        header, nav, content, and footer — each with a different background color.</li>
+                    <li><span class="task-num">6</span> Research: What is the difference between
+                        <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code>?
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day6.html" class="btn btn-secondary">← Day 6: HTML Forms</a>
+            <a href="day8.html" class="btn btn-primary">Day 8: Frames &amp; Layout →</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

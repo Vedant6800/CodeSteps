@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 6 — Forms | CodeSteps</title>
+    <meta name="description"
+        content="Learn how to collect user input in HTML — text fields, dropdowns, radio buttons, checkboxes, and form submission." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+    <style>
+        /* Demo form styles */
+        .demo-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .demo-form label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .demo-form input[type="text"],
+        .demo-form input[type="email"],
+        .demo-form select,
+        .demo-form textarea {
+            width: 100%;
+            padding: 9px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-main);
+            font-size: 0.9rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .demo-form input:focus,
+        .demo-form select:focus,
+        .demo-form textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .demo-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .demo-form .demo-submit {
+            background: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            align-self: flex-start;
+        }
+
+        .demo-form .demo-submit:hover {
+            background: var(--primary-dark);
+        }
+
+        .radio-group,
+        .check-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .radio-group label,
+        .check-group label {
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 6 — Forms</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 06 · Intermediate</div>
+                <h1 class="day-hero-title">HTML Forms</h1>
+                <p class="day-hero-subtitle">Collect user input — text fields, dropdowns, checkboxes, radio buttons, and
+                    form submission.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">📝</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>The &lt;form&gt; element — action and method attributes</li>
+                    <li>Text, Email, Password, Number input types</li>
+                    <li>Radio Buttons and Checkboxes</li>
+                    <li>Dropdown Menus (select)</li>
+                    <li>Textarea for multi-line input</li>
+                    <li>Labels, fieldsets, and legends</li>
+                    <li>Submit and Reset buttons</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Form Structure -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🏗️</div>
+                <h2>Form Structure &amp; Input Types</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>The <code>&lt;form&gt;</code> element is the container for all form controls. The <code>action</code>
+                    attribute specifies where to send the data, and <code>method</code> specifies how to send it
+                    (<code>GET</code> or <code>POST</code>).</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Form &amp; Inputs</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;form</span> <span class="at">action=</span><span class="vl">"/submit"</span> <span class="at">method=</span><span class="vl">"POST"</span><span class="tg">&gt;</span>
+
+  <span class="cm">&lt;!-- Text Input --&gt;</span>
+  <span class="tg">&lt;label</span> <span class="at">for=</span><span class="vl">"username"</span><span class="tg">&gt;</span><span class="tx">Username:</span><span class="tg">&lt;/label&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"text"</span> <span class="at">id=</span><span class="vl">"username"</span> <span class="at">name=</span><span class="vl">"username"</span>
+         <span class="at">placeholder=</span><span class="vl">"Enter your name"</span> <span class="at">required</span><span class="tg">&gt;</span>
+
+  <span class="cm">&lt;!-- Email Input --&gt;</span>
+  <span class="tg">&lt;label</span> <span class="at">for=</span><span class="vl">"email"</span><span class="tg">&gt;</span><span class="tx">Email:</span><span class="tg">&lt;/label&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"email"</span> <span class="at">id=</span><span class="vl">"email"</span> <span class="at">name=</span><span class="vl">"email"</span>
+         <span class="at">placeholder=</span><span class="vl">"you@example.com"</span><span class="tg">&gt;</span>
+
+  <span class="cm">&lt;!-- Password --&gt;</span>
+  <span class="tg">&lt;label</span> <span class="at">for=</span><span class="vl">"pass"</span><span class="tg">&gt;</span><span class="tx">Password:</span><span class="tg">&lt;/label&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"password"</span> <span class="at">id=</span><span class="vl">"pass"</span> <span class="at">name=</span><span class="vl">"password"</span><span class="tg">&gt;</span>
+
+  <span class="cm">&lt;!-- Radio Buttons --&gt;</span>
+  <span class="tg">&lt;fieldset&gt;</span>
+    <span class="tg">&lt;legend&gt;</span><span class="tx">Gender</span><span class="tg">&lt;/legend&gt;</span>
+    <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"radio"</span> <span class="at">name=</span><span class="vl">"gender"</span> <span class="at">value=</span><span class="vl">"male"</span> <span class="at">id=</span><span class="vl">"male"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;label</span> <span class="at">for=</span><span class="vl">"male"</span><span class="tg">&gt;</span><span class="tx">Male</span><span class="tg">&lt;/label&gt;</span>
+    <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"radio"</span> <span class="at">name=</span><span class="vl">"gender"</span> <span class="at">value=</span><span class="vl">"female"</span> <span class="at">id=</span><span class="vl">"female"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;label</span> <span class="at">for=</span><span class="vl">"female"</span><span class="tg">&gt;</span><span class="tx">Female</span><span class="tg">&lt;/label&gt;</span>
+  <span class="tg">&lt;/fieldset&gt;</span>
+
+  <span class="cm">&lt;!-- Dropdown --&gt;</span>
+  <span class="tg">&lt;label</span> <span class="at">for=</span><span class="vl">"course"</span><span class="tg">&gt;</span><span class="tx">Select Course:</span><span class="tg">&lt;/label&gt;</span>
+  <span class="tg">&lt;select</span> <span class="at">id=</span><span class="vl">"course"</span> <span class="at">name=</span><span class="vl">"course"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;option</span> <span class="at">value=</span><span class="vl">"html"</span><span class="tg">&gt;</span><span class="tx">HTML</span><span class="tg">&lt;/option&gt;</span>
+    <span class="tg">&lt;option</span> <span class="at">value=</span><span class="vl">"css"</span><span class="tg">&gt;</span><span class="tx">CSS</span><span class="tg">&lt;/option&gt;</span>
+    <span class="tg">&lt;option</span> <span class="at">value=</span><span class="vl">"js"</span><span class="tg">&gt;</span><span class="tx">JavaScript</span><span class="tg">&lt;/option&gt;</span>
+  <span class="tg">&lt;/select&gt;</span>
+
+  <span class="cm">&lt;!-- Textarea --&gt;</span>
+  <span class="tg">&lt;label</span> <span class="at">for=</span><span class="vl">"msg"</span><span class="tg">&gt;</span><span class="tx">Message:</span><span class="tg">&lt;/label&gt;</span>
+  <span class="tg">&lt;textarea</span> <span class="at">id=</span><span class="vl">"msg"</span> <span class="at">name=</span><span class="vl">"message"</span> <span class="at">rows=</span><span class="vl">"4"</span><span class="tg">&gt;&lt;/textarea&gt;</span>
+
+  <span class="cm">&lt;!-- Checkbox --&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"checkbox"</span> <span class="at">id=</span><span class="vl">"agree"</span> <span class="at">name=</span><span class="vl">"agree"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;label</span> <span class="at">for=</span><span class="vl">"agree"</span><span class="tg">&gt;</span><span class="tx">I agree to the terms</span><span class="tg">&lt;/label&gt;</span>
+
+  <span class="cm">&lt;!-- Buttons --&gt;</span>
+  <span class="tg">&lt;button</span> <span class="at">type=</span><span class="vl">"submit"</span><span class="tg">&gt;</span><span class="tx">Submit</span><span class="tg">&lt;/button&gt;</span>
+  <span class="tg">&lt;button</span> <span class="at">type=</span><span class="vl">"reset"</span><span class="tg">&gt;</span><span class="tx">Reset</span><span class="tg">&lt;/button&gt;</span>
+
+<span class="tg">&lt;/form&gt;</span></code></pre>
+                </div>
+
+                <!-- Live demo form -->
+                <div class="output-preview" style="font-family:var(--font-main);">
+                    <div class="output-label">🖥 Live Demo Form</div>
+                    <form class="demo-form" onsubmit="event.preventDefault(); alert('Form submitted! (Demo only)')">
+                        <div>
+                            <label for="demo-name">Username</label>
+                            <input type="text" id="demo-name" placeholder="Enter your name">
+                        </div>
+                        <div>
+                            <label for="demo-email">Email</label>
+                            <input type="email" id="demo-email" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label>Favourite Topic</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="topic" value="html"> HTML</label>
+                                <label><input type="radio" name="topic" value="css"> CSS</label>
+                                <label><input type="radio" name="topic" value="js"> JavaScript</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="demo-course">Select Course</label>
+                            <select id="demo-course">
+                                <option value="html">HTML</option>
+                                <option value="css">CSS</option>
+                                <option value="js">JavaScript</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="demo-msg">Message</label>
+                            <textarea id="demo-msg" placeholder="Type your message..."></textarea>
+                        </div>
+                        <div class="check-group">
+                            <label><input type="checkbox" id="demo-agree"> I agree to the terms</label>
+                        </div>
+                        <button type="submit" class="demo-submit">Submit Form</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Types -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">⌨️</div>
+                <h2>Common Input Types</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li><code>type="text"</code> — Single-line text input</li>
+                    <li><code>type="email"</code> — Email with built-in validation</li>
+                    <li><code>type="password"</code> — Masked password field</li>
+                    <li><code>type="number"</code> — Numeric input with arrows</li>
+                    <li><code>type="date"</code> — Date picker</li>
+                    <li><code>type="checkbox"</code> — Multi-select toggle</li>
+                    <li><code>type="radio"</code> — Single choice from a group</li>
+                    <li><code>type="file"</code> — File upload chooser</li>
+                    <li><code>type="range"</code> — Slider control</li>
+                    <li><code>type="color"</code> — Color picker</li>
+                    <li><code>type="hidden"</code> — Hidden data field</li>
+                    <li><code>type="submit"</code> / <code>type="reset"</code> — Action buttons</li>
+                </ul>
+
+                <div class="info-box warning">
+                    <span class="info-box-icon">🏠ï¸</span>
+                    <div class="info-box-text"><strong>Important:</strong> Always use a <code>&lt;label&gt;</code> for
+                        every input. The <code>for</code> attribute on the label should match the <code>id</code> on the
+                        input for accessibility.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Tasks -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Build a complete Registration Form with: name, email, password,
+                        date of birth, and gender fields.</li>
+                    <li><span class="task-num">2</span> Create a Contact Us form with a name, email, subject dropdown,
+                        and message textarea.</li>
+                    <li><span class="task-num">3</span> Build a Quiz Form using radio buttons — 3 questions, each with 4
+                        options.</li>
+                    <li><span class="task-num">4</span> Add HTML5 form validation (required, minlength, pattern) to your
+                        registration form.</li>
+                    <li><span class="task-num">5</span> Experiment with <code>type="range"</code> and
+                        <code>type="color"</code> input types.
+                    </li>
+                    <li><span class="task-num">6</span> Use a <code>&lt;fieldset&gt;</code> and
+                        <code>&lt;legend&gt;</code> to group related form fields.
+                    </li>
+                    <li><span class="task-num">7</span> Research the difference between GET and POST form methods.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day5.html" class="btn btn-secondary">← Day 5: Tables</a>
+            <a href="day7.html" class="btn btn-primary">Day 7: Images &amp; Iframes →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

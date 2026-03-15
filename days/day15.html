@@ -1,0 +1,481 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 15 — Introduction to JavaScript | CodeSteps</title>
+    <meta name="description"
+        content="Learn what JavaScript is, how to use variables, data types, arrays, and how to output information to the user." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 15 — Introduction to JavaScript</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 15 · Beginner</div>
+                <h1 class="day-hero-title">Introduction to JavaScript</h1>
+                <p class="day-hero-subtitle">Make your webpages interactive and dynamic. Learn variables, data types,
+                    operators, arrays, and basic input/output methods.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">💛</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>What is JavaScript and how does it work?</li>
+                    <li>How to add JavaScript to an HTML page</li>
+                    <li>Variables — <code>var</code>, <code>let</code>, <code>const</code></li>
+                    <li>Data Types — string, number, boolean, null, undefined</li>
+                    <li>Operators — arithmetic, comparison, logical</li>
+                    <li>Arrays — collections of values</li>
+                    <li>Output systems — <code>alert</code>, <code>console.log</code>, <code>prompt</code>,
+                        <code>document.write</code></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- What is JS -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">⚡</div>
+                <h2>What is JavaScript?</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>JavaScript (JS)</strong> is a lightweight, interpreted programming language that runs
+                    directly in the web browser. It was created in 1995 by Brendan Eich. While HTML provides structure
+                    and CSS handles styling, JavaScript is responsible for <em>behaviour</em> — making the page respond,
+                    change, and interact with the user.</p>
+
+                <h3>The Three Layers of a Webpage:</h3>
+                <ul class="topics-list">
+                    <li>🧱 <strong>HTML</strong> = Structure (the bones of the page)</li>
+                    <li>🎨 <strong>CSS</strong> = Presentation (the skin and clothes)</li>
+                    <li>⚡ <strong>JavaScript</strong> = Behaviour (the muscles and brain)</li>
+                </ul>
+
+                <h3>What can JavaScript do?</h3>
+                <ul class="topics-list">
+                    <li>Validate form input before submission</li>
+                    <li>Show/hide content without reloading the page</li>
+                    <li>Fetch live data from a server (AJAX)</li>
+                    <li>Animate elements and create interactive effects</li>
+                    <li>Build full web applications (React, Angular, Vue)</li>
+                    <li>Run server-side code with Node.js</li>
+                </ul>
+
+                <div class="info-box note">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>JavaScript is NOT Java!</strong> Despite similar names, they are
+                        completely different languages. Java is a compiled, strongly-typed language used for
+                        desktop/Android apps. JavaScript is an interpreted scripting language built for the web.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Adding JS to HTML -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📎</div>
+                <h2>How to Add JavaScript to HTML</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>There are three ways to include JavaScript in an HTML document.</p>
+
+                <h3>1. Inline JavaScript</h3>
+                <p>Written directly inside an HTML event attribute. Not recommended for large code.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Inline JS</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="tg">&lt;button</span> <span class="at">onclick=</span><span class="vl">"alert('Hello!')"</span><span class="tg">&gt;</span><span class="tx">Click Me</span><span class="tg">&lt;/button&gt;</span></code></pre>
+                </div>
+
+                <h3>2. Internal JavaScript (using &lt;script&gt; tag)</h3>
+                <p>A <code>&lt;script&gt;</code> block placed inside the HTML file, typically just before the closing
+                    <code>&lt;/body&gt;</code> tag.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Internal Script</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;body&gt;</span>
+  <span class="tg">&lt;h1&gt;</span><span class="tx">My Page</span><span class="tg">&lt;/h1&gt;</span>
+
+  <span class="cm">&lt;!-- JS placed just before closing body tag --&gt;</span>
+  <span class="tg">&lt;script&gt;</span>
+    <span class="at">alert</span>(<span class="vl">"Welcome!"</span>);
+  <span class="tg">&lt;/script&gt;</span>
+<span class="tg">&lt;/body&gt;</span></code></pre>
+                </div>
+
+                <h3>3. External JavaScript (recommended)</h3>
+                <p>JavaScript code in a separate <code>.js</code> file, linked using the <code>src</code> attribute.
+                    Best for maintainability and reusability.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — External Script</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="tg">&lt;script</span> <span class="at">src=</span><span class="vl">"script.js"</span><span class="tg">&gt;&lt;/script&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variables -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📦</div>
+                <h2>Variables — Storing Data</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>A <strong>variable</strong> is a named container used to store a piece of data. JavaScript has three
+                    keywords to declare variables:</p>
+
+                <ul class="topics-list">
+                    <li><code>var</code> — Old way (function-scoped, can be re-declared). Avoid using it.</li>
+                    <li><code>let</code> — Modern way (block-scoped, can be reassigned). Use for values that change.
+                    </li>
+                    <li><code>const</code> — Modern way (block-scoped, cannot be reassigned). Use for values that stay
+                        fixed.</li>
+                </ul>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Variables</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">// Using let — value can change later</span>
+<span class="kw">let</span> <span class="at">name</span> = <span class="vl">"John"</span>;
+<span class="at">name</span> = <span class="vl">"Jane"</span>; <span class="cm">// This is allowed</span>
+
+<span class="cm">// Using const — value is fixed</span>
+<span class="kw">const</span> <span class="at">PI</span> = <span class="vl">3.14159</span>;
+<span class="cm">// PI = 3; // This would cause an ERROR!</span>
+
+<span class="cm">// Variables can store many types of data</span>
+<span class="kw">let</span> <span class="at">age</span> = <span class="vl">25</span>;              <span class="cm">// Number</span>
+<span class="kw">let</span> <span class="at">studentName</span> = <span class="vl">"Rahul"</span>;  <span class="cm">// String</span>
+<span class="kw">let</span> <span class="at">isEnrolled</span> = <span class="vl">true</span>;     <span class="cm">// Boolean</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Types -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔣</div>
+                <h2>Data Types</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>JavaScript is a <strong>dynamically typed</strong> language — you don't need to specify what type of
+                    data a variable holds.</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Data Types</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">// 1. String — text in quotes</span>
+<span class="kw">let</span> <span class="at">msg</span> = <span class="vl">"Hello, World!"</span>;
+
+<span class="cm">// 2. Number — integers and decimals</span>
+<span class="kw">let</span> <span class="at">score</span> = <span class="vl">95</span>;
+<span class="kw">let</span> <span class="at">price</span> = <span class="vl">19.99</span>;
+
+<span class="cm">// 3. Boolean — true or false only</span>
+<span class="kw">let</span> <span class="at">isLoggedIn</span> = <span class="vl">false</span>;
+
+<span class="cm">// 4. Null — intentionally empty</span>
+<span class="kw">let</span> <span class="at">data</span> = <span class="vl">null</span>;
+
+<span class="cm">// 5. Undefined — declared but no value assigned</span>
+<span class="kw">let</span> <span class="at">result</span>;  <span class="cm">// type is "undefined"</span>
+
+<span class="cm">// Check the data type using typeof</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="kw">typeof</span> <span class="at">msg</span>);       <span class="cm">// "string"</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="kw">typeof</span> <span class="at">score</span>);     <span class="cm">// "number"</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="kw">typeof</span> <span class="at">isLoggedIn</span>); <span class="cm">// "boolean"</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Operators -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">➕</div>
+                <h2>Operators</h2>
+            </div>
+            <div class="notes-card-body">
+                <h3>Arithmetic Operators</h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Arithmetic Operators</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="kw">let</span> <span class="at">a</span> = <span class="vl">10</span>, <span class="at">b</span> = <span class="vl">3</span>;
+
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">a</span> + <span class="at">b</span>);  <span class="cm">// 13 — Addition</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">a</span> - <span class="at">b</span>);  <span class="cm">// 7  — Subtraction</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">a</span> * <span class="at">b</span>);  <span class="cm">// 30 — Multiplication</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">a</span> / <span class="at">b</span>);  <span class="cm">// 3.33 — Division</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">a</span> % <span class="at">b</span>);  <span class="cm">// 1 — Modulus (remainder)</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">a</span> ** <span class="at">b</span>); <span class="cm">// 1000 — Exponentiation (10³)</span></code></pre>
+                </div>
+
+                <h3>Comparison Operators</h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Comparison Operators</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="kw">console</span>.<span class="at">log</span>(<span class="vl">5</span> == <span class="vl">"5"</span>);  <span class="cm">// true  — equal value (loose)</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="vl">5</span> === <span class="vl">"5"</span>); <span class="cm">// false — equal value AND type (strict)</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="vl">10</span> !== <span class="vl">5</span>); <span class="cm">// true  — not equal</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="vl">10</span> &gt; <span class="vl">5</span>);   <span class="cm">// true  — greater than</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="vl">10</span> &lt; <span class="vl">5</span>);   <span class="cm">// false — less than</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="vl">10</span> &gt;= <span class="vl">10</span>); <span class="cm">// true  — greater than or equal</span></code></pre>
+                </div>
+
+                <div class="info-box tip">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>Always use <code>===</code> instead of <code>==</code></strong>
+                        in your code. The triple equals checks both value AND type, preventing many common bugs. For
+                        example, <code>0 == false</code> is <code>true</code> but <code>0 === false</code> is
+                        <code>false</code>.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Arrays -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🗂️</div>
+                <h2>Arrays</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>An <strong>array</strong> is a special variable that can hold more than one value at a time. It
+                    stores an ordered list of items inside square brackets <code>[ ]</code>. Array indexing starts at
+                    <strong>0</strong>, not 1.</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Arrays</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">// Declaring an array</span>
+<span class="kw">let</span> <span class="at">fruits</span> = [<span class="vl">"Apple"</span>, <span class="vl">"Banana"</span>, <span class="vl">"Mango"</span>];
+
+<span class="cm">// Accessing items by index (starts at 0)</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">fruits</span>[<span class="vl">0</span>]); <span class="cm">// "Apple"</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">fruits</span>[<span class="vl">2</span>]); <span class="cm">// "Mango"</span>
+
+<span class="cm">// Finding the number of items</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">fruits</span>.<span class="at">length</span>); <span class="cm">// 3</span>
+
+<span class="cm">// Adding an item to the end</span>
+<span class="at">fruits</span>.<span class="at">push</span>(<span class="vl">"Orange"</span>);
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">fruits</span>); <span class="cm">// ["Apple", "Banana", "Mango", "Orange"]</span>
+
+<span class="cm">// Removing the last item</span>
+<span class="at">fruits</span>.<span class="at">pop</span>();
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">fruits</span>); <span class="cm">// ["Apple", "Banana", "Mango"]</span>
+
+<span class="cm">// Arrays can hold mixed data types</span>
+<span class="kw">let</span> <span class="at">mixed</span> = [<span class="vl">"Rahul"</span>, <span class="vl">21</span>, <span class="vl">true</span>, <span class="vl">null</span>];</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Output Systems -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🖥️</div>
+                <h2>Output Systems</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>JavaScript provides multiple ways to display output or communicate with the user.</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — All Output Methods</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">// 1. alert() — Shows a popup message box to the user</span>
+<span class="at">alert</span>(<span class="vl">"Hello! Welcome to JavaScript."</span>);
+
+<span class="cm">// 2. console.log() — Prints to the developer console (F12)</span>
+<span class="kw">let</span> <span class="at">score</span> = <span class="vl">95</span>;
+<span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Your score is:"</span>, <span class="at">score</span>); <span class="cm">// Your score is: 95</span>
+
+<span class="cm">// 3. prompt() — Gets text input from the user via a popup</span>
+<span class="kw">let</span> <span class="at">userName</span> = <span class="at">prompt</span>(<span class="vl">"What is your name?"</span>);
+<span class="at">alert</span>(<span class="vl">"Nice to meet you, "</span> + <span class="at">userName</span> + <span class="vl">"!"</span>);
+
+<span class="cm">// 4. document.write() — Writes text directly into the HTML page</span>
+<span class="kw">document</span>.<span class="at">write</span>(<span class="vl">"&lt;h2&gt;Page generated by JavaScript!&lt;/h2&gt;"</span>);
+
+<span class="cm">// 5. innerHTML — Updates the content of an existing HTML element</span>
+<span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"output"</span>).<span class="at">innerHTML</span> = <span class="vl">"Hello from JS!"</span>;</code></pre>
+                </div>
+
+                <h3>Quick Comparison Table:</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:var(--primary);color:#fff;">
+                                <th style="padding:10px 14px;text-align:left;">Method</th>
+                                <th style="padding:10px 14px;text-align:left;">Use Case</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>alert()</code></td>
+                                <td style="padding:9px 14px;">Show a simple popup message to the user</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>console.log()</code></td>
+                                <td style="padding:9px 14px;">Debugging — visible only in browser DevTools (F12)</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>prompt()</code></td>
+                                <td style="padding:9px 14px;">Collect a short text input from the user</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>document.write()</code></td>
+                                <td style="padding:9px 14px;">Write content to the page (mostly for testing)</td>
+                            </tr>
+                            <tr style="background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>innerHTML</code></td>
+                                <td style="padding:9px 14px;">Update content inside a specific HTML element</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Practical — Simple JavaScript Examples</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Create an HTML file with a <code>&lt;script&gt;</code> block just before <code>&lt;/body&gt;</code>.
+                    Complete each task:</p>
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Declare variables for your name, age, and whether you are a
+                        student (boolean). Log all three to the console using <code>console.log</code>.</li>
+                    <li><span class="task-num">2</span> Create an array of 5 subjects you study. Print the first and
+                        last elements using array indexing.</li>
+                    <li><span class="task-num">3</span> Use <code>alert()</code> to greet the user when the page loads.
+                    </li>
+                    <li><span class="task-num">4</span> Use <code>prompt()</code> to ask the user for their age, then
+                        use <code>alert()</code> to display it back to them.</li>
+                    <li><span class="task-num">5</span> Add items to your subject array using <code>.push()</code> and
+                        print the updated array and its <code>.length</code>.</li>
+                    <li><span class="task-num">6</span> Research: What is <code>NaN</code> in JavaScript? What makes it
+                        appear?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day14.html" class="btn btn-secondary">← Day 14: Bootstrap</a>
+            <a href="day16.html" class="btn btn-primary">Day 16: Functions &amp; Events →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

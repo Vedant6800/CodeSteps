@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 — Tables | CodeSteps</title>
+    <meta name="description"
+        content="Learn how to create data tables in HTML — rows, columns, headers, captions, and colspan/rowspan." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+    <style>
+        /* Demo table styles */
+        .demo-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            font-family: var(--font-main);
+        }
+
+        .demo-table th {
+            background: var(--primary);
+            color: white;
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        .demo-table td {
+            padding: 9px 14px;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .demo-table tr:nth-child(even) td {
+            background: var(--surface-alt);
+        }
+
+        .demo-table caption {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+    </style>
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 5 — Tables</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 05 · Intermediate</div>
+                <h1 class="day-hero-title">HTML Tables</h1>
+                <p class="day-hero-subtitle">Structure data with rows, columns, headers, and cell merging in HTML.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">📊</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>Basic table structure (table, tr, td, th)</li>
+                    <li>Table headers and captions</li>
+                    <li>Table sections: thead, tbody, tfoot</li>
+                    <li>Merging cells with colspan and rowspan</li>
+                    <li>Styling tables with CSS</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Basic Table -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🗃️</div>
+                <h2>Creating a Basic Table</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>HTML tables are used to display data in a grid of rows and columns. The key elements are:</p>
+                <ul class="topics-list">
+                    <li><code>&lt;table&gt;</code> — The container for the entire table</li>
+                    <li><code>&lt;tr&gt;</code> — Table Row</li>
+                    <li><code>&lt;th&gt;</code> — Table Header cell (bold, centered by default)</li>
+                    <li><code>&lt;td&gt;</code> — Table Data cell (regular data)</li>
+                    <li><code>&lt;caption&gt;</code> — A title for the table</li>
+                </ul>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Basic Table</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;table&gt;</span>
+  <span class="tg">&lt;caption&gt;</span><span class="tx">Student Grade Report</span><span class="tg">&lt;/caption&gt;</span>
+  <span class="tg">&lt;thead&gt;</span>
+    <span class="tg">&lt;tr&gt;</span>
+      <span class="tg">&lt;th&gt;</span><span class="tx">Name</span><span class="tg">&lt;/th&gt;</span>
+      <span class="tg">&lt;th&gt;</span><span class="tx">Subject</span><span class="tg">&lt;/th&gt;</span>
+      <span class="tg">&lt;th&gt;</span><span class="tx">Grade</span><span class="tg">&lt;/th&gt;</span>
+    <span class="tg">&lt;/tr&gt;</span>
+  <span class="tg">&lt;/thead&gt;</span>
+  <span class="tg">&lt;tbody&gt;</span>
+    <span class="tg">&lt;tr&gt;</span>
+      <span class="tg">&lt;td&gt;</span><span class="tx">Alice</span><span class="tg">&lt;/td&gt;</span>
+      <span class="tg">&lt;td&gt;</span><span class="tx">HTML</span><span class="tg">&lt;/td&gt;</span>
+      <span class="tg">&lt;td&gt;</span><span class="tx">A+</span><span class="tg">&lt;/td&gt;</span>
+    <span class="tg">&lt;/tr&gt;</span>
+    <span class="tg">&lt;tr&gt;</span>
+      <span class="tg">&lt;td&gt;</span><span class="tx">Bob</span><span class="tg">&lt;/td&gt;</span>
+      <span class="tg">&lt;td&gt;</span><span class="tx">CSS</span><span class="tg">&lt;/td&gt;</span>
+      <span class="tg">&lt;td&gt;</span><span class="tx">B</span><span class="tg">&lt;/td&gt;</span>
+    <span class="tg">&lt;/tr&gt;</span>
+  <span class="tg">&lt;/tbody&gt;</span>
+  <span class="tg">&lt;tfoot&gt;</span>
+    <span class="tg">&lt;tr&gt;</span>
+      <span class="tg">&lt;td</span> <span class="at">colspan=</span><span class="vl">"2"</span><span class="tg">&gt;</span><span class="tx">Average</span><span class="tg">&lt;/td&gt;</span>
+      <span class="tg">&lt;td&gt;</span><span class="tx">A</span><span class="tg">&lt;/td&gt;</span>
+    <span class="tg">&lt;/tr&gt;</span>
+  <span class="tg">&lt;/tfoot&gt;</span>
+<span class="tg">&lt;/table&gt;</span></code></pre>
+                </div>
+
+                <div class="output-preview" style="overflow-x:auto;">
+                    <div class="output-label">🖥 Browser Output</div>
+                    <table class="demo-table" style="margin-top:8px;">
+                        <caption>Student Grade Report</caption>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Subject</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alice</td>
+                                <td>HTML</td>
+                                <td>A+</td>
+                            </tr>
+                            <tr>
+                                <td>Bob</td>
+                                <td>CSS</td>
+                                <td>B</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2">Average</td>
+                                <td>A</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Colspan / Rowspan -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔀</div>
+                <h2>Merging Cells — colspan and rowspan</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Use <code>colspan</code> to merge cells <em>horizontally</em> (across columns) and
+                    <code>rowspan</code> to merge cells <em>vertically</em> (across rows).
+                </p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — colspan &amp; rowspan</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;table&gt;</span>
+  <span class="tg">&lt;tr&gt;</span>
+    <span class="cm">&lt;!-- This header spans 3 columns --&gt;</span>
+    <span class="tg">&lt;th</span> <span class="at">colspan=</span><span class="vl">"3"</span><span class="tg">&gt;</span><span class="tx">Full Schedule</span><span class="tg">&lt;/th&gt;</span>
+  <span class="tg">&lt;/tr&gt;</span>
+  <span class="tg">&lt;tr&gt;</span>
+    <span class="cm">&lt;!-- This cell spans 2 rows --&gt;</span>
+    <span class="tg">&lt;td</span> <span class="at">rowspan=</span><span class="vl">"2"</span><span class="tg">&gt;</span><span class="tx">Monday</span><span class="tg">&lt;/td&gt;</span>
+    <span class="tg">&lt;td&gt;</span><span class="tx">9:00 AM</span><span class="tg">&lt;/td&gt;</span>
+    <span class="tg">&lt;td&gt;</span><span class="tx">HTML Class</span><span class="tg">&lt;/td&gt;</span>
+  <span class="tg">&lt;/tr&gt;</span>
+  <span class="tg">&lt;tr&gt;</span>
+    <span class="tg">&lt;td&gt;</span><span class="tx">2:00 PM</span><span class="tg">&lt;/td&gt;</span>
+    <span class="tg">&lt;td&gt;</span><span class="tx">CSS Lab</span><span class="tg">&lt;/td&gt;</span>
+  <span class="tg">&lt;/tr&gt;</span>
+<span class="tg">&lt;/table&gt;</span></code></pre>
+                </div>
+
+                <div class="info-box tip">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>Note:</strong> Tables should be used for <em>tabular data</em>,
+                        not for page layout. CSS Grid and Flexbox are the modern tools for page layout.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Tasks -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a class timetable table with days of the week as columns
+                        and time slots as rows.</li>
+                    <li><span class="task-num">2</span> Build a product comparison table with at least 4 products and 5
+                        features.</li>
+                    <li><span class="task-num">3</span> Practice using colspan to create a "merged header" row.</li>
+                    <li><span class="task-num">4</span> Add a caption and use thead, tbody, tfoot sections in your
+                        table.</li>
+                    <li><span class="task-num">5</span> Style your table using CSS to add borders, alternating row
+                        colors, and hover effects.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day4.html" class="btn btn-secondary">← Day 4: Lists &amp; Links</a>
+            <a href="day6.html" class="btn btn-primary">Day 6: Forms →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

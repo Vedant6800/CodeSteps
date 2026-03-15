@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 — Text Formatting | CodeSteps</title>
+    <meta name="description"
+        content="Master HTML text formatting — headings, paragraphs, bold, italic, underline, and semantic text elements." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 3 — Text Formatting</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 03 · Beginner</div>
+                <h1 class="day-hero-title">Text Formatting in HTML</h1>
+                <p class="day-hero-subtitle">Headings, paragraphs, bold, italic, underline and semantic text elements.
+                </p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">✏️</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>HTML Headings — h1 through h6</li>
+                    <li>Paragraphs and line breaks</li>
+                    <li>Bold, Italic, Underline formatting</li>
+                    <li>Semantic text elements (strong, em)</li>
+                    <li>Superscript, Subscript, and Strikethrough</li>
+                    <li>Quotations and Preformatted text</li>
+                    <li>Horizontal Rules and Special Characters</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Headings -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔠</div>
+                <h2>HTML Headings</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>HTML provides six levels of headings, from <code>&lt;h1&gt;</code> (most important) to
+                    <code>&lt;h6&gt;</code> (least important). Use headings to create a clear content hierarchy on your
+                    page.
+                </p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Headings</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="tg">&lt;h1&gt;</span><span class="tx">Heading 1 — Main Title</span><span class="tg">&lt;/h1&gt;</span>
+<span class="tg">&lt;h2&gt;</span><span class="tx">Heading 2 — Section Title</span><span class="tg">&lt;/h2&gt;</span>
+<span class="tg">&lt;h3&gt;</span><span class="tx">Heading 3 — Sub-Section</span><span class="tg">&lt;/h3&gt;</span>
+<span class="tg">&lt;h4&gt;</span><span class="tx">Heading 4 — Minor Section</span><span class="tg">&lt;/h4&gt;</span>
+<span class="tg">&lt;h5&gt;</span><span class="tx">Heading 5 — Small Note</span><span class="tg">&lt;/h5&gt;</span>
+<span class="tg">&lt;h6&gt;</span><span class="tx">Heading 6 — Smallest</span><span class="tg">&lt;/h6&gt;</span></code></pre>
+                </div>
+
+                <div class="output-preview">
+                    <div class="output-label">🖥 Browser Output</div>
+                    <h1 style="margin:4px 0;font-size:2em;">Heading 1 — Main Title</h1>
+                    <h2 style="margin:4px 0;font-size:1.5em;">Heading 2 — Section Title</h2>
+                    <h3 style="margin:4px 0;font-size:1.2em;">Heading 3 — Sub-Section</h3>
+                    <h4 style="margin:4px 0;font-size:1em;">Heading 4 — Minor Section</h4>
+                    <h5 style="margin:4px 0;font-size:0.85em;">Heading 5 — Small Note</h5>
+                    <h6 style="margin:4px 0;font-size:0.75em;">Heading 6 — Smallest</h6>
+                </div>
+
+                <div class="info-box tip">
+                    <span class="info-box-icon">✅</span>
+                    <div class="info-box-text"><strong>Best Practice:</strong> Each page should have only <em>one</em>
+                        <code>&lt;h1&gt;</code> tag — it represents the main topic of the page. Use h2-h6 for
+                        subsections.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formatting Tags -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">✨</div>
+                <h2>Text Formatting Tags</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>HTML has many tags for formatting text. Some are <em>visual</em> (how text looks) and some are
+                    <em>semantic</em> (what the text means).
+                </p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Text Formatting</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="tg">&lt;p&gt;</span><span class="tx">This is a regular paragraph.</span><span class="tg">&lt;/p&gt;</span>
+
+<span class="cm">&lt;!-- Bold and Strong --&gt;</span>
+<span class="tg">&lt;b&gt;</span><span class="tx">Bold text (visual only)</span><span class="tg">&lt;/b&gt;</span>
+<span class="tg">&lt;strong&gt;</span><span class="tx">Important text (semantic bold)</span><span class="tg">&lt;/strong&gt;</span>
+
+<span class="cm">&lt;!-- Italic and Emphasis --&gt;</span>
+<span class="tg">&lt;i&gt;</span><span class="tx">Italic text (visual only)</span><span class="tg">&lt;/i&gt;</span>
+<span class="tg">&lt;em&gt;</span><span class="tx">Emphasized text (semantic italic)</span><span class="tg">&lt;/em&gt;</span>
+
+<span class="cm">&lt;!-- Underline and Strikethrough --&gt;</span>
+<span class="tg">&lt;u&gt;</span><span class="tx">Underlined text</span><span class="tg">&lt;/u&gt;</span>
+<span class="tg">&lt;s&gt;</span><span class="tx">Strikethrough text</span><span class="tg">&lt;/s&gt;</span>
+
+<span class="cm">&lt;!-- Superscript &amp; Subscript --&gt;</span>
+<span class="tx">E = mc</span><span class="tg">&lt;sup&gt;</span><span class="tx">2</span><span class="tg">&lt;/sup&gt;</span>
+<span class="tx">H</span><span class="tg">&lt;sub&gt;</span><span class="tx">2</span><span class="tg">&lt;/sub&gt;</span><span class="tx">O</span>
+
+<span class="cm">&lt;!-- Line break and horizontal rule --&gt;</span>
+<span class="tx">Line one</span><span class="tg">&lt;br&gt;</span><span class="tx">Line two (on a new line)</span>
+<span class="tg">&lt;hr&gt;</span> <span class="cm">&lt;!-- horizontal divider line --&gt;</span>
+
+<span class="cm">&lt;!-- Inline code --&gt;</span>
+<span class="tx">Use the </span><span class="tg">&lt;code&gt;</span><span class="kw">console.log()</span><span class="tg">&lt;/code&gt;</span><span class="tx"> function.</span></code></pre>
+                </div>
+
+                <div class="output-preview">
+                    <div class="output-label">🖥 Browser Output</div>
+                    <p style="margin:4px 0;"><b>Bold text</b> · <strong>Important text</strong> · <i>Italic text</i>
+                        ·
+                        <em>Emphasized</em>
+                    </p>
+                    <p style="margin:4px 0;"><u>Underlined</u> · <s>Strikethrough</s> · E = mc<sup>2</sup> ·
+                        H<sub>2</sub>O</p>
+                    <p style="margin:4px 0;">Use the <code
+                            style="background:#f1f5f9;padding:1px 5px;border-radius:3px;font-family:monospace;">console.log()</code>
+                        function.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blockquote & Pre -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💬</div>
+                <h2>Quotations and Preformatted Text</h2>
+            </div>
+            <div class="notes-card-body">
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Quotes &amp; Pre</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">&lt;!-- Block quotation --&gt;</span>
+<span class="tg">&lt;blockquote</span> <span class="at">cite=</span><span class="vl">"source-url"</span><span class="tg">&gt;</span>
+  <span class="tx">The only way to do great work is to love what you do.</span>
+<span class="tg">&lt;/blockquote&gt;</span>
+
+<span class="cm">&lt;!-- Inline quotation --&gt;</span>
+<span class="tg">&lt;p&gt;</span><span class="tx">He said </span><span class="tg">&lt;q&gt;</span><span class="tx">Hello, World!</span><span class="tg">&lt;/q&gt;</span><span class="tx"> to everyone.</span><span class="tg">&lt;/p&gt;</span>
+
+<span class="cm">&lt;!-- Preformatted text preserves spaces &amp; line breaks --&gt;</span>
+<span class="tg">&lt;pre&gt;</span>
+<span class="tx">  Name:  CodeSteps
+  Type:  Learning Portal
+  Level: Beginner</span>
+<span class="tg">&lt;/pre&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Tasks -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a page with all 6 heading levels and observe how they
+                        look in the browser.</li>
+                    <li><span class="task-num">2</span> Write a paragraph about your favourite hobby using at least 3
+                        formatting tags (bold, italic, underline).</li>
+                    <li><span class="task-num">3</span> Add a blockquote with your favourite quote and credit the
+                        author.</li>
+                    <li><span class="task-num">4</span> Write a chemical formula using subscript: CO<sub>2</sub>,
+                        H<sub>2</sub>SO<sub>4</sub>.</li>
+                    <li><span class="task-num">5</span> Research: What's the difference between &lt;b&gt; and
+                        &lt;strong&gt;? Why does it matter?</li>
+                    <li><span class="task-num">6</span> Try &lt;abbr&gt;, &lt;mark&gt;, and &lt;kbd&gt; tags — what do
+                        they look like?</li>
+                    <li><span class="task-num">7</span> Build a small "profile card" in HTML using text formatting tags.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day2.html" class="btn btn-secondary">← Day 2: HTML Basics</a>
+            <a href="day4.html" class="btn btn-primary">Day 4: Lists &amp; Links →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One
+            Step at a Time</p>
+    </footer>
+
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

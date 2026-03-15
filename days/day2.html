@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 2 — HTML Basics | CodeSteps</title>
+    <meta name="description"
+        content="Learn the fundamentals of HTML — structure, elements, tags, attributes, and creating your first webpage." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 2 — HTML Basics</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 02 · Beginner</div>
+                <h1 class="day-hero-title">HTML Basics</h1>
+                <p class="day-hero-subtitle">The building block of every webpage — elements, tags, attributes, and
+                    structure.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">📄</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>What is HTML and why we use it</li>
+                    <li>HTML Document Structure (DOCTYPE, html, head, body)</li>
+                    <li>HTML Elements and Tags</li>
+                    <li>HTML Attributes</li>
+                    <li>Creating your first HTML page</li>
+                    <li>Semantic vs. Non-semantic Elements</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- What is HTML -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🧱</div>
+                <h2>What is HTML?</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>HTML</strong> stands for <em>HyperText Markup Language</em>. It is the standard language used
+                    to create and structure content on the web. HTML is not a programming language — it's a
+                    <strong>markup language</strong>, which means it uses special tags to describe the structure of a
+                    webpage.
+                </p>
+                <p>Every webpage you visit is built using HTML as its foundation. CSS styles it, and JavaScript makes it
+                    interactive — but HTML provides the skeleton.</p>
+
+                <div class="info-box note">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>Remember:</strong> HTML = Structure, CSS = Style, JavaScript =
+                        Behaviour. These three work together to create every modern website.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HTML Structure -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🏗️</div>
+                <h2>HTML Document Structure</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Every HTML file follows a standard structure. Let's look at a complete, minimal HTML page:</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">&lt;!-- Every HTML page starts with this DOCTYPE declaration --&gt;</span>
+<span class="tg">&lt;!DOCTYPE</span> <span class="at">html</span><span class="tg">&gt;</span>
+
+<span class="tg">&lt;html</span> <span class="at">lang=</span><span class="vl">"en"</span><span class="tg">&gt;</span>
+
+  <span class="tg">&lt;head&gt;</span>
+    <span class="cm">&lt;!-- Meta information — not visible on screen --&gt;</span>
+    <span class="tg">&lt;meta</span> <span class="at">charset=</span><span class="vl">"UTF-8"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;meta</span> <span class="at">name=</span><span class="vl">"viewport"</span> <span class="at">content=</span><span class="vl">"width=device-width, initial-scale=1.0"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;title&gt;</span><span class="tx">My First Page</span><span class="tg">&lt;/title&gt;</span>
+  <span class="tg">&lt;/head&gt;</span>
+
+  <span class="tg">&lt;body&gt;</span>
+    <span class="cm">&lt;!-- Visible content goes here --&gt;</span>
+    <span class="tg">&lt;h1&gt;</span><span class="tx">Hello, World!</span><span class="tg">&lt;/h1&gt;</span>
+    <span class="tg">&lt;p&gt;</span><span class="tx">This is my first webpage.</span><span class="tg">&lt;/p&gt;</span>
+  <span class="tg">&lt;/body&gt;</span>
+
+<span class="tg">&lt;/html&gt;</span></code></pre>
+                </div>
+
+                <div class="output-preview">
+                    <div class="output-label">🖥 Browser Output</div>
+                    <h1 style="margin:0 0 8px;font-size:2em;">Hello, World!</h1>
+                    <p style="margin:0;">This is my first webpage.</p>
+                </div>
+
+                <h3>Understanding Each Part</h3>
+                <ul class="topics-list">
+                    <li><strong>&lt;!DOCTYPE html&gt;</strong> — Tells the browser this is an HTML5 document</li>
+                    <li><strong>&lt;html&gt;</strong> — The root element that wraps all content</li>
+                    <li><strong>&lt;head&gt;</strong> — Contains meta info, title, links to CSS (not visible)</li>
+                    <li><strong>&lt;title&gt;</strong> — The text shown on the browser tab</li>
+                    <li><strong>&lt;body&gt;</strong> — All visible content goes inside here</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Attributes -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🏷️</div>
+                <h2>HTML Attributes</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Attributes provide additional information about HTML elements. They are always placed inside the
+                    opening tag and follow the pattern <code>name="value"</code>.</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Attributes</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">&lt;!-- src and alt are attributes of &lt;img&gt; --&gt;</span>
+<span class="tg">&lt;img</span> <span class="at">src=</span><span class="vl">"photo.jpg"</span> <span class="at">alt=</span><span class="vl">"A beautiful photo"</span> <span class="at">width=</span><span class="vl">"300"</span><span class="tg">&gt;</span>
+
+<span class="cm">&lt;!-- href is the attribute that defines the link URL --&gt;</span>
+<span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"https://www.google.com"</span> <span class="at">target=</span><span class="vl">"_blank"</span><span class="tg">&gt;</span>
+  <span class="tx">Visit Google</span>
+<span class="tg">&lt;/a&gt;</span>
+
+<span class="cm">&lt;!-- class and id are used for CSS and JavaScript --&gt;</span>
+<span class="tg">&lt;p</span> <span class="at">class=</span><span class="vl">"intro"</span> <span class="at">id=</span><span class="vl">"first-para"</span><span class="tg">&gt;</span>
+  <span class="tx">Hello from CodeSteps!</span>
+<span class="tg">&lt;/p&gt;</span></code></pre>
+                </div>
+
+                <div class="info-box warning">
+                    <span class="info-box-icon">🏠ï¸</span>
+                    <div class="info-box-text"><strong>Important:</strong> Always include the <code>alt</code> attribute
+                        on images. It helps screen readers and is displayed if the image fails to load.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Tasks -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a file called <code>index.html</code> and write a
+                        complete HTML structure from memory.</li>
+                    <li><span class="task-num">2</span> Add a heading, a paragraph, and change the page title to your
+                        name.</li>
+                    <li><span class="task-num">3</span> Add an image using the <code>&lt;img&gt;</code> tag with src and
+                        alt attributes.</li>
+                    <li><span class="task-num">4</span> View your HTML file in a browser and inspect the elements using
+                        F12 DevTools.</li>
+                    <li><span class="task-num">5</span> Research the difference between block-level and inline elements
+                        in HTML.</li>
+                    <li><span class="task-num">6</span> List 5 semantic HTML5 elements (e.g. &lt;header&gt;,
+                        &lt;footer&gt;) and what each does.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day1.html" class="btn btn-secondary">← Day 1: WWW</a>
+            <a href="day3.html" class="btn btn-primary">Day 3: Text Formatting →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One
+            Step at a Time</p>
+    </footer>
+
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

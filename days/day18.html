@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 18 — Form Validation | CodeSteps</title>
+    <meta name="description"
+        content="Learn HTML5 form validation attributes, JavaScript validation, Regular Expressions, and best practices for securing user input." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 18 — Form Validation</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 18 · Intermediate</div>
+                <h1 class="day-hero-title">Form Validation</h1>
+                <p class="day-hero-subtitle">Ensure clean, safe user input using HTML5 validation attributes, JavaScript
+                    validators, and Regular Expressions.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">✅</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>Why Form Validation Matters</li>
+                    <li>HTML5 Validation Attributes — <code>required</code>, <code>minlength</code>,
+                        <code>maxlength</code>, <code>type</code>, <code>pattern</code>
+                    </li>
+                    <li>Client-Side vs Server-Side Validation</li>
+                    <li>JavaScript Manual Validation</li>
+                    <li>Real-time validation with <code>onkeyup</code></li>
+                    <li>Regular Expressions (Regex) — syntax and usage</li>
+                    <li>Common Regex Patterns</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Why Validate -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🛡️</div>
+                <h2>Why Form Validation Matters</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Forms are the primary way users send information to a website. Without validation, bad or malicious
+                    data can break your application or create serious security risks.</p>
+                <ul class="topics-list">
+                    <li><strong>Data Integrity:</strong> Ensure all required fields are filled correctly before
+                        processing.</li>
+                    <li><strong>User Experience:</strong> Provide instant, helpful feedback instead of a server error
+                        page.</li>
+                    <li><strong>Security:</strong> Prevent common attacks like SQL Injection and Cross-Site Scripting
+                        (XSS) by sanitizing input.</li>
+                    <li><strong>Reduced Server Load:</strong> Catch errors on the client before wasting a round-trip to
+                        the server.</li>
+                </ul>
+                <div class="info-box warning">
+                    <span class="info-box-icon">⚠️</span>
+                    <div class="info-box-text"><strong>Never trust client-side validation alone!</strong> A tech-savvy
+                        user can bypass HTML and JavaScript validation using browser DevTools. Always validate again on
+                        the server. Client-side validation is for UX; server-side validation is for security.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HTML5 Validation -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📝</div>
+                <h2>HTML5 Built-in Validation Attributes</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>HTML5 introduced validation attributes that work directly on <code>&lt;input&gt;</code> elements
+                    without any JavaScript. The browser automatically checks these rules when a form is submitted.</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Validation Attributes</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;form&gt;</span>
+
+  <span class="cm">&lt;!-- required: field must not be empty --&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"text"</span> <span class="at">required</span> <span class="at">placeholder=</span><span class="vl">"Full Name"</span><span class="tg">&gt;</span>
+
+  <span class="cm">&lt;!-- minlength / maxlength: character count limits --&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"text"</span> <span class="at">minlength=</span><span class="vl">"3"</span> <span class="at">maxlength=</span><span class="vl">"20"</span> <span class="at">placeholder=</span><span class="vl">"Username (3-20 chars)"</span><span class="tg">&gt;</span>
+
+  <span class="cm">&lt;!-- type=email: enforces valid email format --&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"email"</span> <span class="at">required</span> <span class="at">placeholder=</span><span class="vl">"Email Address"</span><span class="tg">&gt;</span>
+
+  <span class="cm">&lt;!-- type=number with min/max range --&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"number"</span> <span class="at">min=</span><span class="vl">"18"</span> <span class="at">max=</span><span class="vl">"100"</span> <span class="at">placeholder=</span><span class="vl">"Age (18-100)"</span><span class="tg">&gt;</span>
+
+  <span class="cm">&lt;!-- pattern: enforces a custom Regex rule --&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"text"</span> <span class="at">pattern=</span><span class="vl">"[A-Za-z]{3,}"</span>
+         <span class="at">title=</span><span class="vl">"Name must be at least 3 letters, no numbers"</span>
+         <span class="at">placeholder=</span><span class="vl">"First Name"</span><span class="tg">&gt;</span>
+
+  <span class="tg">&lt;button</span> <span class="at">type=</span><span class="vl">"submit"</span><span class="tg">&gt;</span><span class="tx">Submit</span><span class="tg">&lt;/button&gt;</span>
+<span class="tg">&lt;/form&gt;</span></code></pre>
+                </div>
+
+                <h3>Common Input Types That Add Validation</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:var(--primary);color:#fff;">
+                                <th style="padding:10px 14px;text-align:left;">Type Attribute</th>
+                                <th style="padding:10px 14px;text-align:left;">Validates</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>type="email"</code></td>
+                                <td style="padding:9px 14px;">Must be a valid email address format</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>type="number"</code></td>
+                                <td style="padding:9px 14px;">Must be a numeric value</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>type="url"</code></td>
+                                <td style="padding:9px 14px;">Must start with http:// or https://</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>type="date"</code></td>
+                                <td style="padding:9px 14px;">Shows date picker; must be a valid date</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:9px 14px;"><code>type="tel"</code></td>
+                                <td style="padding:9px 14px;">Phone number field (use with pattern for format)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- JS Validation -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">⚙️</div>
+                <h2>JavaScript Manual Validation</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>HTML5 attributes cover simple cases, but for richer feedback (custom error messages, live checking,
+                    complex rules) you write validation logic in JavaScript.</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML + JS — Manual Form Validation</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;form</span> <span class="at">onsubmit=</span><span class="vl">"return validateForm()"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"text"</span> <span class="at">id=</span><span class="vl">"username"</span> <span class="at">placeholder=</span><span class="vl">"Username"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;p</span> <span class="at">id=</span><span class="vl">"err"</span> <span class="at">style=</span><span class="vl">"color:red;"</span><span class="tg">&gt;&lt;/p&gt;</span>
+  <span class="tg">&lt;button</span> <span class="at">type=</span><span class="vl">"submit"</span><span class="tg">&gt;</span><span class="tx">Register</span><span class="tg">&lt;/button&gt;</span>
+<span class="tg">&lt;/form&gt;</span>
+
+<span class="tg">&lt;script&gt;</span>
+<span class="kw">function</span> <span class="at">validateForm</span>() {
+  <span class="kw">let</span> <span class="at">input</span>  = <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"username"</span>).<span class="at">value</span>.<span class="at">trim</span>();
+  <span class="kw">let</span> <span class="at">errMsg</span> = <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"err"</span>);
+
+  <span class="cm">// Rule 1 — Cannot be empty</span>
+  <span class="kw">if</span> (<span class="at">input</span> === <span class="vl">""</span>) {
+    <span class="at">errMsg</span>.<span class="at">textContent</span> = <span class="vl">"❌ Username cannot be empty."</span>;
+    <span class="kw">return false</span>;
+  }
+
+  <span class="cm">// Rule 2 — Minimum 3 characters</span>
+  <span class="kw">if</span> (<span class="at">input</span>.<span class="at">length</span> &lt; <span class="vl">3</span>) {
+    <span class="at">errMsg</span>.<span class="at">textContent</span> = <span class="vl">"❌ Username must be at least 3 characters."</span>;
+    <span class="kw">return false</span>;
+  }
+
+  <span class="cm">// Rule 3 — Maximum 20 characters</span>
+  <span class="kw">if</span> (<span class="at">input</span>.<span class="at">length</span> &gt; <span class="vl">20</span>) {
+    <span class="at">errMsg</span>.<span class="at">textContent</span> = <span class="vl">"❌ Username cannot exceed 20 characters."</span>;
+    <span class="kw">return false</span>;
+  }
+
+  <span class="cm">// All checks passed!</span>
+  <span class="at">errMsg</span>.<span class="at">textContent</span> = <span class="vl">"✅ Username is valid!"</span>;
+  <span class="at">errMsg</span>.<span class="at">style</span>.<span class="at">color</span> = <span class="vl">"green"</span>;
+  <span class="kw">return true</span>;
+}
+<span class="tg">&lt;/script&gt;</span></code></pre>
+                </div>
+
+                <h3>Real-Time Validation with <code>onkeyup</code></h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JS — Live Character Counter</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"text"</span> <span class="at">id=</span><span class="vl">"bio"</span> <span class="at">onkeyup=</span><span class="vl">"countChars()"</span> <span class="at">maxlength=</span><span class="vl">"100"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;p</span> <span class="at">id=</span><span class="vl">"counter"</span><span class="tg">&gt;</span><span class="tx">0 / 100 characters</span><span class="tg">&lt;/p&gt;</span>
+
+<span class="tg">&lt;script&gt;</span>
+<span class="kw">function</span> <span class="at">countChars</span>() {
+  <span class="kw">let</span> <span class="at">len</span> = <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"bio"</span>).<span class="at">value</span>.<span class="at">length</span>;
+  <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"counter"</span>).<span class="at">textContent</span> = <span class="at">len</span> + <span class="vl">" / 100 characters"</span>;
+}
+<span class="tg">&lt;/script&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Regex -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔍</div>
+                <h2>Regular Expressions (Regex)</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>A <strong>Regular Expression (Regex)</strong> is a powerful pattern that describes a set of strings.
+                    In form validation, Regex allows you to enforce precise rules — like "must start with a letter" or
+                    "must contain exactly 10 digits".</p>
+
+                <h3>Regex Syntax Basics</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:var(--primary);color:#fff;">
+                                <th style="padding:10px 14px;text-align:left;">Pattern</th>
+                                <th style="padding:10px 14px;text-align:left;">Meaning</th>
+                                <th style="padding:10px 14px;text-align:left;">Example Match</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>[A-Z]</code></td>
+                                <td style="padding:9px 14px;">Any uppercase letter A–Z</td>
+                                <td style="padding:9px 14px;">A, B, Z</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>[a-z]</code></td>
+                                <td style="padding:9px 14px;">Any lowercase letter a–z</td>
+                                <td style="padding:9px 14px;">a, m, z</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>[0-9]</code></td>
+                                <td style="padding:9px 14px;">Any digit 0–9</td>
+                                <td style="padding:9px 14px;">0, 5, 9</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>\d</code></td>
+                                <td style="padding:9px 14px;">Any digit (shorthand for [0-9])</td>
+                                <td style="padding:9px 14px;">3, 7</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>\w</code></td>
+                                <td style="padding:9px 14px;">Any word character (letters, digits, _)</td>
+                                <td style="padding:9px 14px;">a, 3, _</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>.</code></td>
+                                <td style="padding:9px 14px;">Any character except newline</td>
+                                <td style="padding:9px 14px;">a, !, 5</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>*</code></td>
+                                <td style="padding:9px 14px;">0 or more of the previous character</td>
+                                <td style="padding:9px 14px;">"" or "aaa"</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>+</code></td>
+                                <td style="padding:9px 14px;">1 or more of the previous character</td>
+                                <td style="padding:9px 14px;">"a", "aaa"</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>?</code></td>
+                                <td style="padding:9px 14px;">0 or 1 of the previous character (optional)</td>
+                                <td style="padding:9px 14px;">"" or "a"</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>{n}</code></td>
+                                <td style="padding:9px 14px;">Exactly n repetitions</td>
+                                <td style="padding:9px 14px;"><code>[0-9]{4}</code> = "1234"</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>{m,n}</code></td>
+                                <td style="padding:9px 14px;">Between m and n repetitions</td>
+                                <td style="padding:9px 14px;"><code>[A-Z]{2,4}</code></td>
+                            </tr>
+                            <tr style="background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>^</code> and <code>$</code></td>
+                                <td style="padding:9px 14px;">Start (^) and End ($) of the string</td>
+                                <td style="padding:9px 14px;"><code>^Hello$</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Using Regex in HTML <code>pattern</code> Attribute</h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — pattern Attribute</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">&lt;!-- Only letters, 3-20 characters --&gt;</span>
+<span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"text"</span> <span class="at">pattern=</span><span class="vl">"[A-Za-z]{3,20}"</span>
+       <span class="at">title=</span><span class="vl">"Only letters, 3-20 characters"</span><span class="tg">&gt;</span>
+
+<span class="cm">&lt;!-- Indian mobile: starts with 6-9, then 9 more digits --&gt;</span>
+<span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"tel"</span> <span class="at">pattern=</span><span class="vl">"[6-9][0-9]{9}"</span>
+       <span class="at">title=</span><span class="vl">"Enter a valid 10-digit Indian mobile number"</span><span class="tg">&gt;</span>
+
+<span class="cm">&lt;!-- Password: min 8 chars, at least 1 letter and 1 digit --&gt;</span>
+<span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"password"</span> <span class="at">pattern=</span><span class="vl">"(?=.*[A-Za-z])(?=.*\d).{8,}"</span>
+       <span class="at">title=</span><span class="vl">"Min 8 characters, must include a letter and a number"</span><span class="tg">&gt;</span></code></pre>
+                </div>
+
+                <h3>Using Regex in JavaScript with <code>.test()</code></h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Regex .test()</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">// Create a regex pattern</span>
+<span class="kw">let</span> <span class="at">emailRegex</span> = <span class="vl">/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/</span>;
+
+<span class="kw">let</span> <span class="at">email1</span> = <span class="vl">"rahul@example.com"</span>;
+<span class="kw">let</span> <span class="at">email2</span> = <span class="vl">"not-an-email"</span>;
+
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">emailRegex</span>.<span class="at">test</span>(<span class="at">email1</span>));  <span class="cm">// true</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">emailRegex</span>.<span class="at">test</span>(<span class="at">email2</span>));  <span class="cm">// false</span>
+
+<span class="cm">// Phone: 10 digits only</span>
+<span class="kw">let</span> <span class="at">phoneRegex</span> = <span class="vl">/^[6-9]\d{9}$/</span>;
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">phoneRegex</span>.<span class="at">test</span>(<span class="vl">"9876543210"</span>)); <span class="cm">// true</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">phoneRegex</span>.<span class="at">test</span>(<span class="vl">"12345"</span>));      <span class="cm">// false</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Complete Example -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🏗️</div>
+                <h2>Complete Validated Registration Form</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>This brings everything together — HTML5 attributes, JavaScript, and Regex — into a single sign-up
+                    form.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">Full Example — Validated Registration Form</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;form</span> <span class="at">id=</span><span class="vl">"regForm"</span> <span class="at">onsubmit=</span><span class="vl">"return validateAll()"</span><span class="tg">&gt;</span>
+
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"text"</span> <span class="at">id=</span><span class="vl">"name"</span> <span class="at">placeholder=</span><span class="vl">"Full Name"</span> <span class="at">required</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;p</span> <span class="at">id=</span><span class="vl">"nameErr"</span> <span class="at">style=</span><span class="vl">"color:red;"</span><span class="tg">&gt;&lt;/p&gt;</span>
+
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"email"</span> <span class="at">id=</span><span class="vl">"email"</span> <span class="at">placeholder=</span><span class="vl">"Email Address"</span> <span class="at">required</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;p</span> <span class="at">id=</span><span class="vl">"emailErr"</span> <span class="at">style=</span><span class="vl">"color:red;"</span><span class="tg">&gt;&lt;/p&gt;</span>
+
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"tel"</span> <span class="at">id=</span><span class="vl">"phone"</span> <span class="at">placeholder=</span><span class="vl">"Mobile Number"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;p</span> <span class="at">id=</span><span class="vl">"phoneErr"</span> <span class="at">style=</span><span class="vl">"color:red;"</span><span class="tg">&gt;&lt;/p&gt;</span>
+
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"password"</span> <span class="at">id=</span><span class="vl">"pass"</span> <span class="at">placeholder=</span><span class="vl">"Password"</span> <span class="at">required</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;p</span> <span class="at">id=</span><span class="vl">"passErr"</span> <span class="at">style=</span><span class="vl">"color:red;"</span><span class="tg">&gt;&lt;/p&gt;</span>
+
+  <span class="tg">&lt;button</span> <span class="at">type=</span><span class="vl">"submit"</span><span class="tg">&gt;</span><span class="tx">Register</span><span class="tg">&lt;/button&gt;</span>
+<span class="tg">&lt;/form&gt;</span>
+
+<span class="tg">&lt;script&gt;</span>
+<span class="kw">function</span> <span class="at">validateAll</span>() {
+  <span class="kw">let</span> <span class="at">ok</span> = <span class="vl">true</span>;
+
+  <span class="cm">// Name: letters only, 2+ characters</span>
+  <span class="kw">let</span> <span class="at">name</span> = <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"name"</span>).<span class="at">value</span>.<span class="at">trim</span>();
+  <span class="kw">if</span> (!/^[A-Za-z ]{2,}$/<span class="at">.test</span>(<span class="at">name</span>)) {
+    <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"nameErr"</span>).<span class="at">textContent</span> = <span class="vl">"❌ Enter a valid name (letters only)"</span>;
+    <span class="at">ok</span> = <span class="vl">false</span>;
+  } <span class="kw">else</span> {
+    <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"nameErr"</span>).<span class="at">textContent</span> = <span class="vl">"✅"</span>;
+  }
+
+  <span class="cm">// Email: standard regex check</span>
+  <span class="kw">let</span> <span class="at">email</span> = <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"email"</span>).<span class="at">value</span>;
+  <span class="kw">if</span> (!/^[\w.%+-]+@[\w.-]+\.[a-z]{2,}$/<span class="at">.test</span>(<span class="at">email</span>)) {
+    <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"emailErr"</span>).<span class="at">textContent</span> = <span class="vl">"❌ Enter a valid email address"</span>;
+    <span class="at">ok</span> = <span class="vl">false</span>;
+  } <span class="kw">else</span> {
+    <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"emailErr"</span>).<span class="at">textContent</span> = <span class="vl">"✅"</span>;
+  }
+
+  <span class="cm">// Phone: 10 digits starting with 6-9</span>
+  <span class="kw">let</span> <span class="at">phone</span> = <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"phone"</span>).<span class="at">value</span>;
+  <span class="kw">if</span> (!/^[6-9]\d{9}$/<span class="at">.test</span>(<span class="at">phone</span>)) {
+    <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"phoneErr"</span>).<span class="at">textContent</span> = <span class="vl">"❌ Enter valid 10-digit mobile number"</span>;
+    <span class="at">ok</span> = <span class="vl">false</span>;
+  } <span class="kw">else</span> {
+    <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"phoneErr"</span>).<span class="at">textContent</span> = <span class="vl">"✅"</span>;
+  }
+
+  <span class="cm">// Password: min 8 chars, at least 1 letter + 1 number</span>
+  <span class="kw">let</span> <span class="at">pass</span> = <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"pass"</span>).<span class="at">value</span>;
+  <span class="kw">if</span> (!/(?=.*[A-Za-z])(?=.*\d).{8,}/<span class="at">.test</span>(<span class="at">pass</span>)) {
+    <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"passErr"</span>).<span class="at">textContent</span> = <span class="vl">"❌ Min 8 chars with a letter and a number"</span>;
+    <span class="at">ok</span> = <span class="vl">false</span>;
+  } <span class="kw">else</span> {
+    <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"passErr"</span>).<span class="at">textContent</span> = <span class="vl">"✅"</span>;
+  }
+
+  <span class="kw">return</span> <span class="at">ok</span>;  <span class="cm">// form submits only if all are valid</span>
+}
+<span class="tg">&lt;/script&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Practical 12 — Build a Validated Registration Form</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a registration form with fields: Full Name, Email, Mobile
+                        Number, Password, and Confirm Password.</li>
+                    <li><span class="task-num">2</span> Use HTML5 attributes (<code>required</code>,
+                        <code>minlength</code>, <code>type="email"</code>) for basic validation.
+                    </li>
+                    <li><span class="task-num">3</span> Write a JavaScript <code>validateAll()</code> function that uses
+                        Regex to validate Name (letters only), Mobile (10 digits), and Password (min 8 chars, 1 letter +
+                        1 number).</li>
+                    <li><span class="task-num">4</span> Show a red error message below each invalid field and a green ✅
+                        for each valid field.</li>
+                    <li><span class="task-num">5</span> Add a "Confirm Password" check — if the two password fields
+                        don't match, show an error.</li>
+                    <li><span class="task-num">6</span> <strong>Bonus:</strong> Add a live password strength indicator
+                        using <code>onkeyup</code> that shows Weak / Medium / Strong based on criteria (length,
+                        uppercase, numbers).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day17.html" class="btn btn-secondary">← Day 17: JS Objects</a>
+            <a href="day19.html" class="btn btn-primary">Day 19: AJAX →</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step
+            at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

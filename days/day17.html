@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 17 — JavaScript Objects | CodeSteps</title>
+    <meta name="description"
+        content="Learn JavaScript loops, objects, the Date object, string methods, Math object, and switch-case with detailed examples." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 17 — JavaScript Objects</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 17 · Intermediate</div>
+                <h1 class="day-hero-title">JavaScript Objects &amp; Loops</h1>
+                <p class="day-hero-subtitle">Master loops, built-in objects like Date, String, and Math, and use
+                    switch/case for clean multi-branch logic.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">📅</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>Loops — <code>for</code>, <code>while</code>, <code>for...of</code></li>
+                    <li>JavaScript Objects — key-value pairs</li>
+                    <li>The Date Object — working with dates and time</li>
+                    <li>String Handling — built-in string methods</li>
+                    <li>The Math Object — mathematical utilities</li>
+                    <li>Switch Case — clean multi-branch conditionals</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Loops -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔁</div>
+                <h2>Loops</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Loops run a block of code repeatedly, saving you from copy-pasting the same lines.</p>
+
+                <h3>1. for Loop — use when iterations are known</h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — for Loop</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">// Prints 1 to 5</span>
+<span class="kw">for</span> (<span class="kw">let</span> <span class="at">i</span> = <span class="vl">1</span>; <span class="at">i</span> &lt;= <span class="vl">5</span>; <span class="at">i</span>++) {
+  <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Count:"</span>, <span class="at">i</span>);
+}
+
+<span class="cm">// Loop through an array</span>
+<span class="kw">let</span> <span class="at">fruits</span> = [<span class="vl">"Apple"</span>, <span class="vl">"Banana"</span>, <span class="vl">"Mango"</span>];
+<span class="kw">for</span> (<span class="kw">let</span> <span class="at">i</span> = <span class="vl">0</span>; <span class="at">i</span> &lt; <span class="at">fruits</span>.<span class="at">length</span>; <span class="at">i</span>++) {
+  <span class="kw">console</span>.<span class="at">log</span>(<span class="at">fruits</span>[<span class="at">i</span>]);
+}</code></pre>
+                </div>
+
+                <h3>2. while Loop — use when iterations are unknown</h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — while Loop</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="kw">let</span> <span class="at">count</span> = <span class="vl">1</span>;
+<span class="kw">while</span> (<span class="at">count</span> &lt;= <span class="vl">5</span>) {
+  <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"While count:"</span>, <span class="at">count</span>);
+  <span class="at">count</span>++;  <span class="cm">// always update to avoid infinite loops!</span>
+}</code></pre>
+                </div>
+
+                <h3>3. for...of — cleanest way to loop arrays</h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — for...of</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="kw">let</span> <span class="at">colors</span> = [<span class="vl">"Red"</span>, <span class="vl">"Green"</span>, <span class="vl">"Blue"</span>];
+<span class="kw">for</span> (<span class="kw">let</span> <span class="at">color</span> <span class="kw">of</span> <span class="at">colors</span>) {
+  <span class="kw">console</span>.<span class="at">log</span>(<span class="at">color</span>);
+}
+<span class="cm">// Output: Red  Green  Blue</span></code></pre>
+                </div>
+                <div class="info-box warning">
+                    <span class="info-box-icon">⚠️</span>
+                    <div class="info-box-text"><strong>Avoid Infinite Loops!</strong> Always make sure your loop
+                        condition eventually becomes <code>false</code>. Forgetting <code>i++</code> will freeze the
+                        browser.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JS Objects -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📦</div>
+                <h2>JavaScript Objects</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>An <strong>object</strong> stores data as <strong>key: value</strong> pairs inside curly braces
+                    <code>{ }</code>. Unlike arrays (numbered indexes), objects use named keys — ideal for representing
+                    real-world things like a student or product.
+                </p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Objects</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="kw">let</span> <span class="at">student</span> = {
+  <span class="at">name</span>: <span class="vl">"Rahul"</span>,
+  <span class="at">age</span>: <span class="vl">21</span>,
+  <span class="at">course</span>: <span class="vl">"BCA"</span>,
+  <span class="at">isEnrolled</span>: <span class="vl">true</span>
+};
+
+<span class="cm">// Dot notation access</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">student</span>.<span class="at">name</span>);    <span class="cm">// "Rahul"</span>
+
+<span class="cm">// Bracket notation (useful for dynamic keys)</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">student</span>[<span class="vl">"course"</span>]); <span class="cm">// "BCA"</span>
+
+<span class="cm">// Add a new property</span>
+<span class="at">student</span>.<span class="at">email</span> = <span class="vl">"rahul@example.com"</span>;
+
+<span class="cm">// Loop all properties using for...in</span>
+<span class="kw">for</span> (<span class="kw">let</span> <span class="at">key</span> <span class="kw">in</span> <span class="at">student</span>) {
+  <span class="kw">console</span>.<span class="at">log</span>(<span class="at">key</span> + <span class="vl">": "</span> + <span class="at">student</span>[<span class="at">key</span>]);
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Date Object -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">⏰</div>
+                <h2>The Date Object</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>The built-in <strong>Date</strong> object gives access to the current date and time from the user's
+                    system clock.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Date Methods</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="kw">let</span> <span class="at">now</span> = <span class="kw">new</span> <span class="at">Date</span>();
+
+<span class="at">now</span>.<span class="at">getFullYear</span>()    <span class="cm">// e.g. 2025</span>
+<span class="at">now</span>.<span class="at">getMonth</span>()       <span class="cm">// 0-11  (0 = January!)</span>
+<span class="at">now</span>.<span class="at">getDate</span>()        <span class="cm">// 1-31  (day of month)</span>
+<span class="at">now</span>.<span class="at">getDay</span>()         <span class="cm">// 0-6   (0 = Sunday)</span>
+<span class="at">now</span>.<span class="at">getHours</span>()       <span class="cm">// 0-23</span>
+<span class="at">now</span>.<span class="at">getMinutes</span>()     <span class="cm">// 0-59</span>
+
+<span class="at">now</span>.<span class="at">toDateString</span>()   <span class="cm">// "Sun Mar 15 2025"</span>
+<span class="at">now</span>.<span class="at">toLocaleDateString</span>() <span class="cm">// "15/03/2025"</span>
+
+<span class="cm">// Create a specific date (month is 0-based!)</span>
+<span class="kw">let</span> <span class="at">bday</span> = <span class="kw">new</span> <span class="at">Date</span>(<span class="vl">2003</span>, <span class="vl">5</span>, <span class="vl">15</span>); <span class="cm">// June 15, 2003</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- String Methods -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔤</div>
+                <h2>String Handling</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>JavaScript strings have rich built-in methods for searching, modifying, and formatting text.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — String Methods</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="kw">let</span> <span class="at">text</span> = <span class="vl">"  Hello, JavaScript World!  "</span>;
+
+<span class="at">text</span>.<span class="at">toUpperCase</span>()         <span class="cm">// "  HELLO, JAVASCRIPT WORLD!  "</span>
+<span class="at">text</span>.<span class="at">toLowerCase</span>()         <span class="cm">// "  hello, javascript world!  "</span>
+<span class="at">text</span>.<span class="at">trim</span>()                <span class="cm">// "Hello, JavaScript World!"</span>
+<span class="at">text</span>.<span class="at">length</span>               <span class="cm">// 28</span>
+<span class="at">text</span>.<span class="at">includes</span>(<span class="vl">"JavaScript"</span>) <span class="cm">// true</span>
+<span class="at">text</span>.<span class="at">indexOf</span>(<span class="vl">"World"</span>)      <span class="cm">// 20 (or -1 if not found)</span>
+<span class="at">text</span>.<span class="at">slice</span>(<span class="vl">2</span>, <span class="vl">7</span>)           <span class="cm">// "Hello"</span>
+<span class="at">text</span>.<span class="at">replace</span>(<span class="vl">"Hello"</span>, <span class="vl">"Hi"</span>) <span class="cm">// "  Hi, JavaScript World!  "</span>
+<span class="vl">"a,b,c"</span>.<span class="at">split</span>(<span class="vl">","</span>)        <span class="cm">// ["a", "b", "c"]</span></code></pre>
+                </div>
+
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:var(--primary);color:#fff;">
+                                <th style="padding:10px 14px;text-align:left;">Method</th>
+                                <th style="padding:10px 14px;text-align:left;">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>.length</code></td>
+                                <td style="padding:9px 14px;">Number of characters</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>.toUpperCase()</code></td>
+                                <td style="padding:9px 14px;">Convert to ALL CAPS</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>.toLowerCase()</code></td>
+                                <td style="padding:9px 14px;">Convert to all lowercase</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>.trim()</code></td>
+                                <td style="padding:9px 14px;">Remove leading/trailing spaces</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>.includes(str)</code></td>
+                                <td style="padding:9px 14px;">Returns true if text contains <code>str</code></td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>.slice(s, e)</code></td>
+                                <td style="padding:9px 14px;">Extract characters from index s to e</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>.replace(a, b)</code></td>
+                                <td style="padding:9px 14px;">Replace first occurrence of a with b</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:9px 14px;"><code>.split(sep)</code></td>
+                                <td style="padding:9px 14px;">Split into an array by separator</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Math Object -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔢</div>
+                <h2>The Math Object</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>The built-in <strong>Math</strong> object provides mathematical constants and utility functions — no
+                    <code>new</code> required.
+                </p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Math Object</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="kw">Math</span>.<span class="at">PI</span>              <span class="cm">// 3.14159...</span>
+<span class="kw">Math</span>.<span class="at">round</span>(<span class="vl">4.6</span>)     <span class="cm">// 5   — rounds to nearest integer</span>
+<span class="kw">Math</span>.<span class="at">floor</span>(<span class="vl">4.9</span>)     <span class="cm">// 4   — always rounds DOWN</span>
+<span class="kw">Math</span>.<span class="at">ceil</span>(<span class="vl">4.1</span>)      <span class="cm">// 5   — always rounds UP</span>
+<span class="kw">Math</span>.<span class="at">max</span>(<span class="vl">3</span>,<span class="vl">7</span>,<span class="vl">2</span>,<span class="vl">9</span>)  <span class="cm">// 9   — largest value</span>
+<span class="kw">Math</span>.<span class="at">min</span>(<span class="vl">3</span>,<span class="vl">7</span>,<span class="vl">2</span>,<span class="vl">9</span>)  <span class="cm">// 2   — smallest value</span>
+<span class="kw">Math</span>.<span class="at">pow</span>(<span class="vl">2</span>, <span class="vl">8</span>)      <span class="cm">// 256 — 2 to the power 8</span>
+<span class="kw">Math</span>.<span class="at">sqrt</span>(<span class="vl">144</span>)      <span class="cm">// 12  — square root</span>
+
+<span class="cm">// Random integer from 1-6 (dice roll)</span>
+<span class="kw">let</span> <span class="at">dice</span> = <span class="kw">Math</span>.<span class="at">floor</span>(<span class="kw">Math</span>.<span class="at">random</span>() * <span class="vl">6</span>) + <span class="vl">1</span>;
+<span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Dice:"</span>, <span class="at">dice</span>);</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Switch Case -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔀</div>
+                <h2>Switch Case Statement</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>The <code>switch</code> statement evaluates one expression and runs the matching <code>case</code>
+                    block. It is cleaner than long <code>if...else if</code> chains when comparing one variable against
+                    many fixed values.</p>
+                <ul class="topics-list">
+                    <li><code>case value:</code> — compared against the switch expression</li>
+                    <li><code>break;</code> — exits the block, prevents accidental fall-through</li>
+                    <li><code>default:</code> — runs when no case matches (like <code>else</code>)</li>
+                </ul>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Switch Case (Day of Week)</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="kw">let</span> <span class="at">day</span> = <span class="kw">new</span> <span class="at">Date</span>().<span class="at">getDay</span>(); <span class="cm">// 0=Sun … 6=Sat</span>
+
+<span class="kw">switch</span> (<span class="at">day</span>) {
+  <span class="kw">case</span> <span class="vl">0</span>: <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Sunday"</span>);    <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="vl">1</span>: <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Monday"</span>);    <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="vl">2</span>: <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Tuesday"</span>);   <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="vl">3</span>: <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Wednesday"</span>); <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="vl">4</span>: <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Thursday"</span>);  <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="vl">5</span>: <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Friday"</span>);    <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="vl">6</span>: <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Saturday"</span>);  <span class="kw">break</span>;
+  <span class="kw">default</span>: <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Invalid!"</span>);
+}</code></pre>
+                </div>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Switch with User Input</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="kw">let</span> <span class="at">season</span> = <span class="at">prompt</span>(<span class="vl">"Enter season (summer/winter/monsoon):"</span>);
+
+<span class="kw">switch</span> (<span class="at">season</span>.<span class="at">toLowerCase</span>()) {
+  <span class="kw">case</span> <span class="vl">"summer"</span>:
+    <span class="at">alert</span>(<span class="vl">"Stay hydrated and wear sunscreen!"</span>);
+    <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="vl">"winter"</span>:
+    <span class="at">alert</span>(<span class="vl">"Bundle up and stay warm!"</span>);
+    <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="vl">"monsoon"</span>:
+    <span class="at">alert</span>(<span class="vl">"Carry an umbrella!"</span>);
+    <span class="kw">break</span>;
+  <span class="kw">default</span>:
+    <span class="at">alert</span>(<span class="vl">"Unknown season. Try: summer, winter, or monsoon."</span>);
+}</code></pre>
+                </div>
+                <div class="info-box tip">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>Don't forget <code>break</code>!</strong> Without it, JavaScript
+                        continues into the next case regardless of whether it matches — called <em>fall-through</em>.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practicals -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Practicals</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Use <code>prompt()</code> to ask "Enter a number 1–7". Use
+                        <code>switch</code> to alert the day name. Add a <code>default</code> for invalid numbers.
+                    </li>
+                    <li><span class="task-num">2</span> Display today's date on the webpage using the <code>Date</code>
+                        object and <code>innerHTML</code>.</li>
+                    <li><span class="task-num">3</span> Ask the user to type a sentence via <code>prompt()</code>.
+                        Display it in uppercase, its character count, and whether it includes the word "JavaScript".
+                    </li>
+                    <li><span class="task-num">4</span> Build a "Dice Roller" button — clicks generate a random
+                        <code>Math.random()</code> integer from 1–6 and display it on screen.
+                    </li>
+                    <li><span class="task-num">5</span> Create an array of 5 student names. Loop through with
+                        <code>for...of</code> and display each as an <code>&lt;li&gt;</code> inside a
+                        <code>&lt;ul&gt;</code> using <code>innerHTML</code>.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day16.html" class="btn btn-secondary">← Day 16: Functions &amp; Events</a>
+            <a href="day18.html" class="btn btn-primary">Day 18: Form Validation →</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step
+            at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

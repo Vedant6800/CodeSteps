@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 10 — CSS Selectors | CodeSteps</title>
+    <meta name="description"
+        content="Master CSS selectors — element, class, ID, and group selectors with examples and a practical supermarket webpage." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 10 — CSS Selectors</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 10 · Beginner</div>
+                <h1 class="day-hero-title">CSS Selectors</h1>
+                <p class="day-hero-subtitle">Learn how to target HTML elements precisely using element, class, ID, and
+                    group selectors.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">🎯</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>Element Selector — target by tag name</li>
+                    <li>Class Selector — target by class attribute</li>
+                    <li>ID Selector — target a unique element by ID</li>
+                    <li>Group Selector — apply the same style to multiple selectors</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Selectors Explained -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>CSS Selectors Explained</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>A <strong>CSS selector</strong> defines which HTML elements a CSS rule applies to. Choosing the right
+                    selector gives you precise control over your styling.</p>
+
+                <h3>1. Element Selector</h3>
+                <p>Targets all HTML elements of a specific tag type. Applies the style to <em>every</em> matching tag on
+                    the page.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">CSS — Element Selector</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">/* All &lt;p&gt; elements will have blue text */</span>
+<span class="kw">p</span> {
+  <span class="at">color</span>: <span class="vl">blue</span>;
+  <span class="at">font-size</span>: <span class="vl">16px</span>;
+}
+
+<span class="cm">/* All &lt;h1&gt; elements will be centered */</span>
+<span class="kw">h1</span> {
+  <span class="at">text-align</span>: <span class="vl">center</span>;
+}</code></pre>
+                </div>
+
+                <h3>2. Class Selector</h3>
+                <p>Targets elements that have a specific <code>class</code> attribute. Multiple elements can share the
+                    same class. Uses a <strong>dot prefix</strong> (<code>.</code>).</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">CSS + HTML — Class Selector</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">/* CSS — targets elements with class="myClass" */</span>
+<span class="kw">.myClass</span> {
+  <span class="at">font-size</span>: <span class="vl">18px</span>;
+  <span class="at">color</span>: <span class="vl">green</span>;
+}
+
+<span class="cm">/* HTML — applying the class */</span>
+<span class="tg">&lt;p</span> <span class="at">class=</span><span class="vl">"myClass"</span><span class="tg">&gt;</span><span class="tx">Styled paragraph</span><span class="tg">&lt;/p&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"myClass"</span><span class="tg">&gt;</span><span class="tx">Styled div</span><span class="tg">&lt;/div&gt;</span></code></pre>
+                </div>
+
+                <h3>3. ID Selector</h3>
+                <p>Targets a <strong>single, unique element</strong> using its <code>id</code> attribute. An ID must be
+                    unique per page. Uses a <strong>hash prefix</strong> (<code>#</code>).</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">CSS + HTML — ID Selector</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">/* CSS — targets the element with id="header" */</span>
+<span class="kw">#header</span> {
+  <span class="at">background-color</span>: <span class="vl">gray</span>;
+  <span class="at">color</span>: <span class="vl">white</span>;
+  <span class="at">padding</span>: <span class="vl">20px</span>;
+}
+
+<span class="cm">/* HTML */</span>
+<span class="tg">&lt;div</span> <span class="at">id=</span><span class="vl">"header"</span><span class="tg">&gt;</span><span class="tx">Site Header</span><span class="tg">&lt;/div&gt;</span></code></pre>
+                </div>
+
+                <h3>4. Group Selector</h3>
+                <p>Applies the <strong>same styles to multiple selectors</strong> at once, separated by commas. Reduces
+                    code repetition.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">CSS — Group Selector</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">/* All headings share the same font color */</span>
+<span class="kw">h1, h2, h3</span> {
+  <span class="at">color</span>: <span class="vl">green</span>;
+  <span class="at">font-family</span>: <span class="vl">Arial, sans-serif</span>;
+}
+
+<span class="cm">/* Mix of tag, class, and ID */</span>
+<span class="kw">p, .intro, #welcome</span> {
+  <span class="at">line-height</span>: <span class="vl">1.8</span>;
+  <span class="at">font-size</span>: <span class="vl">16px</span>;
+}</code></pre>
+                </div>
+
+                <div class="info-box tip">
+                    <span class="info-box-icon">⚡</span>
+                    <div class="info-box-text"><strong>Specificity Ranking:</strong> ID selectors (highest) &gt; Class
+                        selectors &gt; Element selectors (lowest). When rules conflict, the most specific one wins.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Reference -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📌</div>
+                <h2>Quick Reference</h2>
+            </div>
+            <div class="notes-card-body">
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">CSS — All Four Selectors</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">/* 1. Element */</span>
+<span class="kw">p</span>       { <span class="at">color</span>: <span class="vl">blue</span>; }
+
+<span class="cm">/* 2. Class */</span>
+<span class="kw">.myClass</span> { <span class="at">font-size</span>: <span class="vl">18px</span>; }
+
+<span class="cm">/* 3. ID */</span>
+<span class="kw">#header</span> { <span class="at">background-color</span>: <span class="vl">gray</span>; }
+
+<span class="cm">/* 4. Group */</span>
+<span class="kw">h1, h2, h3</span> { <span class="at">color</span>: <span class="vl">green</span>; }</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Practical 5 — Super Market Page Using Internal CSS</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Create a Supermarket webpage that organises products into departments. Style it using
+                    <strong>Internal CSS</strong> with class and ID selectors.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Super Market Page (Internal CSS)</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;!DOCTYPE</span> <span class="at">html</span><span class="tg">&gt;</span>
+<span class="tg">&lt;html&gt;</span>
+<span class="tg">&lt;head&gt;</span>
+  <span class="tg">&lt;title&gt;</span><span class="tx">FreshMart Supermarket</span><span class="tg">&lt;/title&gt;</span>
+  <span class="tg">&lt;style&gt;</span>
+    <span class="kw">body</span>   { <span class="at">font-family</span>: <span class="vl">Arial</span>; <span class="at">margin</span>: <span class="vl">0</span>; <span class="at">background</span>: <span class="vl">#f8f8f8</span>; }
+    <span class="kw">#header</span> { <span class="at">background</span>: <span class="vl">#16a34a</span>; <span class="at">color</span>: <span class="vl">white</span>; <span class="at">padding</span>: <span class="vl">20px</span>; <span class="at">text-align</span>: <span class="vl">center</span>; }
+    <span class="kw">.section</span> { <span class="at">background</span>: <span class="vl">white</span>; <span class="at">margin</span>: <span class="vl">16px</span>; <span class="at">padding</span>: <span class="vl">16px</span>; <span class="at">border-radius</span>: <span class="vl">8px</span>; }
+    <span class="kw">.section h2</span> { <span class="at">color</span>: <span class="vl">#16a34a</span>; <span class="at">border-bottom</span>: <span class="vl">2px solid #16a34a</span>; }
+    <span class="kw">table</span>  { <span class="at">width</span>: <span class="vl">100%</span>; <span class="at">border-collapse</span>: <span class="vl">collapse</span>; }
+    <span class="kw">th</span>     { <span class="at">background</span>: <span class="vl">#16a34a</span>; <span class="at">color</span>: <span class="vl">white</span>; <span class="at">padding</span>: <span class="vl">10px</span>; }
+    <span class="kw">td</span>     { <span class="at">padding</span>: <span class="vl">8px 10px</span>; <span class="at">border</span>: <span class="vl">1px solid #ddd</span>; }
+    <span class="kw">tr:nth-child(even) td</span> { <span class="at">background</span>: <span class="vl">#f0fdf4</span>; }
+  <span class="tg">&lt;/style&gt;</span>
+<span class="tg">&lt;/head&gt;</span>
+<span class="tg">&lt;body&gt;</span>
+
+  <span class="tg">&lt;div</span> <span class="at">id=</span><span class="vl">"header"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;h1&gt;</span><span class="tx">🛒 FreshMart Supermarket</span><span class="tg">&lt;/h1&gt;</span>
+    <span class="tg">&lt;p&gt;</span><span class="tx">Your one-stop shop for everything fresh!</span><span class="tg">&lt;/p&gt;</span>
+  <span class="tg">&lt;/div&gt;</span>
+
+  <span class="tg">&lt;div</span> <span class="at">class=</span><span class="vl">"section"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;h2&gt;</span><span class="tx">🥦 Vegetables</span><span class="tg">&lt;/h2&gt;</span>
+    <span class="tg">&lt;table&gt;</span>
+      <span class="tg">&lt;tr&gt;&lt;th&gt;</span><span class="tx">Item</span><span class="tg">&lt;/th&gt;&lt;th&gt;</span><span class="tx">Price</span><span class="tg">&lt;/th&gt;&lt;th&gt;</span><span class="tx">Stock</span><span class="tg">&lt;/th&gt;&lt;/tr&gt;</span>
+      <span class="tg">&lt;tr&gt;&lt;td&gt;</span><span class="tx">Tomato</span><span class="tg">&lt;/td&gt;&lt;td&gt;</span><span class="tx">₹40/kg</span><span class="tg">&lt;/td&gt;&lt;td&gt;</span><span class="tx">Available</span><span class="tg">&lt;/td&gt;&lt;/tr&gt;</span>
+      <span class="tg">&lt;tr&gt;&lt;td&gt;</span><span class="tx">Spinach</span><span class="tg">&lt;/td&gt;&lt;td&gt;</span><span class="tx">₹25/bunch</span><span class="tg">&lt;/td&gt;&lt;td&gt;</span><span class="tx">Available</span><span class="tg">&lt;/td&gt;&lt;/tr&gt;</span>
+    <span class="tg">&lt;/table&gt;</span>
+  <span class="tg">&lt;/div&gt;</span>
+
+<span class="tg">&lt;/body&gt;</span>
+<span class="tg">&lt;/html&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Tasks -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a webpage with at least 3 different element selectors
+                        styling headings and paragraphs.</li>
+                    <li><span class="task-num">2</span> Create two different CSS classes (<code>.highlight</code> and
+                        <code>.warning</code>) and apply them to different elements.</li>
+                    <li><span class="task-num">3</span> Add a unique ID to your page header and style it with a coloured
+                        background and white text.</li>
+                    <li><span class="task-num">4</span> Use a group selector to give <code>h1</code>, <code>h2</code>,
+                        and <code>h3</code> the same font-family.</li>
+                    <li><span class="task-num">5</span> Build the FreshMart Supermarket page with at least 3 product
+                        departments (vegetables, fruits, dairy).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day9.html" class="btn btn-secondary">← Day 9: Introduction to CSS</a>
+            <a href="day11.html" class="btn btn-primary">Day 11: CSS Styling →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

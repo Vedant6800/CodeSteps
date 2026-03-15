@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 20 — XML &amp; JSON | CodeSteps</title>
+    <meta name="description"
+        content="Learn XML structure, DTD, XML Schema, XSLT, and JSON basics including keys, values, arrays, and objects." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 20 — XML &amp; JSON</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 20 · Advanced</div>
+                <h1 class="day-hero-title">XML &amp; JSON</h1>
+                <p class="day-hero-subtitle">Master the two most important data formats used in modern web development —
+                    structured XML and lightweight JSON.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">📦</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>XML Introduction</li>
+                    <li>XML Structure</li>
+                    <li>DTD (Document Type Definition)</li>
+                    <li>XML Schema</li>
+                    <li>XSL / XSLT</li>
+                    <li>JSON Basics</li>
+                    <li>JSON Keys, Values, Arrays &amp; Objects</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- XML Introduction -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🏷️</div>
+                <h2>XML Introduction</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>XML</strong> stands for <strong>Extensible Markup Language</strong>. It is designed to
+                    <em>store and transport data</em>. Unlike HTML (which focuses on how content is displayed), XML is
+                    all about describing what the data <em>means</em>.</p>
+
+                <h3>Key Features of XML:</h3>
+                <ul class="topics-list">
+                    <li><strong>Self-descriptive:</strong> Tags are custom and named by the developer to describe their
+                        own data.</li>
+                    <li><strong>Platform independent:</strong> XML can be read and used across different operating
+                        systems, applications, and languages.</li>
+                    <li><strong>Human readable:</strong> The text-based, tag-wrapped format is easy for anyone to
+                        understand.</li>
+                    <li><strong>Strict syntax:</strong> Every tag that is opened must be properly closed.</li>
+                </ul>
+
+                <div class="info-box note">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>HTML vs XML:</strong> HTML tells the browser <em>how to
+                            display</em> data. XML tells applications <em>what the data is</em>. HTML has predefined
+                        tags like <code>&lt;p&gt;</code> and <code>&lt;h1&gt;</code>. In XML, you create your own tags.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- XML Structure -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🌳</div>
+                <h2>XML Structure</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Every XML document has a tree-like structure, starting with a single <strong>root element</strong>
+                    that wraps all other elements. Each element can contain child elements, attributes, and text data.
+                </p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">XML — Student Record</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="tg">&lt;students&gt;</span>               <span class="cm">&lt;!-- Root element --&gt;</span>
+  <span class="tg">&lt;student&gt;</span>             <span class="cm">&lt;!-- Child element --&gt;</span>
+    <span class="tg">&lt;name&gt;</span><span class="tx">Rahul</span><span class="tg">&lt;/name&gt;</span>
+    <span class="tg">&lt;course&gt;</span><span class="tx">BCA</span><span class="tg">&lt;/course&gt;</span>
+    <span class="tg">&lt;year&gt;</span><span class="tx">3</span><span class="tg">&lt;/year&gt;</span>
+  <span class="tg">&lt;/student&gt;</span>
+  <span class="tg">&lt;student&gt;</span>
+    <span class="tg">&lt;name&gt;</span><span class="tx">Priya</span><span class="tg">&lt;/name&gt;</span>
+    <span class="tg">&lt;course&gt;</span><span class="tx">MCA</span><span class="tg">&lt;/course&gt;</span>
+    <span class="tg">&lt;year&gt;</span><span class="tx">1</span><span class="tg">&lt;/year&gt;</span>
+  <span class="tg">&lt;/student&gt;</span>
+<span class="tg">&lt;/students&gt;</span></code></pre>
+                </div>
+
+                <p>An XML document contains:</p>
+                <ul class="topics-list">
+                    <li><strong>Root element</strong> — the outermost, single parent tag (e.g.
+                        <code>&lt;students&gt;</code>)</li>
+                    <li><strong>Child elements</strong> — nested inside the root (e.g. <code>&lt;student&gt;</code>)
+                    </li>
+                    <li><strong>Tags</strong> — opening and closing labels that wrap data</li>
+                    <li><strong>Data values</strong> — the actual content between the tags</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DTD -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📜</div>
+                <h2>DTD (Document Type Definition)</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>A <strong>DTD</strong> defines the legal building blocks of an XML document. It sets the rules for
+                    the structure of the XML — which elements are allowed, how many can appear, and in what order —
+                    ensuring all XML files following it have a consistent format.</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">XML — Internal DTD Example</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">&lt;!DOCTYPE students [</span>
+  <span class="cm">&lt;!ELEMENT students (student+)&gt;</span>  <span class="cm">&lt;!-- students contains one or more student --&gt;</span>
+  <span class="cm">&lt;!ELEMENT student (name, course, year)&gt;</span>
+  <span class="cm">&lt;!ELEMENT name (#PCDATA)&gt;</span>      <span class="cm">&lt;!-- text data --&gt;</span>
+  <span class="cm">&lt;!ELEMENT course (#PCDATA)&gt;</span>
+  <span class="cm">&lt;!ELEMENT year (#PCDATA)&gt;</span>
+<span class="cm">]&gt;</span>
+<span class="tg">&lt;students&gt;</span>
+  <span class="tg">&lt;student&gt;</span>
+    <span class="tg">&lt;name&gt;</span><span class="tx">Rahul</span><span class="tg">&lt;/name&gt;</span>
+    <span class="tg">&lt;course&gt;</span><span class="tx">BCA</span><span class="tg">&lt;/course&gt;</span>
+    <span class="tg">&lt;year&gt;</span><span class="tx">3</span><span class="tg">&lt;/year&gt;</span>
+  <span class="tg">&lt;/student&gt;</span>
+<span class="tg">&lt;/students&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- XML Schema -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🛡️</div>
+                <h2>XML Schema (XSD)</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>XML Schema</strong> (also called XSD — XML Schema Definition) is a more powerful and modern
+                    alternative to DTD. It is used to define:</p>
+                <ul class="topics-list">
+                    <li><strong>Data types</strong> — e.g., specifying that <code>&lt;year&gt;</code> must be an
+                        integer, not a string</li>
+                    <li><strong>Element structure</strong> — defining which child elements an element can contain</li>
+                    <li><strong>Validation rules</strong> — minimum/maximum values, allowed patterns, required fields
+                    </li>
+                </ul>
+                <div class="info-box tip">
+                    <span class="info-box-icon">⚡</span>
+                    <div class="info-box-text"><strong>DTD vs XSD:</strong> DTD is simpler but limited. XML Schema is
+                        verbose but much more precise — it supports data types, namespaces, and complex constraints. XSD
+                        is preferred in professional environments.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- XSL / XSLT -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎨</div>
+                <h2>XSL / XSLT</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>XSL (Extensible Stylesheet Language)</strong> is a family of languages used to work with XML
+                    documents. It has two main parts:</p>
+                <ul class="topics-list">
+                    <li><strong>XSLT (XSL Transformations)</strong> — used to transform XML into other formats such as
+                        HTML, plain text, or a different XML structure.</li>
+                    <li><strong>XPath</strong> — a language for navigating through elements and attributes in an XML
+                        document (used inside XSLT).</li>
+                </ul>
+
+                <h3>How XSLT Works:</h3>
+                <p>You give XSLT two files: an <strong>XML data file</strong> and an <strong>XSL template file</strong>.
+                    The XSLT processor then merges them to produce a final output — typically an HTML page ready for the
+                    browser.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">XML — Linking an XSL stylesheet</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="cm">&lt;?xml-stylesheet type="text/xsl" href="students.xsl"?&gt;</span>
+<span class="tg">&lt;students&gt;</span>
+  <span class="tg">&lt;student&gt;</span>
+    <span class="tg">&lt;name&gt;</span><span class="tx">Rahul</span><span class="tg">&lt;/name&gt;</span>
+    <span class="tg">&lt;course&gt;</span><span class="tx">BCA</span><span class="tg">&lt;/course&gt;</span>
+  <span class="tg">&lt;/student&gt;</span>
+<span class="tg">&lt;/students&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- JSON Basics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">⚡</div>
+                <h2>JSON Basics</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>JSON (JavaScript Object Notation)</strong> is a lightweight, text-based format for storing
+                    and exchanging structured data. It is the dominant format used today between web servers and client
+                    applications (APIs).</p>
+
+                <h3>Why JSON is Popular:</h3>
+                <ul class="topics-list">
+                    <li><strong>Lightweight:</strong> Minimal syntax — no bulky tags like XML.</li>
+                    <li><strong>Easy to read:</strong> Closely resembles JavaScript objects, familiar and intuitive.
+                    </li>
+                    <li><strong>Easy to parse:</strong> JavaScript can natively convert JSON using
+                        <code>JSON.parse()</code>.</li>
+                    <li><strong>Widely supported:</strong> Every modern programming language has a JSON library.</li>
+                </ul>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JSON — Basic Structure</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code>{
+  <span class="at">"name"</span>: <span class="vl">"Rahul"</span>,
+  <span class="at">"course"</span>: <span class="vl">"BCA"</span>,
+  <span class="at">"year"</span>: <span class="vl">3</span>,
+  <span class="at">"isEnrolled"</span>: <span class="vl">true</span>
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- JSON Components -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔩</div>
+                <h2>JSON Keys, Values, Arrays &amp; Objects</h2>
+            </div>
+            <div class="notes-card-body">
+
+                <h3>🔑 Keys &amp; Values</h3>
+                <p>JSON data is written in <strong>key / value pairs</strong>. The <strong>key</strong> is always a
+                    string wrapped in double quotes. The <strong>value</strong> can be a string, number, boolean, array,
+                    object, or null.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JSON — Keys &amp; Values</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code>{
+  <span class="at">"name"</span>: <span class="vl">"Rahul"</span>,       <span class="cm">// string value</span>
+  <span class="at">"age"</span>: <span class="vl">21</span>,             <span class="cm">// number value</span>
+  <span class="at">"isEnrolled"</span>: <span class="vl">true</span>    <span class="cm">// boolean value</span>
+}</code></pre>
+                </div>
+
+                <h3>📋 JSON Arrays</h3>
+                <p>A JSON <strong>array</strong> is an ordered list of values enclosed in square brackets
+                    <code>[ ]</code>. It can hold strings, numbers, booleans, objects, or even other arrays.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JSON — Array Example</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code>{
+  <span class="at">"name"</span>: <span class="vl">"Rahul"</span>,
+  <span class="at">"subjects"</span>: [<span class="vl">"HTML"</span>, <span class="vl">"CSS"</span>, <span class="vl">"JavaScript"</span>, <span class="vl">"PHP"</span>]
+}</code></pre>
+                </div>
+
+                <h3>📦 Nested JSON Objects</h3>
+                <p>A JSON value can itself be another JSON object — creating a <strong>nested object</strong>. This
+                    allows complex hierarchical data to be represented.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JSON — Nested Object</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code>{
+  <span class="at">"student"</span>: {
+    <span class="at">"name"</span>: <span class="vl">"Rahul"</span>,
+    <span class="at">"course"</span>: <span class="vl">"BCA"</span>,
+    <span class="at">"address"</span>: {
+      <span class="at">"city"</span>: <span class="vl">"Mumbai"</span>,
+      <span class="at">"state"</span>: <span class="vl">"Maharashtra"</span>
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practicals -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Practical — Create XML Student Information File</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Create a well-structured XML file to store student data using proper XML syntax.</p>
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a new file called <code>students.xml</code>.</li>
+                    <li><span class="task-num">2</span> Add the XML declaration at the top:
+                        <code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code></li>
+                    <li><span class="task-num">3</span> Create a root element <code>&lt;students&gt;</code> and add at
+                        least 3 <code>&lt;student&gt;</code> entries inside it.</li>
+                    <li><span class="task-num">4</span> Each student should have: <code>&lt;name&gt;</code>,
+                        <code>&lt;course&gt;</code>, <code>&lt;rollno&gt;</code>, and <code>&lt;year&gt;</code> child
+                        elements.</li>
+                    <li><span class="task-num">5</span> Open the file in a browser — a well-formed XML will display with
+                        the tree shown in its full structure.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Practical — Transform XML Using XSL</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Write a basic XSLT transformation to turn your XML student file into a readable HTML table page.</p>
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Add the XSL stylesheet link to your <code>students.xml</code>
+                        using the <code>&lt;?xml-stylesheet?&gt;</code> processing instruction.</li>
+                    <li><span class="task-num">2</span> Create a new file called <code>students.xsl</code>.</li>
+                    <li><span class="task-num">3</span> In the XSL file, use <code>&lt;xsl:template&gt;</code> to define
+                        how each <code>&lt;student&gt;</code> should be displayed as an HTML table row.</li>
+                    <li><span class="task-num">4</span> Open the XML file in a browser — the XSLT will kick in and
+                        display your data as a formatted HTML table.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Practical — JSON → JavaScript Object</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Demonstrate converting JSON-formatted data into a JavaScript object and display it on a webpage.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Parse JSON and Display Data</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">// A JSON string (as received from a server or API)</span>
+<span class="kw">const</span> <span class="at">jsonString</span> = <span class="vl">'{"name":"Rahul","course":"BCA","year":3}'</span>;
+
+<span class="cm">// Convert the JSON string into a JavaScript object</span>
+<span class="kw">const</span> <span class="at">student</span> = <span class="kw">JSON</span>.<span class="at">parse</span>(<span class="at">jsonString</span>);
+
+<span class="cm">// Access properties like any normal JS object</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">student</span>.<span class="at">name</span>);     <span class="cm">// Outputs: Rahul</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">student</span>.<span class="at">course</span>);   <span class="cm">// Outputs: BCA</span>
+
+<span class="cm">// Display it on the page</span>
+<span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"output"</span>).<span class="at">innerHTML</span> =
+  <span class="vl">"Name: "</span> + <span class="at">student</span>.<span class="at">name</span> + <span class="vl">" | Course: "</span> + <span class="at">student</span>.<span class="at">course</span>;</code></pre>
+                </div>
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a JSON string for a student with name, course, and
+                        subjects (as an array).</li>
+                    <li><span class="task-num">2</span> Use <code>JSON.parse()</code> to convert it into a JS object.
+                    </li>
+                    <li><span class="task-num">3</span> Display the student name and subjects list inside a
+                        <code>&lt;div&gt;</code> element on the webpage using <code>innerHTML</code>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day19.html" class="btn btn-secondary">← Day 19: AJAX</a>
+            <a href="../index.html" class="btn btn-outline">🏠 Back to Home</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

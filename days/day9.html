@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 9 — Introduction to CSS | CodeSteps</title>
+    <meta name="description"
+        content="Learn what CSS is, why it is used, CSS syntax, and the three types of CSS — inline, internal, and external." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 9 — Introduction to CSS</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 09 · Beginner</div>
+                <h1 class="day-hero-title">Introduction to CSS</h1>
+                <p class="day-hero-subtitle">Learn how Cascading Style Sheets control the look, feel, and layout of
+                    every webpage you visit.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">🎨</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>What is CSS?</li>
+                    <li>Why CSS is used</li>
+                    <li>CSS Syntax — selector, property, value</li>
+                    <li>Inline CSS</li>
+                    <li>Internal CSS</li>
+                    <li>External CSS</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- What is CSS -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💅</div>
+                <h2>What is CSS?</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>CSS (Cascading Style Sheets)</strong> is the language used to style and design webpages.
+                    While HTML provides the structure and content of a page, CSS controls how that content looks — its
+                    colors, fonts, sizes, spacing, and overall layout.</p>
+                <p>Without CSS, every webpage would look like a plain, unstyled document with black text on a white
+                    background.</p>
+                <div class="info-box note">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>The Three Pillars:</strong> HTML = Structure, CSS = Presentation,
+                        JavaScript = Behaviour. All three work together to create modern, interactive websites.</div>
+                </div>
+                <h3>Why CSS is Used</h3>
+                <ul class="topics-list">
+                    <li>Control <strong>colors</strong>, <strong>fonts</strong>, and <strong>text sizes</strong></li>
+                    <li>Define <strong>spacing</strong> (margins and padding) around elements</li>
+                    <li>Create <strong>layouts</strong> — multi-column pages, sidebars, grids</li>
+                    <li>Add <strong>animations</strong> and <strong>transitions</strong></li>
+                    <li>Make pages <strong>responsive</strong> across different screen sizes</li>
+                    <li>Separate <strong>design from content</strong> for easier maintenance</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Syntax -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📐</div>
+                <h2>CSS Syntax</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>A CSS rule is made up of a <strong>selector</strong> and a <strong>declaration block</strong>. The
+                    declaration block contains one or more property-value pairs.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">CSS — Basic Syntax</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">/* selector { property: value; } */</span>
+
+<span class="kw">p</span> {
+  <span class="at">color</span>: <span class="vl">blue</span>;
+  <span class="at">font-size</span>: <span class="vl">16px</span>;
+}
+
+<span class="kw">h1</span> {
+  <span class="at">color</span>: <span class="vl">#2563eb</span>;
+  <span class="at">text-align</span>: <span class="vl">center</span>;
+  <span class="at">font-family</span>: <span class="vl">Arial, sans-serif</span>;
+}</code></pre>
+                </div>
+                <ul class="topics-list">
+                    <li><strong>Selector</strong> — the HTML element(s) to style (e.g. <code>p</code>, <code>h1</code>,
+                        <code>.card</code>)</li>
+                    <li><strong>Property</strong> — the style aspect to change (e.g. <code>color</code>,
+                        <code>font-size</code>)</li>
+                    <li><strong>Value</strong> — the setting to apply (e.g. <code>blue</code>, <code>16px</code>)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Types of CSS -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🗂️</div>
+                <h2>Types of CSS</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>There are three ways to add CSS to an HTML page, each suitable for different situations.</p>
+
+                <h3>1. Inline CSS</h3>
+                <p>Applied <strong>directly inside an HTML tag</strong> using the <code>style</code> attribute. Affects
+                    only that single element.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Inline CSS</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;h1</span> <span class="at">style=</span><span class="vl">"color: red; font-size: 30px;"</span><span class="tg">&gt;</span><span class="tx">Hello World</span><span class="tg">&lt;/h1&gt;</span>
+
+<span class="tg">&lt;p</span> <span class="at">style=</span><span class="vl">"color: #333; text-align: center;"</span><span class="tg">&gt;</span>
+  <span class="tx">This paragraph uses inline CSS.</span>
+<span class="tg">&lt;/p&gt;</span></code></pre>
+                </div>
+
+                <h3>2. Internal CSS</h3>
+                <p>Written inside a <code>&lt;style&gt;</code> tag within the <code>&lt;head&gt;</code> section. Applies
+                    to the whole page.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Internal CSS</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;head&gt;</span>
+  <span class="tg">&lt;style&gt;</span>
+    <span class="kw">body</span> {
+      <span class="at">background-color</span>: <span class="vl">#f8fafc</span>;
+      <span class="at">font-family</span>: <span class="vl">Arial, sans-serif</span>;
+    }
+    <span class="kw">h1</span> {
+      <span class="at">color</span>: <span class="vl">#2563eb</span>;
+      <span class="at">text-align</span>: <span class="vl">center</span>;
+    }
+  <span class="tg">&lt;/style&gt;</span>
+<span class="tg">&lt;/head&gt;</span></code></pre>
+                </div>
+
+                <h3>3. External CSS</h3>
+                <p>Written in a <strong>separate <code>.css</code> file</strong> and linked to the HTML page. Best
+                    practice for real projects — one stylesheet can style many pages.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Linking External CSS</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;head&gt;</span>
+  <span class="tg">&lt;link</span> <span class="at">rel=</span><span class="vl">"stylesheet"</span> <span class="at">href=</span><span class="vl">"style.css"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;/head&gt;</span></code></pre>
+                </div>
+
+                <div class="info-box tip">
+                    <span class="info-box-icon">✅</span>
+                    <div class="info-box-text"><strong>Priority Order:</strong> Inline CSS overrides Internal CSS which
+                        overrides External CSS. Inline styles have the <em>highest specificity</em>.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Practical 6 — Resume Using Inline CSS</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Create a simple personal Resume (CV) webpage and style it entirely using <strong>Inline CSS</strong>
+                    on each element. Apply text color, font size, alignment, and background color.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Resume with Inline CSS</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;!DOCTYPE</span> <span class="at">html</span><span class="tg">&gt;</span>
+<span class="tg">&lt;html&gt;</span>
+<span class="tg">&lt;head&gt;</span>
+  <span class="tg">&lt;title&gt;</span><span class="tx">My Resume</span><span class="tg">&lt;/title&gt;</span>
+<span class="tg">&lt;/head&gt;</span>
+<span class="tg">&lt;body</span> <span class="at">style=</span><span class="vl">"font-family:Arial; background:#f0f4f8; margin:0; padding:20px;"</span><span class="tg">&gt;</span>
+
+  <span class="cm">&lt;!-- Header --&gt;</span>
+  <span class="tg">&lt;div</span> <span class="at">style=</span><span class="vl">"background:#2563eb;color:white;padding:24px;text-align:center;"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;h1</span> <span class="at">style=</span><span class="vl">"margin:0;font-size:28px;"</span><span class="tg">&gt;</span><span class="tx">Your Name</span><span class="tg">&lt;/h1&gt;</span>
+    <span class="tg">&lt;p</span>  <span class="at">style=</span><span class="vl">"margin:6px 0 0;font-size:14px;"</span><span class="tg">&gt;</span><span class="tx">Web Developer | example@email.com</span><span class="tg">&lt;/p&gt;</span>
+  <span class="tg">&lt;/div&gt;</span>
+
+  <span class="cm">&lt;!-- About --&gt;</span>
+  <span class="tg">&lt;h2</span> <span class="at">style=</span><span class="vl">"color:#1e293b;border-bottom:2px solid #2563eb;padding-bottom:6px;"</span><span class="tg">&gt;</span><span class="tx">About Me</span><span class="tg">&lt;/h2&gt;</span>
+  <span class="tg">&lt;p</span> <span class="at">style=</span><span class="vl">"color:#475569;line-height:1.7;"</span><span class="tg">&gt;</span>
+    <span class="tx">I am a passionate web developer learning HTML and CSS through CodeSteps.</span>
+  <span class="tg">&lt;/p&gt;</span>
+
+  <span class="cm">&lt;!-- Skills --&gt;</span>
+  <span class="tg">&lt;h2</span> <span class="at">style=</span><span class="vl">"color:#1e293b;border-bottom:2px solid #2563eb;padding-bottom:6px;"</span><span class="tg">&gt;</span><span class="tx">Skills</span><span class="tg">&lt;/h2&gt;</span>
+  <span class="tg">&lt;ul</span> <span class="at">style=</span><span class="vl">"color:#475569;line-height:2;"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;li&gt;</span><span class="tx">HTML5</span><span class="tg">&lt;/li&gt;</span>
+    <span class="tg">&lt;li&gt;</span><span class="tx">CSS3</span><span class="tg">&lt;/li&gt;</span>
+    <span class="tg">&lt;li&gt;</span><span class="tx">JavaScript (learning)</span><span class="tg">&lt;/li&gt;</span>
+  <span class="tg">&lt;/ul&gt;</span>
+
+<span class="tg">&lt;/body&gt;</span>
+<span class="tg">&lt;/html&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Tasks -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a resume using only Inline CSS — style the name, job
+                        title, and sections with color, font-size, and text-align.</li>
+                    <li><span class="task-num">2</span> Convert the same resume to use Internal CSS inside a
+                        <code>&lt;style&gt;</code> block.</li>
+                    <li><span class="task-num">3</span> Move all the CSS into a separate <code>style.css</code> file and
+                        link it using <code>&lt;link&gt;</code>.</li>
+                    <li><span class="task-num">4</span> Research: What does "Cascading" mean in Cascading Style Sheets?
+                    </li>
+                    <li><span class="task-num">5</span> Experiment: Apply conflicting styles using all three CSS types
+                        and observe which one wins.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day8.html" class="btn btn-secondary">← Day 8: Frames &amp; Layout</a>
+            <a href="day10.html" class="btn btn-primary">Day 10: CSS Selectors →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

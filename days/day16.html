@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 16 — JavaScript Functions and Events | CodeSteps</title>
+    <meta name="description"
+        content="Learn JavaScript functions, parameters, return values, arrow functions, HTML events, and a full introduction to the DOM." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 16 — JavaScript Functions and Events</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 16 · Beginner</div>
+                <h1 class="day-hero-title">JS Functions and Events</h1>
+                <p class="day-hero-subtitle">Structure your code with reusable functions, respond to user actions with
+                    events, and start manipulating the DOM dynamically.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">🛠️</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>Functions — declaring and calling</li>
+                    <li>Function Parameters and Arguments</li>
+                    <li>Return Values</li>
+                    <li>Arrow Functions (modern syntax)</li>
+                    <li>Conditional Statements — <code>if / else if / else</code></li>
+                    <li>HTML Events — onclick, onmouseover, onkeyup, and more</li>
+                    <li>DOM — Document Object Model introduction</li>
+                    <li>Selecting and modifying HTML elements with JS</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Functions -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">⚙️</div>
+                <h2>Functions</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>A <strong>function</strong> is a reusable block of code designed to perform a specific task. Instead
+                    of writing the same code repeatedly, you write it once in a function and "call" it whenever you need
+                    it.</p>
+
+                <h3>Defining and Calling a Function</h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Basic Function</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">// Defining the function using the "function" keyword</span>
+<span class="kw">function</span> <span class="at">greet</span>() {
+  <span class="at">alert</span>(<span class="vl">"Welcome to our website!"</span>);
+}
+
+<span class="cm">// Calling (invoking) the function</span>
+<span class="at">greet</span>();   <span class="cm">// The alert popup will now appear</span>
+<span class="at">greet</span>();   <span class="cm">// Can be called again and again</span></code></pre>
+                </div>
+
+                <h3>Functions with Parameters</h3>
+                <p>A <strong>parameter</strong> is a placeholder variable listed inside the brackets when defining a
+                    function. An <strong>argument</strong> is the actual value you pass in when calling it.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Parameters &amp; Arguments</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">// "name" and "age" are PARAMETERS (placeholders)</span>
+<span class="kw">function</span> <span class="at">introduce</span>(<span class="at">name</span>, <span class="at">age</span>) {
+  <span class="at">alert</span>(<span class="vl">"Hi, I am "</span> + <span class="at">name</span> + <span class="vl">" and I am "</span> + <span class="at">age</span> + <span class="vl">" years old."</span>);
+}
+
+<span class="cm">// "Rahul" and 21 are ARGUMENTS (real values)</span>
+<span class="at">introduce</span>(<span class="vl">"Rahul"</span>, <span class="vl">21</span>);  <span class="cm">// Hi, I am Rahul and I am 21 years old.</span>
+<span class="at">introduce</span>(<span class="vl">"Priya"</span>, <span class="vl">19</span>);  <span class="cm">// Hi, I am Priya and I am 19 years old.</span></code></pre>
+                </div>
+
+                <h3>Return Values</h3>
+                <p>A function can use the <code>return</code> keyword to send a value back to wherever it was called
+                    from. This allows functions to <em>calculate</em> something and pass the result back.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Return Values</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="kw">function</span> <span class="at">add</span>(<span class="at">a</span>, <span class="at">b</span>) {
+  <span class="kw">return</span> <span class="at">a</span> + <span class="at">b</span>;  <span class="cm">// sends the result back</span>
+}
+
+<span class="kw">let</span> <span class="at">total</span> = <span class="at">add</span>(<span class="vl">10</span>, <span class="vl">5</span>);  <span class="cm">// total = 15</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Sum is:"</span>, <span class="at">total</span>);  <span class="cm">// Sum is: 15</span>
+
+<span class="kw">function</span> <span class="at">isAdult</span>(<span class="at">age</span>) {
+  <span class="kw">return</span> <span class="at">age</span> >= <span class="vl">18</span>;  <span class="cm">// returns true or false</span>
+}
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">isAdult</span>(<span class="vl">20</span>));  <span class="cm">// true</span>
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">isAdult</span>(<span class="vl">15</span>));  <span class="cm">// false</span></code></pre>
+                </div>
+
+                <h3>Arrow Functions (Modern ES6 Syntax)</h3>
+                <p>Arrow functions are a shorter, modern way to write functions. They use <code>=&gt;</code> instead of
+                    the <code>function</code> keyword.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — Arrow Functions</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">// Traditional function</span>
+<span class="kw">function</span> <span class="at">multiply</span>(<span class="at">a</span>, <span class="at">b</span>) {
+  <span class="kw">return</span> <span class="at">a</span> * <span class="at">b</span>;
+}
+
+<span class="cm">// Same function written as an Arrow Function</span>
+<span class="kw">const</span> <span class="at">multiply</span> = (<span class="at">a</span>, <span class="at">b</span>) => <span class="at">a</span> * <span class="at">b</span>;
+
+<span class="kw">console</span>.<span class="at">log</span>(<span class="at">multiply</span>(<span class="vl">4</span>, <span class="vl">5</span>)); <span class="cm">// 20</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conditionals -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔀</div>
+                <h2>Conditional Statements</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Conditional statements allow your program to make decisions and execute different code depending on
+                    whether a condition is <code>true</code> or <code>false</code>.</p>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — if / else if / else</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="kw">let</span> <span class="at">marks</span> = <span class="vl">75</span>;
+
+<span class="kw">if</span> (<span class="at">marks</span> >= <span class="vl">90</span>) {
+  <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Grade: A — Distinction"</span>);
+} <span class="kw">else if</span> (<span class="at">marks</span> >= <span class="vl">75</span>) {
+  <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Grade: B — First Class"</span>);
+} <span class="kw">else if</span> (<span class="at">marks</span> >= <span class="vl">60</span>) {
+  <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Grade: C — Second Class"</span>);
+} <span class="kw">else</span> {
+  <span class="kw">console</span>.<span class="at">log</span>(<span class="vl">"Grade: F — Fail"</span>);
+}
+<span class="cm">// Output: "Grade: B — First Class" (since marks is 75)</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🖱️</div>
+                <h2>HTML Events</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>Events</strong> are actions or occurrences that happen in the browser, usually triggered by
+                    the user. JavaScript can respond to these events and run specific code when they occur.</p>
+
+                <h3>Common HTML Events:</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:var(--primary);color:#fff;">
+                                <th style="padding:10px 14px;text-align:left;">Event</th>
+                                <th style="padding:10px 14px;text-align:left;">Triggered When…</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>onclick</code></td>
+                                <td style="padding:9px 14px;">User clicks a button or element</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>onmouseover</code></td>
+                                <td style="padding:9px 14px;">Mouse pointer moves over an element</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>onmouseout</code></td>
+                                <td style="padding:9px 14px;">Mouse pointer moves away from an element</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>onchange</code></td>
+                                <td style="padding:9px 14px;">The value of an input field changes</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);">
+                                <td style="padding:9px 14px;"><code>onkeyup</code></td>
+                                <td style="padding:9px 14px;">User releases a key on the keyboard</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border);background:var(--surface-alt);">
+                                <td style="padding:9px 14px;"><code>onload</code></td>
+                                <td style="padding:9px 14px;">Page (or image) has fully loaded</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:9px 14px;"><code>onsubmit</code></td>
+                                <td style="padding:9px 14px;">Form is submitted</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Example — Events in Action</h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML + JS — Multiple Events Demo</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="tg">&lt;!DOCTYPE html&gt;</span>
+<span class="tg">&lt;html&gt;</span>
+<span class="tg">&lt;body&gt;</span>
+
+  <span class="cm">&lt;!-- onclick event --&gt;</span>
+  <span class="tg">&lt;button</span> <span class="at">onclick=</span><span class="vl">"greet()"</span><span class="tg">&gt;</span><span class="tx">Click Me</span><span class="tg">&lt;/button&gt;</span>
+
+  <span class="cm">&lt;!-- onmouseover and onmouseout events --&gt;</span>
+  <span class="tg">&lt;div</span>
+    <span class="at">onmouseover=</span><span class="vl">"this.style.background='yellow'"</span>
+    <span class="at">onmouseout=</span><span class="vl">"this.style.background='white'"</span>
+    <span class="at">style=</span><span class="vl">"padding:20px;border:1px solid #ccc;"</span><span class="tg">&gt;</span>
+    <span class="tx">Hover over me!</span>
+  <span class="tg">&lt;/div&gt;</span>
+
+  <span class="cm">&lt;!-- onkeyup event —tracks typing in real-time --&gt;</span>
+  <span class="tg">&lt;input</span> <span class="at">type=</span><span class="vl">"text"</span> <span class="at">onkeyup=</span><span class="vl">"showInput(this.value)"</span> <span class="at">placeholder=</span><span class="vl">"Type here..."</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;p</span> <span class="at">id=</span><span class="vl">"typed"</span><span class="tg">&gt;&lt;/p&gt;</span>
+
+  <span class="cm">&lt;!-- onchange event --&gt;</span>
+  <span class="tg">&lt;select</span> <span class="at">onchange=</span><span class="vl">"alert('You selected: ' + this.value)"</span><span class="tg">&gt;</span>
+    <span class="tg">&lt;option&gt;</span><span class="tx">HTML</span><span class="tg">&lt;/option&gt;</span>
+    <span class="tg">&lt;option&gt;</span><span class="tx">CSS</span><span class="tg">&lt;/option&gt;</span>
+    <span class="tg">&lt;option&gt;</span><span class="tx">JavaScript</span><span class="tg">&lt;/option&gt;</span>
+  <span class="tg">&lt;/select&gt;</span>
+
+  <span class="tg">&lt;script&gt;</span>
+    <span class="kw">function</span> <span class="at">greet</span>() {
+      <span class="at">alert</span>(<span class="vl">"You clicked the button!"</span>);
+    }
+    <span class="kw">function</span> <span class="at">showInput</span>(<span class="at">val</span>) {
+      <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"typed"</span>).<span class="at">innerHTML</span> = <span class="vl">"You typed: "</span> + <span class="at">val</span>;
+    }
+  <span class="tg">&lt;/script&gt;</span>
+<span class="tg">&lt;/body&gt;</span>
+<span class="tg">&lt;/html&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- DOM -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🌲</div>
+                <h2>DOM — Document Object Model</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>When a browser loads an HTML page, it creates a <strong>DOM (Document Object Model)</strong> — a
+                    tree-like representation of every element in the document. JavaScript uses the DOM to access,
+                    change, add, or remove HTML elements and their styles dynamically without reloading the page.</p>
+
+                <h3>How the DOM Tree looks:</h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">DOM Tree Structure</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">document</span>
+  └── <span class="tg">html</span>
+        ├── <span class="tg">head</span>
+        │     └── <span class="tg">title</span> → <span class="tx">"My Page"</span>
+        └── <span class="tg">body</span>
+              ├── <span class="tg">h1</span> → <span class="tx">"Welcome"</span>
+              ├── <span class="tg">p</span>  → <span class="tx">"Hello World"</span>
+              └── <span class="tg">button</span> → <span class="tx">"Click Me"</span></code></pre>
+                </div>
+
+                <h3>Selecting Elements</h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — DOM Selection Methods</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">// 1. By ID — most specific, only one element</span>
+<span class="kw">let</span> <span class="at">heading</span> = <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"main-heading"</span>);
+
+<span class="cm">// 2. By Class Name — returns a collection of elements</span>
+<span class="kw">let</span> <span class="at">cards</span> = <span class="kw">document</span>.<span class="at">getElementsByClassName</span>(<span class="vl">"card"</span>);
+
+<span class="cm">// 3. By Tag Name — gets all elements of that tag</span>
+<span class="kw">let</span> <span class="at">paragraphs</span> = <span class="kw">document</span>.<span class="at">getElementsByTagName</span>(<span class="vl">"p"</span>);
+
+<span class="cm">// 4. querySelector — CSS selector, returns first match</span>
+<span class="kw">let</span> <span class="at">btn</span> = <span class="kw">document</span>.<span class="at">querySelector</span>(<span class="vl">"#submit-btn"</span>);
+
+<span class="cm">// 5. querySelectorAll — CSS selector, returns all matches</span>
+<span class="kw">let</span> <span class="at">allCards</span> = <span class="kw">document</span>.<span class="at">querySelectorAll</span>(<span class="vl">".card"</span>);</code></pre>
+                </div>
+
+                <h3>Modifying Elements</h3>
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — DOM Manipulation</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="kw">let</span> <span class="at">el</span> = <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"my-div"</span>);
+
+<span class="cm">// Change the text content</span>
+<span class="at">el</span>.<span class="at">innerHTML</span> = <span class="vl">"&lt;strong&gt;Updated!&lt;/strong&gt;"</span>;
+<span class="at">el</span>.<span class="at">textContent</span> = <span class="vl">"Just plain text, no HTML"</span>;
+
+<span class="cm">// Change CSS styles directly</span>
+<span class="at">el</span>.<span class="at">style</span>.<span class="at">color</span> = <span class="vl">"red"</span>;
+<span class="at">el</span>.<span class="at">style</span>.<span class="at">backgroundColor</span> = <span class="vl">"#f0f4f8"</span>;
+<span class="at">el</span>.<span class="at">style</span>.<span class="at">fontSize</span> = <span class="vl">"24px"</span>;
+
+<span class="cm">// Add or remove a CSS class</span>
+<span class="at">el</span>.<span class="at">classList</span>.<span class="at">add</span>(<span class="vl">"active"</span>);
+<span class="at">el</span>.<span class="at">classList</span>.<span class="at">remove</span>(<span class="vl">"hidden"</span>);
+<span class="at">el</span>.<span class="at">classList</span>.<span class="at">toggle</span>(<span class="vl">"dark-mode"</span>);</code></pre>
+                </div>
+
+                <div class="info-box tip">
+                    <span class="info-box-icon">💡</span>
+                    <div class="info-box-text"><strong>innerHTML vs textContent:</strong> Use <code>innerHTML</code>
+                        when you want to insert HTML tags (like <code>&lt;strong&gt;</code>). Use
+                        <code>textContent</code> when you only want plain text — it's safer as it prevents HTML
+                        injection attacks.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Practical 10 — JavaScript Program Using 5 Events</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Build a single HTML page that demonstrates at least 5 different JavaScript events. Each event should
+                    produce a visible result on the page (not just an alert).</p>
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Add a button that uses <code>onclick</code> to change the
+                        background colour of a <code>&lt;div&gt;</code> using <code>style.backgroundColor</code>.</li>
+                    <li><span class="task-num">2</span> Create a box that changes colour on <code>onmouseover</code> and
+                        resets on <code>onmouseout</code>.</li>
+                    <li><span class="task-num">3</span> Create a text input with <code>onkeyup</code> that displays
+                        everything the user types inside a <code>&lt;p&gt;</code> element in real-time.</li>
+                    <li><span class="task-num">4</span> Create a <code>&lt;select&gt;</code> dropdown that uses
+                        <code>onchange</code> to update a paragraph showing which option was selected.</li>
+                    <li><span class="task-num">5</span> Write a function that validates that a name input is not empty
+                        when a button is clicked. If empty, display an error message in red.</li>
+                    <li><span class="task-num">6</span> <strong>Bonus:</strong> Use <code>querySelector</code> (instead
+                        of <code>getElementById</code>) for at least one of the DOM selections above.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day15.html" class="btn btn-secondary">← Day 15: Introduction to JS</a>
+            <a href="day17.html" class="btn btn-primary">Day 17: JS Objects →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

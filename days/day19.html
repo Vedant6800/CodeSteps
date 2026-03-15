@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 19 — AJAX | CodeSteps</title>
+    <meta name="description"
+        content="Learn what AJAX is, its purpose, advantages and disadvantages, and how to use it to create faster, dynamic web applications." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 19 — AJAX</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 19 · Advanced</div>
+                <h1 class="day-hero-title">AJAX</h1>
+                <p class="day-hero-subtitle">Communicate with servers and update parts of a webpage dynamically without
+                    requiring a full page reload.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">🔄</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>What is AJAX?</li>
+                    <li>Purpose of AJAX</li>
+                    <li>Advantages and Disadvantages</li>
+                    <li>AJAX Web Applications</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- What is AJAX -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">⚡</div>
+                <h2>What is AJAX?</h2>
+            </div>
+            <div class="notes-card-body">
+                <p><strong>AJAX</strong> stands for <strong>Asynchronous JavaScript and XML</strong>. It is not a
+                    programming language, but rather a technique used in web development that allows a webpage to
+                    communicate with a server in the background and update parts of the page without reloading the
+                    entire page.</p>
+                <p>This technique helps create faster, smoother, and more interactive web applications.</p>
+
+                <p>AJAX commonly uses a combination of:</p>
+                <ul class="topics-list">
+                    <li><strong>JavaScript</strong> to manage the logic and requests.</li>
+                    <li><strong>XML or JSON</strong> to format the data being transferred (JSON is much more common
+                        today).</li>
+                    <li><strong>XMLHttpRequest object</strong> (or the modern <strong>Fetch API</strong>) to exchange
+                        data with a web server asynchronously.</li>
+                    <li><strong>HTML and CSS</strong> to display and style the updated data.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Purpose -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Purpose of AJAX</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>AJAX is used to dramatically improve user experience (UX) and build highly responsive web
+                    applications. Its main purposes include:</p>
+                <ul class="topics-list">
+                    <li><strong>Loading data dynamically:</strong> Requesting data from the server after the initial
+                        page has loaded.</li>
+                    <li><strong>Partial page updates:</strong> Updating specific parts of a webpage without needing to
+                        refresh the entire window.</li>
+                    <li><strong>Background data submission:</strong> Sending data (like form submissions) to the server
+                        smoothly in the background.</li>
+                </ul>
+
+                <h3>Common Use Cases:</h3>
+                <ul class="topics-list">
+                    <li>🔍 Live search suggestions (e.g., Google Auto-complete)</li>
+                    <li>💬 Loading comments or feed posts dynamically (e.g., infinite scrolling on social media)</li>
+                    <li>🔄 Auto-refreshing content (e.g., live sports scores or stock tickers)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Pros and Cons -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">⚖️</div>
+                <h2>Advantages &amp; Disadvantages</h2>
+            </div>
+            <div class="notes-card-body">
+
+                <h3>✅ Advantages of AJAX</h3>
+                <ul class="topics-list">
+                    <li><strong>Faster interaction:</strong> Since only small amounts of data are transferred,
+                        applications feel much faster.</li>
+                    <li><strong>No full page reloads:</strong> Users aren't interrupted by a white screen while waiting
+                        for the next page to load.</li>
+                    <li><strong>Better user experience:</strong> Apps behave more like fast desktop applications than
+                        traditional websites.</li>
+                    <li><strong>Reduced server load:</strong> The server only sends the requested data (like JSON),
+                        rather than sending entire HTML pages.</li>
+                </ul>
+
+                <h3>❌ Disadvantages of AJAX</h3>
+                <ul class="topics-list">
+                    <li><strong>Code complexity:</strong> Handling asynchronous JavaScript states, callbacks, or
+                        promises can be complex.</li>
+                    <li><strong>Debugging difficulty:</strong> Because the URL doesn't change and actions happen in the
+                        background, bugs can be harder to track.</li>
+                    <li><strong>Browser compatibility:</strong> Very old browsers handle XMLHttpRequest differently,
+                        requiring polyfills (though this is rare today).</li>
+                    <li><strong>SEO challenges:</strong> Historically, search engines struggled to index content loaded
+                        dynamically via AJAX (though modern crawlers are much better at this).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Web Applications -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🌐</div>
+                <h2>AJAX Web Applications</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Many modern websites rely heavily on AJAX to provide a rich, dynamic experience. Some of the most
+                    famous examples include:</p>
+                <ul class="topics-list">
+                    <li>📧 <strong>Gmail:</strong> Loads emails dynamically and sends messages entirely in the
+                        background.</li>
+                    <li>🗺️ <strong>Google Maps:</strong> Drags and updates map tiles smoothly without reloading the
+                        page.</li>
+                    <li>💬 <strong>Online Chat Applications:</strong> Delivers and sends instant messages in real-time.
+                    </li>
+                    <li>🔔 <strong>Live Notifications:</strong> Facebook and Twitter alert bells use AJAX to poll for
+                        new activity.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Code Example -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">💻</div>
+                <h2>Example AJAX Code (XMLHttpRequest)</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Here is a basic example showing how to retrieve data from a text file on a server using the classic
+                    <code>XMLHttpRequest</code> object.
+                </p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">JavaScript — AJAX Request</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="kw">function</span> <span class="at">loadData</span>() {
+  <span class="cm">// 1. Create a new XMLHttpRequest object</span>
+  <span class="kw">const</span> <span class="at">xhttp</span> = <span class="kw">new</span> <span class="at">XMLHttpRequest</span>();
+
+  <span class="cm">// 2. Define a function to execute when the response is ready</span>
+  <span class="at">xhttp</span>.<span class="at">onload</span> = <span class="kw">function</span>() {
+    <span class="kw">document</span>.<span class="at">getElementById</span>(<span class="vl">"data"</span>).<span class="at">innerHTML</span> = <span class="kw">this</span>.<span class="at">responseText</span>;
+  }
+
+  <span class="cm">// 3. Specify the method (GET) and URL of the file to open</span>
+  <span class="at">xhttp</span>.<span class="at">open</span>(<span class="vl">"GET"</span>, <span class="vl">"data.txt"</span>);
+
+  <span class="cm">// 4. Send the request to the server</span>
+  <span class="at">xhttp</span>.<span class="at">send</span>();
+}</code></pre>
+                </div>
+
+                <div class="code-block-wrap mt-3">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Using the AJAX function</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre
+                        class="code-content"><code><span class="cm">&lt;!-- Clicking this button triggers the AJAX request --&gt;</span>
+<span class="tg">&lt;button</span> <span class="at">onclick=</span><span class="vl">"loadData()"</span><span class="tg">&gt;</span><span class="tx">Load Data</span><span class="tg">&lt;/button&gt;</span>
+
+<span class="cm">&lt;!-- The loaded text will appear inside this div --&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">id=</span><span class="vl">"data"</span><span class="tg">&gt;&lt;/div&gt;</span></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🛠️</div>
+                <h2>Practical 4 — Retrieve Data from Text File Using AJAX</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Practice writing your first AJAX request by loading simple text into your webpage asynchronously.</p>
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a simple text file called <code>data.txt</code> in the
+                        same folder as your HTML file, and add a welcoming sentence inside it.</li>
+                    <li><span class="task-num">2</span> Create an HTML webpage containing a <code>&lt;button&gt;</code>
+                        and an empty <code>&lt;div id="data"&gt;</code> element.</li>
+                    <li><span class="task-num">3</span> Write the JavaScript <code>loadData()</code> function utilizing
+                        the <code>XMLHttpRequest</code> object, as shown in the example above.</li>
+                    <li><span class="task-num">4</span> Test the application! Clicking the button should display the
+                        content of <code>data.txt</code> inside the div, without the page refreshing.</li>
+                </ul>
+                <div class="info-box warning">
+                    <span class="info-box-icon">⚠️</span>
+                    <div class="info-box-text"><strong>Note:</strong> Most modern browsers block AJAX requests for local
+                        files (using the <code>file:///</code> protocol) due to security restrictions (CORS). You may
+                        need to run this file through a local server (like the VS Code Live Server extension) for it to
+                        work properly.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day18.html" class="btn btn-secondary">← Day 18: Form Validation</a>
+            <a href="day20.html" class="btn btn-primary">Day 20: XML &amp; JSON →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

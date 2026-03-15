@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 4 — Lists and Links | CodeSteps</title>
+    <meta name="description"
+        content="Learn how to create ordered and unordered lists, nested lists, and hyperlinks in HTML." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="day-page-wrap">
+
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Day 4 — Lists and Links</span>
+        </nav>
+
+        <header class="day-hero">
+            <div class="day-hero-content">
+                <div class="day-hero-tag">📅 Day 04 · Beginner</div>
+                <h1 class="day-hero-title">Lists and Links</h1>
+                <p class="day-hero-subtitle">Organize content with lists and connect pages using hyperlinks.</p>
+            </div>
+            <div class="day-hero-icon" aria-hidden="true">🔗</div>
+        </header>
+
+        <!-- Topics -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📋</div>
+                <h2>Topics Covered Today</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="topics-list">
+                    <li>Unordered Lists (ul, li)</li>
+                    <li>Ordered Lists (ol, li)</li>
+                    <li>Description Lists (dl, dt, dd)</li>
+                    <li>Nested Lists</li>
+                    <li>Hyperlinks (anchor tags)</li>
+                    <li>Linking within a page using ID anchors</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Lists -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">📌</div>
+                <h2>Types of Lists in HTML</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>HTML provides three types of lists to organize content: <strong>unordered</strong>,
+                    <strong>ordered</strong>, and <strong>description</strong> lists.
+                </p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Lists</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">&lt;!-- Unordered List (bullet points) --&gt;</span>
+<span class="tg">&lt;ul&gt;</span>
+  <span class="tg">&lt;li&gt;</span><span class="tx">HTML</span><span class="tg">&lt;/li&gt;</span>
+  <span class="tg">&lt;li&gt;</span><span class="tx">CSS</span><span class="tg">&lt;/li&gt;</span>
+  <span class="tg">&lt;li&gt;</span><span class="tx">JavaScript</span><span class="tg">&lt;/li&gt;</span>
+<span class="tg">&lt;/ul&gt;</span>
+
+<span class="cm">&lt;!-- Ordered List (numbered) --&gt;</span>
+<span class="tg">&lt;ol&gt;</span>
+  <span class="tg">&lt;li&gt;</span><span class="tx">Learn HTML</span><span class="tg">&lt;/li&gt;</span>
+  <span class="tg">&lt;li&gt;</span><span class="tx">Study CSS</span><span class="tg">&lt;/li&gt;</span>
+  <span class="tg">&lt;li&gt;</span><span class="tx">Master JavaScript</span><span class="tg">&lt;/li&gt;</span>
+<span class="tg">&lt;/ol&gt;</span>
+
+<span class="cm">&lt;!-- Nested List --&gt;</span>
+<span class="tg">&lt;ul&gt;</span>
+  <span class="tg">&lt;li&gt;</span><span class="tx">Frontend</span>
+    <span class="tg">&lt;ul&gt;</span>
+      <span class="tg">&lt;li&gt;</span><span class="tx">HTML</span><span class="tg">&lt;/li&gt;</span>
+      <span class="tg">&lt;li&gt;</span><span class="tx">CSS</span><span class="tg">&lt;/li&gt;</span>
+    <span class="tg">&lt;/ul&gt;</span>
+  <span class="tg">&lt;/li&gt;</span>
+  <span class="tg">&lt;li&gt;</span><span class="tx">Backend</span>
+    <span class="tg">&lt;ul&gt;</span>
+      <span class="tg">&lt;li&gt;</span><span class="tx">Node.js</span><span class="tg">&lt;/li&gt;</span>
+    <span class="tg">&lt;/ul&gt;</span>
+  <span class="tg">&lt;/li&gt;</span>
+<span class="tg">&lt;/ul&gt;</span>
+
+<span class="cm">&lt;!-- Description List --&gt;</span>
+<span class="tg">&lt;dl&gt;</span>
+  <span class="tg">&lt;dt&gt;</span><span class="tx">HTML</span><span class="tg">&lt;/dt&gt;</span>
+  <span class="tg">&lt;dd&gt;</span><span class="tx">HyperText Markup Language</span><span class="tg">&lt;/dd&gt;</span>
+  <span class="tg">&lt;dt&gt;</span><span class="tx">CSS</span><span class="tg">&lt;/dt&gt;</span>
+  <span class="tg">&lt;dd&gt;</span><span class="tx">Cascading Style Sheets</span><span class="tg">&lt;/dd&gt;</span>
+<span class="tg">&lt;/dl&gt;</span></code></pre>
+                </div>
+
+                <div class="output-preview">
+                    <div class="output-label">🖥 Browser Output</div>
+                    <ul style="margin:0 0 10px 20px;">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                    <ol style="margin:0 0 10px 20px;">
+                        <li>Learn HTML</li>
+                        <li>Study CSS</li>
+                        <li>Master JavaScript</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Links -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🔗</div>
+                <h2>HTML Links (Anchor Tags)</h2>
+            </div>
+            <div class="notes-card-body">
+                <p>Links are created using the <code>&lt;a&gt;</code> (anchor) tag. The <code>href</code> attribute
+                    specifies the destination URL.</p>
+
+                <div class="code-block-wrap">
+                    <div class="code-block-header">
+                        <div class="code-dots">
+                            <div class="code-dot red"></div>
+                            <div class="code-dot yel"></div>
+                            <div class="code-dot grn"></div>
+                        </div>
+                        <span class="code-lang">HTML — Anchor Tags</span>
+                        <button class="copy-btn">📋 Copy</button>
+                    </div>
+                    <pre class="code-content"><code><span class="cm">&lt;!-- External link --&gt;</span>
+<span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"https://www.google.com"</span> <span class="at">target=</span><span class="vl">"_blank"</span><span class="tg">&gt;</span>
+  <span class="tx">Visit Google (opens in new tab)</span>
+<span class="tg">&lt;/a&gt;</span>
+
+<span class="cm">&lt;!-- Internal link (same site) --&gt;</span>
+<span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"about.html"</span><span class="tg">&gt;</span><span class="tx">About Us</span><span class="tg">&lt;/a&gt;</span>
+
+<span class="cm">&lt;!-- Link to section on same page using ID --&gt;</span>
+<span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"#contact"</span><span class="tg">&gt;</span><span class="tx">Jump to Contact</span><span class="tg">&lt;/a&gt;</span>
+<span class="tg">&lt;section</span> <span class="at">id=</span><span class="vl">"contact"</span><span class="tg">&gt;</span><span class="tx">...contact form here...</span><span class="tg">&lt;/section&gt;</span>
+
+<span class="cm">&lt;!-- Email link --&gt;</span>
+<span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"mailto:hello@codesteps.dev"</span><span class="tg">&gt;</span>
+  <span class="tx">Send us an email</span>
+<span class="tg">&lt;/a&gt;</span>
+
+<span class="cm">&lt;!-- Image as a link --&gt;</span>
+<span class="tg">&lt;a</span> <span class="at">href=</span><span class="vl">"https://example.com"</span><span class="tg">&gt;</span>
+  <span class="tg">&lt;img</span> <span class="at">src=</span><span class="vl">"logo.png"</span> <span class="at">alt=</span><span class="vl">"Example Logo"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;/a&gt;</span></code></pre>
+                </div>
+
+                <h3>The target Attribute</h3>
+                <ul class="topics-list">
+                    <li><code>target="_blank"</code> — Opens link in a new tab</li>
+                    <li><code>target="_self"</code> — Opens in the same tab (default)</li>
+                    <li><code>target="_parent"</code> — Opens in the parent frame</li>
+                    <li><code>target="_top"</code> — Opens in the full window</li>
+                </ul>
+
+                <div class="info-box tip">
+                    <span class="info-box-icon">✅</span>
+                    <div class="info-box-text"><strong>Security Tip:</strong> When using <code>target="_blank"</code>,
+                        always add <code>rel="noopener noreferrer"</code> to prevent security vulnerabilities.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Tasks -->
+        <div class="notes-card">
+            <div class="notes-card-header">
+                <div class="card-icon">🎯</div>
+                <h2>Practice Tasks</h2>
+            </div>
+            <div class="notes-card-body">
+                <ul class="task-list">
+                    <li><span class="task-num">1</span> Create a shopping list using an unordered list with at least 5
+                        items.</li>
+                    <li><span class="task-num">2</span> Create a "Top 5 Steps to Learn HTML" ordered list.</li>
+                    <li><span class="task-num">3</span> Build a navigation menu using an unordered list of anchor links.
+                    </li>
+                    <li><span class="task-num">4</span> Create a page with "Jump to Section" links that scroll to
+                        headings using IDs.</li>
+                    <li><span class="task-num">5</span> Make a description list glossary with 5 web development terms.
+                    </li>
+                    <li><span class="task-num">6</span> Build a 2-page mini website where page 1 links to page 2 and
+                        back.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-nav">
+            <a href="day3.html" class="btn btn-secondary">← Day 3: Text Formatting</a>
+            <a href="day5.html" class="btn btn-primary">Day 5: Tables →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Built with ❤️ by <strong>Vedant Nogja</strong> · <strong>CodeSteps</strong> — Learn Web Development, One Step at a Time</p>
+    </footer>
+
+    <button id="scroll-top" class="scroll-top" title="Back to top">↑</button>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
