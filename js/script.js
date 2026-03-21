@@ -133,6 +133,71 @@ function initScrollAnimations() {
   });
 }
 
+// ── Try It Yourself Buttons ───────────────────
+function initTryItYourselfButtons() {
+  const codeBlocks = document.querySelectorAll('.code-block-wrap');
+  if (codeBlocks.length === 0) return;
+
+  codeBlocks.forEach(wrap => {
+    const header = wrap.querySelector('.code-block-header');
+    if (!header) return;
+
+    if (header.querySelector('.try-btn')) return;
+
+    const tryBtn = document.createElement('button');
+    tryBtn.className = 'btn try-btn';
+    tryBtn.innerHTML = '▶ Try It Yourself';
+    tryBtn.style.padding = '4px 10px';
+    tryBtn.style.fontSize = '0.75rem';
+    tryBtn.style.marginLeft = '8px';
+    tryBtn.style.background = 'var(--primary)';
+    tryBtn.style.color = 'white';
+    tryBtn.style.border = 'none';
+    tryBtn.style.borderRadius = 'var(--radius-sm)';
+    tryBtn.style.cursor = 'pointer';
+
+    const copyBtn = header.querySelector('.copy-btn');
+    if (copyBtn) {
+      header.insertBefore(tryBtn, copyBtn);
+    } else {
+      header.appendChild(tryBtn);
+    }
+
+    tryBtn.addEventListener('click', () => {
+      const langSpan = header.querySelector('.code-lang');
+      const langText = langSpan ? langSpan.textContent.toLowerCase() : '';
+
+      let targetEditor = 'html';
+      if (langText.includes('css')) targetEditor = 'css';
+      else if (langText.includes('javascript') || langText.includes('js')) targetEditor = 'js';
+
+      const codeEl = wrap.querySelector('code');
+      const codeText = codeEl ? (codeEl.innerText || codeEl.textContent) : '';
+
+      if (targetEditor === 'html') {
+        localStorage.setItem('codesteps-pg-html', codeText);
+      } else if (targetEditor === 'css') {
+        localStorage.setItem('codesteps-pg-css', codeText);
+      } else if (targetEditor === 'js') {
+        localStorage.setItem('codesteps-pg-js', codeText);
+      }
+
+      localStorage.setItem('codesteps-pg-focus', targetEditor);
+
+      const isSubfolder = window.location.pathname.includes('/days/') || window.location.pathname.includes('\\days\\');
+      const pgUrl = isSubfolder ? '../playground.html' : 'playground.html';
+
+      // Navigate to playground
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.2s ease';
+      setTimeout(() => { window.location.href = pgUrl; }, 200);
+    });
+
+    tryBtn.addEventListener('mouseenter', () => tryBtn.style.background = 'var(--primary-dark)');
+    tryBtn.addEventListener('mouseleave', () => tryBtn.style.background = 'var(--primary)');
+  });
+}
+
 // ── Init ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   // Theme
@@ -146,6 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCopyButtons();
   initScrollTop();
   initScrollAnimations();
+  initTryItYourselfButtons();
 
   // Fade in body
   document.body.style.opacity = '1';

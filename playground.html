@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Code Playground | CodeSteps</title>
+    <meta name="description"
+        content="Write and execute HTML, CSS, and JavaScript directly within the browser with instant output." />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/playground.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪜</text></svg>" />
+</head>
+
+<body style="opacity:0;">
+
+    <!-- ── Navbar ── -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar-inner">
+            <a href="index.html" class="navbar-brand" aria-label="CodeSteps Home">
+                <div class="brand-icon">🪜</div>
+                <span class="brand-name">CodeSteps</span>
+            </a>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode"
+                    aria-label="Toggle dark mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Playground Layout ── -->
+    <main class="playground-container" id="playground-main">
+        <div class="pg-header">
+            <div>
+                <h1 class="pg-title">Live Code Playground <span id="pg-status" class="pg-status"></span></h1>
+            </div>
+            <div class="pg-controls">
+                <label class="auto-run-label">
+                    <input type="checkbox" id="auto-run-toggle" checked> Auto-run
+                </label>
+                <button class="btn btn-secondary" id="reset-btn">Reset</button>
+                <button class="btn btn-secondary" id="copy-btn">Copy Code</button>
+                <button class="btn btn-primary" id="run-btn">▶ Run</button>
+                <button class="btn btn-icon" id="fullscreen-btn" title="Toggle Fullscreen">⛶</button>
+            </div>
+        </div>
+
+        <div class="pg-layout" id="pg-layout">
+            <!-- Left Side: Editors -->
+            <div class="pg-editors" id="pg-editors">
+                <div class="editor-tabs">
+                    <button class="tab-btn active" data-lang="html">HTML</button>
+                    <button class="tab-btn" data-lang="css">CSS</button>
+                    <button class="tab-btn" data-lang="js">JavaScript</button>
+                </div>
+                <div class="editor-containers">
+                    <div class="editor-pane active" id="pane-html">
+                        <textarea class="code-editor" id="code-html" spellcheck="false"
+                            placeholder="Write HTML here..."></textarea>
+                    </div>
+                    <div class="editor-pane" id="pane-css">
+                        <textarea class="code-editor" id="code-css" spellcheck="false"
+                            placeholder="Write CSS here..."></textarea>
+                    </div>
+                    <div class="editor-pane" id="pane-js">
+                        <textarea class="code-editor" id="code-js" spellcheck="false"
+                            placeholder="Write JavaScript here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Live Preview -->
+            <div class="pg-preview" id="pg-preview-container">
+                <div class="preview-header">
+                    <span>Live Output</span>
+                </div>
+                <div class="iframe-container">
+                    <iframe id="preview-frame" sandbox="allow-scripts allow-modals"></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/playground.js"></script>
+</body>
+
+</html>
